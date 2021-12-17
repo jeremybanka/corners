@@ -1,38 +1,51 @@
 {
-  "name": "mothernode",
-  "private": true,
+  "name": "corners",
+  "version": "0.0.0",
+  "private": false,
+  "main": "index.tsx",
   "scripts": {
-    "start": "node dist/index.js",
+    "serve": "nodemon ./example/dist/server.js",
+    "build:server": "node ./example/esbuild.config.server.js",
+    "build:client": "node ./example/esbuild.config.client.js",
+    "prebuild": "rm -rf example/dist && mkdir example/dist && cp example/src/index.html example/dist",
+    "build:example": "concurrently \"yarn build:server\" \"yarn build:client\"",
+    "dev": "concurrently \"yarn build:example\" \"yarn serve\"",
+    "pretest": "tsc --noEmit",
     "test": "jest --watch --no-coverage",
     "test:cov": "jest --watch",
     "test:once": "jest",
     "prelint": "ls-lint",
     "lint": "eslint \"{src,test}/**/*.ts{,x}\"",
-    "lint:fix": "yarn lint -- --fix",
-    "prebuild": "rm -rf dist",
-    "build": "tsc --project tsconfig.build.json",
-    "build:watch": "yarn build -- --watch"
+    "lint:fix": "yarn lint -- --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/plugin-transform-typescript": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@banka/eslint-config": "^1.0.0",
+    "@emotion/styled": "^11.6.0",
     "@ls-lint/ls-lint": "^1.10.0",
+    "@types/express": "^4.17.13",
     "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.1",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "concurrently": "^6.4.0",
+    "esbuild": "^0.14.5",
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jest": "^25.2.1",
     "eslint-plugin-prettier": "^4.0.0",
+    "express": "^4.17.1",
     "faker": "^5.5.3",
     "husky": "^7.0.2",
     "jest": "^27.2.5",
     "lint-staged": "^11.2.3",
+    "nodemon": "^2.0.15",
     "prettier": "^2.4.1",
     "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0",
@@ -48,5 +61,11 @@
     "parserOptions": {
       "project": "./tsconfig.json"
     }
+  },
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@react-hook/resize-observer": "^1.2.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
