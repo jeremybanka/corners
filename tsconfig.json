@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@app/*": ["*"],
+      "~/*": ["*"],
       "@test/*": ["../test/*"]
     },
     "declaration": true,
@@ -11,7 +11,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "incremental": false,
-    "lib": ["ES2021"],
+    "lib": ["ES2021", "dom"],
     "module": "CommonJS",
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -21,6 +21,7 @@
     "resolveJsonModule": true,
     "inlineSourceMap": true,
     "inlineSources": true,
+    "jsx": "react",
     "strict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
@@ -28,5 +29,5 @@
     "target": "ES2019",
     "typeRoots": ["node_modules/@types", "types"]
   },
-  "include": ["src", "test", "jest.config.js", "babel.config.js"]
+  "include": ["src", "test", "example", "jest.config.js", "babel.config.js"]
 }
