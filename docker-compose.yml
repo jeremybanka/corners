@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+    server:
+        build: docker/node
+        image: my-ts-app
+        container_name: my-ts-app
+        command: [ "/bin/sh" ]
+        tty: true
+        user: "1000:1000"
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/usr/src/app
+        working_dir: /usr/src/app
+        env_file:
+            - .env
