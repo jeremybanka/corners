@@ -29,5 +29,12 @@
     "target": "ES2019",
     "typeRoots": ["node_modules/@types", "types"]
   },
-  "include": ["src", "test", "example", "jest.config.js", "babel.config.js"]
+  "include": [
+    "src",
+    "test",
+    "example",
+    "esbuild.config.js",
+    "jest.config.js",
+    "babel.config.js"
+  ]
 }
