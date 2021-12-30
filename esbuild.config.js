@@ -1,12 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require(`esbuild`)
   .build({
-    bundle: true,
-    entryPoints: [`src/index.tsx`],
-    minify: true,
+    entryPoints: [`src/index.ts`],
     outfile: `dist/index.js`,
-    platform: `browser`,
+    platform: `node`,
+    format: `cjs`,
     sourcemap: true,
-    watch: true,
+    bundle: true,
+    external: [`react`],
   })
   .catch(() => process.exit(1))

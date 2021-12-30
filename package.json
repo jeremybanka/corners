@@ -1,9 +1,9 @@
 {
   "name": "corners",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "main": "dist/index.js",
-  "types": "src/index.tsx",
+  "types": "src/index.ts",
   "scripts": {
     "serve": "nodemon ./example/dist/server.js",
     "build:server": "node ./example/esbuild.config.server.js",
@@ -71,7 +71,7 @@
     "@react-hook/resize-observer": "^1.2.5"
   },
   "peerDependencies": {
-    "react": "<=17.0.0",
-    "react-dom": "<=17.0.0"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   }
 }
