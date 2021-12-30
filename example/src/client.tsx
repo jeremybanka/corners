@@ -1,17 +1,22 @@
-import React, { CSSProperties, forwardRef } from "react"
+import React, { CSSProperties, forwardRef, useEffect, useState } from "react"
 
+import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { render } from "react-dom"
 
-import { withChamferedCorners, withRoundedCorners } from "~/index"
+import { chamfered, rounded, semiChamfered } from "~/index"
 
 const Main = styled.main`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background: linear-gradient(to right, #333, #ccc),
+    url(https://grainy-gradients.vercel.app/noise.svg);
+  //ilter: contrast(170%) brightness(1000%);
+  padding: 20px;
 `
 
-const StyledBox = styled.div`
+const BoxStyles = css`
   width: 100%;
   height: 500px;
   color: white;
@@ -23,25 +28,46 @@ const StyledBox = styled.div`
   align-items: center;
 `
 
-const Box = forwardRef<HTMLDivElement, { style?: CSSProperties }>(
+const StyledDiv = styled.div(BoxStyles)
+
+const MagicBox = forwardRef<HTMLDivElement, { style?: CSSProperties }>(
   ({ children, style }, ref) => {
+    const [width, setWidth] = useState(`100%`)
+    useEffect(() => {
+      setWidth(`50%`)
+      const interval = setInterval(() => {
+        setWidth((width) => (width === `100%` ? `50%` : `100%`))
+      }, 2000)
+      return () => clearInterval(interval)
+    }, [])
     return (
-      <StyledBox ref={ref} style={style}>
+      <StyledDiv
+        ref={ref}
+        style={{
+          ...style,
+          transitionProperty: `width`,
+          transitionTimingFunction: `ease-in-out`,
+          transitionDuration: `1.8s`,
+          width,
+        }}
+      >
         {children}
-      </StyledBox>
+      </StyledDiv>
     )
   }
 )
-Box.displayName = `Box`
+MagicBox.displayName = `MagicBox`
 
-const RoundedBox = withRoundedCorners(Box, 50)
-const ChamferedBox = withChamferedCorners(Box, 50)
+const RoundedDiv = styled(rounded(`div`))(BoxStyles)
+const ChamferedSpan = styled(chamfered.span)(BoxStyles)
+const SemiChamferedBox = styled(semiChamfered(MagicBox))(BoxStyles)
 
 render(
   <Main>
-    <StyledBox style={{ borderRadius: `25px` }}>border-radius</StyledBox>
-    <RoundedBox>rounded clip-path</RoundedBox>
-    <ChamferedBox>chamfered clip-path</ChamferedBox>
+    <StyledDiv style={{ borderRadius: `10px` }}>border-radius</StyledDiv>
+    <RoundedDiv>rounded clip-path</RoundedDiv>
+    <ChamferedSpan>chamfered clip-path</ChamferedSpan>
+    <SemiChamferedBox>semi-chamfered clip-path</SemiChamferedBox>
   </Main>,
   document.getElementById(`root`)
 )
