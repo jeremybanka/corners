@@ -1,42 +1,47 @@
+import { interpolate } from "./interpolate"
+
 type SvgCommandCode = `C` | `L` | `M` | `Q` | `S`
 
 function writePathPoint(x: number, y: number, command?: SvgCommandCode): string {
   return command ? `${command} ${x},${y}` : `  ${x},${y}`
 }
 
-interface Point2d {
+type Point2d = {
   x: number
   y: number
 }
 
-const drawAngledCorner = (p1: Point2d, p2: Point2d, idx: number) =>
-  [
-    writePathPoint(p1.x, p1.y, idx === 0 ? `M` : `L`),
-    writePathPoint(p2.x, p2.y, `L`),
-  ].join(`\n`) + `\n`
+export type DrawCorner = (p1: Point2d, p2: Point2d, idx: number) => string[]
 
-const drawRoundedCornerNaively = (p1: Point2d, p2: Point2d, idx: number) => {
+export const chamfer: DrawCorner = (p1, p2, idx) => [
+  writePathPoint(p1.x, p1.y, idx === 0 ? `M` : `L`),
+  writePathPoint(p2.x, p2.y, `L`),
+]
+
+export const straight: DrawCorner = (p1, p2, idx) => {
   const isEven = idx % 2 === 0
   const ex = {
     x: isEven ? p2.x : p1.x,
     y: isEven ? p1.y : p2.y,
   }
-  return (
-    [
-      writePathPoint(p1.x, p1.y, idx === 0 ? `M` : `L`),
-      writePathPoint(ex.x, ex.y, `C`),
-      writePathPoint(ex.x, ex.y),
-      writePathPoint(p2.x, p2.y),
-    ].join(`\n`) + `\n`
-  )
+  return [writePathPoint(ex.x, ex.y, idx === 0 ? `M` : `L`)]
 }
 
-type Interpolate = (from: number, to: number, completionRatio: number) => number
+export const roundedNaive: DrawCorner = (p1, p2, idx) => {
+  const isEven = idx % 2 === 0
+  const ex = {
+    x: isEven ? p2.x : p1.x,
+    y: isEven ? p1.y : p2.y,
+  }
+  return [
+    writePathPoint(p1.x, p1.y, idx === 0 ? `M` : `L`),
+    writePathPoint(ex.x, ex.y, `C`),
+    writePathPoint(ex.x, ex.y),
+    writePathPoint(p2.x, p2.y),
+  ]
+}
 
-const interpolate: Interpolate = (from, to, completionRatio = 0.5) =>
-  from + completionRatio * (to - from)
-
-const drawRoundedCorner = (p1: Point2d, p2: Point2d, idx: number): string => {
+export const round: DrawCorner = (p1, p2, idx) => {
   const isEven = idx % 2 === 0
   const axis1 = isEven ? `x` : `y`
   const axis2 = isEven ? `y` : `x`
@@ -58,33 +63,28 @@ const drawRoundedCorner = (p1: Point2d, p2: Point2d, idx: number): string => {
     [axis2]: interpolate(p2[axis2], p1[axis2], 0.438),
   }
 
-  return (
-    [
-      writePathPoint(p1.x, p1.y, idx === 0 ? `M` : `L`),
-      writePathPoint(c0.x, c0.y, `C`),
-      writePathPoint(c1.x, c1.y),
-      writePathPoint(c2.x, c2.y),
-      writePathPoint(s0.x, s0.y, `S`),
-      writePathPoint(p2.x, p2.y),
-    ].join(`\n`) + `\n`
-  )
+  return [
+    writePathPoint(p1.x, p1.y, idx === 0 ? `M` : `L`),
+    writePathPoint(c0.x, c0.y, `C`),
+    writePathPoint(c1.x, c1.y),
+    writePathPoint(c2.x, c2.y),
+    writePathPoint(s0.x, s0.y, `S`),
+    writePathPoint(p2.x, p2.y),
+  ]
 }
 
-export const drawClipPath = (
+// export type DrawCorners = cornerPoints
+
+export const drawCorners = (
   height: number,
   width: number,
   cornerSize: number,
-  cornerFunction: (
-    p1: Point2d,
-    p2: Point2d,
-    idx: number,
-    cornerSize: number
-  ) => string
+  corners: [DrawCorner, DrawCorner, DrawCorner, DrawCorner]
 ): string => {
   if (!height || !width || !cornerSize) return ``
-  const realCornerSize = Math.min(cornerSize, Math.min(height, width) / 2)
-  const cornerHeight = realCornerSize / height
-  const cornerWidth = realCornerSize / width
+  const maxCornerSize = Math.min(cornerSize, Math.min(height, width) / 2)
+  const cornerHeight = maxCornerSize / height
+  const cornerWidth = maxCornerSize / width
 
   const cornerPoints = [
     { p1: { x: 1 - cornerWidth, y: 0 }, p2: { x: 1, y: cornerHeight } },
@@ -94,24 +94,69 @@ export const drawClipPath = (
   ]
 
   const path =
-    cornerPoints.reduce(
-      (acc, { p1, p2 }, idx) => acc + cornerFunction(p1, p2, idx, cornerSize),
-      ``
-    ) + `Z`
+    cornerPoints.reduce((acc, { p1, p2 }, idx) => {
+      const drawCorner = corners[idx]
+      return acc + drawCorner(p1, p2, idx).join(`\n`) + `\n`
+    }, ``) + `Z`
   return path
 }
 
-export type DrawPath = (
+type SvgPath = string
+
+export type Pathfinder = (
   height: number,
   width: number,
-  cornerSize: number
-) => string
+  cornerSize?: number
+) => SvgPath
 
-export const drawRoundedBoxNaively: DrawPath = (height, width, cornerRadius) =>
-  drawClipPath(height, width, cornerRadius, drawRoundedCornerNaively)
+export type CreatePathfinder = (
+  defaultCornerSize: number,
+  ...corners: (DrawCorner | null)[]
+) => Pathfinder
 
-export const drawChamferedBox: DrawPath = (height, width, cornerRadius) =>
-  drawClipPath(height, width, cornerRadius, drawAngledCorner)
-
-export const drawRoundedBox: DrawPath = (height, width, cornerRadius) =>
-  drawClipPath(height, width, cornerRadius, drawRoundedCorner)
+/* eslint-disable no-case-declarations */
+export const createPathfinder: CreatePathfinder = (
+  defaultCornerSize,
+  ...corners
+) => {
+  switch (corners.length) {
+    case 0:
+      throw new Error(`No corners provided`)
+    case 1:
+      const corner = corners[0] ?? straight
+      return (height: number, width: number, cornerSize?: number) =>
+        drawCorners(height, width, cornerSize || defaultCornerSize, [
+          corner,
+          corner,
+          corner,
+          corner,
+        ])
+    case 2:
+      const cornerX = corners[0] ?? straight
+      const cornerY = corners[1] ?? straight
+      return (height: number, width: number, cornerSize?: number) =>
+        drawCorners(height, width, cornerSize || defaultCornerSize, [
+          cornerX,
+          cornerY,
+          cornerX,
+          cornerY,
+        ])
+    case 3:
+      throw new Error(`pass 1, 2, or 4 corners`)
+    case 4:
+      const cornerA = corners[0] ?? straight
+      const cornerB = corners[1] ?? straight
+      const cornerC = corners[2] ?? straight
+      const cornerD = corners[3] ?? straight
+      return (height: number, width: number, cornerSize?: number) =>
+        drawCorners(height, width, cornerSize || defaultCornerSize, [
+          cornerA,
+          cornerB,
+          cornerC,
+          cornerD,
+        ])
+    default:
+      throw new Error(`pass 2 or 4 corners`)
+  }
+}
+/* eslint-enable no-case-declarations */

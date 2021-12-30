@@ -1,87 +1,96 @@
 import type { FC, ForwardRefExoticComponent } from "react"
 import React, { useRef } from "react"
 
-import styled from "@emotion/styled"
-
-// import type { HTMLElementName } from "~/constants/html"
-// import { HTML_ELEMENT_NAMES } from "~/constants/html"
+import { HTMLElementName, HTML_ELEMENT_NAMES } from "./constants/html"
 import { useSize } from "~/hooks/useSize"
-import { drawChamferedBox, DrawPath, drawRoundedBox } from "~/utils/svg"
+import {
+  chamfer,
+  createPathfinder,
+  DrawCorner,
+  Pathfinder,
+  round,
+} from "~/utils/svg"
 
 export function withCorners<P>(
-  pathFunction: DrawPath,
-  WrappedComponent: ForwardRefExoticComponent<P>,
-  cornerSize: number
+  pathfinder: Pathfinder,
+  WrappedComponent: ForwardRefExoticComponent<P> | string,
+  cornerSize?: number
 ): FC<P> {
-  const pathId = `Box+${pathFunction.name}`
+  const pathId = Math.random().toString()
 
-  const StyledWrappedComponent = styled(WrappedComponent)`
-    clip-path: url(#${pathId});
-  `
-
-  const WithRoundedCorners: FC<P> = (props) => {
+  const WithCorners: FC<P> = (props) => {
     const nodeRef = useRef<HTMLElement>(null)
     const size = useSize(nodeRef)
-    const d = pathFunction(size.height, size.width, cornerSize)
-    console.log(props.children)
-    return (
-      <>
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 10 10"
-          style={{ position: `absolute`, opacity: 0, pointerEvents: `none` }}
-        >
-          <clipPath id={pathId} clipPathUnits="objectBoundingBox">
-            <path fill="red" stroke="none" d={d} />
-          </clipPath>
-        </svg>
-        <StyledWrappedComponent
-          {...props}
-          ref={nodeRef}
-          style={{
-            clipPath: `url(#${pathId})`,
-            filter: `drop-shadow(30px 10px 4px #4444dd);`,
-          }}
-        >
-          {props.children}
-        </StyledWrappedComponent>
-      </>
+    const d = pathfinder(size.height, size.width, cornerSize)
+    return React.createElement(
+      WrappedComponent,
+      {
+        ...props,
+        ref: nodeRef,
+        style: {
+          clipPath: `url(#${pathId})`,
+        },
+      },
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        style={{ position: `absolute`, opacity: 0, pointerEvents: `none` }}
+      >
+        <clipPath id={pathId} clipPathUnits="objectBoundingBox">
+          <path d={d} />
+        </clipPath>
+      </svg>,
+      props.children
     )
   }
-  return WithRoundedCorners
+  return WithCorners
 }
 
-export function withRoundedCorners<P>(
-  WrappedComponent: ForwardRefExoticComponent<P>,
-  cornerSize: number
-): FC<P> {
-  return withCorners(drawRoundedBox, WrappedComponent, cornerSize)
+const enhanceComponentFactory = (
+  cornerFunction: <P>(
+    WrappedComponent: ForwardRefExoticComponent<P> | string,
+    cornerSize?: number
+  ) => FC<P>
+): typeof cornerFunction & {
+  [K in HTMLElementName]: ReturnType<typeof cornerFunction>
+} => {
+  const enhancedCornerFunction = cornerFunction as typeof cornerFunction & {
+    [K in HTMLElementName]: ReturnType<typeof cornerFunction>
+  }
+  HTML_ELEMENT_NAMES.forEach((name) => {
+    enhancedCornerFunction[name] = cornerFunction(name)
+  })
+  return enhancedCornerFunction
 }
 
-export function withChamferedCorners<P>(
-  WrappedComponent: ForwardRefExoticComponent<P>,
-  cornerSize: number
-): FC<P> {
-  return withCorners(drawChamferedBox, WrappedComponent, cornerSize)
+const createComponentFactory = (
+  cornerSize: number,
+  ...corners: (DrawCorner | null)[]
+): typeof componentFactory & {
+  [K in HTMLElementName]: ReturnType<typeof componentFactory>
+} => {
+  const pathfinder = createPathfinder(cornerSize, ...corners)
+  const componentFactory = function <P>(
+    WrappedComponent: ForwardRefExoticComponent<P> | string,
+    cornerSize?: number
+  ): FC<P> {
+    return withCorners(pathfinder, WrappedComponent, cornerSize)
+  }
+  return enhanceComponentFactory(componentFactory)
 }
 
-// interface Rounded extends Record<HTMLElementName, CallableFunction> {
-//   (component: HTMLElementName): number
-// }
+interface ICorners {
+  (...cornerFns: (DrawCorner | null)[]): {
+    size: (s: number) => ReturnType<typeof createComponentFactory>
+  }
+}
 
-// function makeRounded(component: HTMLElementName): number {
-//   return component.length
-// }
+const corners: ICorners = (...cornerFns) => ({
+  size: (s) => createComponentFactory(s, ...cornerFns),
+})
 
-// const roundedMethods: Record<HTMLElementName, CallableFunction> = ((
-//   HTML_ELEMENTS: Readonly<HTMLElementName[]>
-// ): Record<string, CallableFunction> => {
-//   const methods = {} as Record<string, CallableFunction>
-//   for (const key of HTML_ELEMENTS) {
-//     methods[key] = () => makeRounded(key)
-//   }
-//   return methods
-// })(HTML_ELEMENT_NAMES)
-
-// export const rounded: Rounded = Object.assign(makeRounded, roundedMethods)
+export const rounded = corners(round).size(20)
+export const chamfered = corners(chamfer).size(20)
+export const semiChamfered = corners(null, chamfer).size(20)
+export const demiChamfered = corners(chamfer, null).size(20)
