@@ -1,5 +1,5 @@
 import type { FC, ForwardRefExoticComponent } from "react"
-import React, { useRef } from "react"
+import { useRef, createElement } from "react"
 
 import { HTMLElementName, HTML_ELEMENT_NAMES } from "./constants/html"
 import { useSize } from "~/hooks/useSize"
@@ -22,7 +22,7 @@ export function withCorners<P>(
     const nodeRef = useRef<HTMLElement>(null)
     const size = useSize(nodeRef)
     const d = pathfinder(size.height, size.width, cornerSize)
-    return React.createElement(
+    return createElement(
       WrappedComponent,
       {
         ...props,
@@ -31,17 +31,25 @@ export function withCorners<P>(
           clipPath: `url(#${pathId})`,
         },
       },
-      <svg
-        width="10"
-        height="10"
-        viewBox="0 0 10 10"
-        style={{ position: `absolute`, opacity: 0, pointerEvents: `none` }}
-      >
-        <clipPath id={pathId} clipPathUnits="objectBoundingBox">
-          <path d={d} />
-        </clipPath>
-      </svg>,
-      props.children
+      [
+        createElement(
+          `svg`,
+          {
+            width: `10`,
+            height: `10`,
+            viewBox: `0 0 10 10`,
+            style: { position: `absolute`, opacity: 0, pointerEvents: `none` },
+          },
+          [
+            createElement(
+              `clipPath`,
+              { id: pathId, clipPathUnits: `objectBoundingBox` },
+              [createElement(`path`, { d })]
+            ),
+          ]
+        ),
+        props.children,
+      ]
     )
   }
   return WithCorners
