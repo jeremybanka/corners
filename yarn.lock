@@ -4851,14 +4851,14 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^17.0.2:
-  version "17.0.2"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
-  integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
+react-dom@^18.0.0-rc.0-next-3dc41d8a2-20211223:
+  version "18.0.0-rc.0-next-3dc41d8a2-20211223"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0-next-3dc41d8a2-20211223.tgz#2431f5e47ad487323bc5cde707b418b5d44406a6"
+  integrity sha512-EGJuPmPiRCEajELRVGQZrgK0zl9YJA3mCnRMdlU6M7/vpLnnbgG8MHKEKkgY/SGRGKdzC2D/D4PN1GqXTadReQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    scheduler "^0.20.2"
+    scheduler "0.21.0-rc.0-next-3dc41d8a2-20211223"
 
 react-is@^16.7.0:
   version "16.13.1"
@@ -4870,10 +4870,10 @@ react-is@^17.0.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react@^17.0.2:
-  version "17.0.2"
-  resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
+react@^18.0.0-rc.0-next-3dc41d8a2-20211223:
+  version "18.0.0-rc.0-next-3dc41d8a2-20211223"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-rc.0-next-3dc41d8a2-20211223.tgz#0cf2615c8ceb9d08f6ae4468ecbee66c07ad3aa0"
+  integrity sha512-QSmyKZhscKk7T4Ky5UeBwg5dhVEnjSUatymEImEy8tAVmyhFiMCd2cYePjUTL89LDALZU6nyGJzfPyzsu2n5ug==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -5040,10 +5040,10 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@^0.20.2:
-  version "0.20.2"
-  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.20.2.tgz"
-  integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
+scheduler@0.21.0-rc.0-next-3dc41d8a2-20211223:
+  version "0.21.0-rc.0-next-3dc41d8a2-20211223"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.0-next-3dc41d8a2-20211223.tgz#d5d7c8c42f0596df0c9435f4b2c8ba978ffffe20"
+  integrity sha512-LBpZEIWlT+UYCZ0yoSpw6+LuPJrXCivER6Xuua2rSmf1sArFgxLf3lWZkNv+ueZKSwcbTymkfPkrFj50mjNoCg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
