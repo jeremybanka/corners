@@ -120,8 +120,6 @@ export const createPathfinder: CreatePathfinder = (
   ...corners
 ) => {
   switch (corners.length) {
-    case 0:
-      throw new Error(`No corners provided`)
     case 1:
       const corner = corners[0] ?? straight
       return (height: number, width: number, cornerSize?: number) =>
@@ -141,8 +139,6 @@ export const createPathfinder: CreatePathfinder = (
           cornerX,
           cornerY,
         ])
-    case 3:
-      throw new Error(`pass 1, 2, or 4 corners`)
     case 4:
       const cornerA = corners[0] ?? straight
       const cornerB = corners[1] ?? straight
@@ -156,7 +152,7 @@ export const createPathfinder: CreatePathfinder = (
           cornerD,
         ])
     default:
-      throw new Error(`pass 2 or 4 corners`)
+      throw new Error(`pass 1, 2, or 4 corners`)
   }
 }
 /* eslint-enable no-case-declarations */

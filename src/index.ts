@@ -21,6 +21,7 @@ export function withCorners<P>(
   const WithCorners: FC<P> = (props) => {
     const nodeRef = useRef<HTMLElement>(null)
     const size = useSize(nodeRef)
+    console.log(pathId, size)
     const d = pathfinder(size.height, size.width, cornerSize)
     return createElement(
       WrappedComponent,

@@ -3,25 +3,33 @@ import { useState, useLayoutEffect } from "react"
 
 import useResizeObserver from "@react-hook/resize-observer"
 
+type Scale2d = {
+  width: number
+  height: number
+}
+
 export const useSize = (
   target: MutableRefObject<HTMLElement | null>
-): DOMRect => {
-  const [size, setSize] = useState<DOMRect>({
-    x: 0,
-    y: 0,
+): Scale2d => {
+  const [size, setSize] = useState<Scale2d>({
     width: 0,
     height: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    toJSON: () => ({}),
   })
 
   useLayoutEffect(() => {
-    if (target?.current) setSize(target.current.getBoundingClientRect())
+    if (target?.current) {
+      const boundingRect = target.current.getBoundingClientRect()
+      console.log(boundingRect)
+      setSize(boundingRect)
+    }
   }, [target])
 
-  useResizeObserver(target, (entry) => setSize(entry.contentRect))
+  useResizeObserver(target, (entry) => {
+    console.log(entry.borderBoxSize)
+    setSize({
+      height: entry.borderBoxSize[0].blockSize,
+      width: entry.borderBoxSize[0].inlineSize,
+    })
+  })
   return size
 }
