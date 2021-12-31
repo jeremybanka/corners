@@ -1,5 +1,5 @@
 import type { FC, ForwardRefExoticComponent } from "react"
-import { useRef, createElement } from "react"
+import { useRef, createElement, useId } from "react"
 
 import { HTMLElementName, HTML_ELEMENT_NAMES } from "./constants/html"
 import { useSize } from "~/hooks/useSize"
@@ -16,13 +16,13 @@ export function withCorners<P>(
   WrappedComponent: ForwardRefExoticComponent<P> | string,
   cornerSize?: number
 ): FC<P> {
-  const pathId = Math.random().toString()
-
   const WithCorners: FC<P> = (props) => {
+    const pathId = useId ? useId() : Math.random().toString()
     const nodeRef = useRef<HTMLElement>(null)
     const size = useSize(nodeRef)
     console.log(pathId, size)
     const d = pathfinder(size.height, size.width, cornerSize)
+
     return createElement(
       WrappedComponent,
       {
