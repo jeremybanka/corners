@@ -2,7 +2,7 @@ import React, { CSSProperties, forwardRef, useEffect, useState } from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
-import { render } from "react-dom"
+import { createRoot } from "react-dom"
 
 import { chamfered, rounded, semiChamfered } from "~/index"
 
@@ -67,12 +67,14 @@ const RoundedDiv = styled(rounded(`div`))(BoxStyles)
 const ChamferedSpan = styled(chamfered.span)(BoxStyles)
 const SemiChamferedBox = styled(semiChamfered(MagicBox))(BoxStyles)
 
-render(
+const rootElement = document.getElementById(`root`)
+if (!rootElement) throw new Error(`Failed to find the root element`)
+const root = createRoot(rootElement)
+root.render(
   <Main>
     <StyledDiv style={{ borderRadius: `10px` }}>border-radius</StyledDiv>
     <RoundedDiv>rounded clip-path</RoundedDiv>
     <ChamferedSpan>chamfered clip-path</ChamferedSpan>
     <SemiChamferedBox>semi-chamfered clip-path</SemiChamferedBox>
-  </Main>,
-  document.getElementById(`root`)
+  </Main>
 )
