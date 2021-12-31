@@ -12,13 +12,16 @@ const Main = styled.main`
   gap: 1rem;
   background: linear-gradient(to right, #333, #ccc),
     url(https://grainy-gradients.vercel.app/noise.svg);
-  //ilter: contrast(170%) brightness(1000%);
+  // filter: contrast(170%) brightness(1000%);
   padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  align-items: stretch;
 `
 
 const BoxStyles = css`
+  box-sizing: border-box;
   width: 100%;
-  height: 500px;
   color: white;
   background: black;
   display: flex;
@@ -26,6 +29,8 @@ const BoxStyles = css`
   font-family: Charter;
   justify-content: center;
   align-items: center;
+  padding: 30px;
+  min-height: 500px;
 `
 
 const StyledDiv = styled.div(BoxStyles)
@@ -33,13 +38,13 @@ const StyledDiv = styled.div(BoxStyles)
 const MagicBox = forwardRef<HTMLDivElement, { style?: CSSProperties }>(
   ({ children, style }, ref) => {
     const [width, setWidth] = useState(`100%`)
-    useEffect(() => {
-      setWidth(`50%`)
-      const interval = setInterval(() => {
-        setWidth((width) => (width === `100%` ? `50%` : `100%`))
-      }, 2000)
-      return () => clearInterval(interval)
-    }, [])
+    // useEffect(() => {
+    //   setWidth(`50%`)
+    //   const interval = setInterval(() => {
+    //     setWidth((width) => (width === `100%` ? `50%` : `100%`))
+    //   }, 2000)
+    //   return () => clearInterval(interval)
+    // }, [])
     return (
       <StyledDiv
         ref={ref}
