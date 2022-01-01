@@ -19,13 +19,11 @@ export const useSize = (
   useLayoutEffect(() => {
     if (target?.current) {
       const boundingRect = target.current.getBoundingClientRect()
-      console.log(boundingRect)
       setSize(boundingRect)
     }
   }, [target])
 
   useResizeObserver(target, (entry) => {
-    console.log(entry.borderBoxSize)
     setSize({
       height: entry.borderBoxSize[0].blockSize,
       width: entry.borderBoxSize[0].inlineSize,
