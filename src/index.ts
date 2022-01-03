@@ -2,7 +2,6 @@ import type { FC, ForwardRefExoticComponent } from "react"
 import { useRef, createElement, useId } from "react"
 
 import { HTMLElementName, HTML_ELEMENT_NAMES } from "./constants/html"
-import generateComponentId from "./utils/hash"
 import { useSize } from "~/hooks/useSize"
 import { chamfer, createPathfinder, DrawCorner, round } from "~/utils/svg"
 
@@ -13,12 +12,9 @@ export function withCorners<P>(
 ): FC<P> {
   const pathfinder = createPathfinder(cornerSize, ...corners)
   const WithCorners: FC<P> = (props) => {
-    // const pathId = useId ? useId() : Math.random().toString()
+    const pathId = useId ? useId() : Math.random().toString()
     const nodeRef = useRef<HTMLElement>(null)
     const { height, width } = useSize(nodeRef)
-    const pathId = generateComponentId(
-      corners.join(`-`) + height + width + cornerSize
-    )
 
     const d = pathfinder(height, width, cornerSize)
 
