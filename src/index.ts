@@ -2,27 +2,25 @@ import type { FC, ForwardRefExoticComponent } from "react"
 import { useRef, createElement, useId } from "react"
 
 import { HTMLElementName, HTML_ELEMENT_NAMES } from "./constants/html"
+import generateComponentId from "./utils/hash"
 import { useSize } from "~/hooks/useSize"
-import {
-  chamfer,
-  createPathfinder,
-  DrawCorner,
-  Pathfinder,
-  round,
-} from "~/utils/svg"
+import { chamfer, createPathfinder, DrawCorner, round } from "~/utils/svg"
 
 export function withCorners<P>(
-  pathfinder: Pathfinder,
   WrappedComponent: ForwardRefExoticComponent<P> | string,
-  cornerSize?: number
+  cornerSize: number,
+  ...corners: (DrawCorner | null)[]
 ): FC<P> {
+  const pathfinder = createPathfinder(cornerSize, ...corners)
   const WithCorners: FC<P> = (props) => {
-    console.log(useId)
-    const pathId = useId()
+    // const pathId = useId ? useId() : Math.random().toString()
     const nodeRef = useRef<HTMLElement>(null)
-    const size = useSize(nodeRef)
-    console.log(pathId, size)
-    const d = pathfinder(size.height, size.width, cornerSize)
+    const { height, width } = useSize(nodeRef)
+    const pathId = generateComponentId(
+      corners.join(`-`) + height + width + cornerSize
+    )
+
+    const d = pathfinder(height, width, cornerSize)
 
     return createElement(
       WrappedComponent,
@@ -33,25 +31,21 @@ export function withCorners<P>(
           clipPath: `url(#${pathId})`,
         },
       },
-      [
+      createElement(
+        `svg`,
+        {
+          width: `10`,
+          height: `10`,
+          viewBox: `0 0 10 10`,
+          style: { position: `absolute`, opacity: 0, pointerEvents: `none` },
+        },
         createElement(
-          `svg`,
-          {
-            width: `10`,
-            height: `10`,
-            viewBox: `0 0 10 10`,
-            style: { position: `absolute`, opacity: 0, pointerEvents: `none` },
-          },
-          [
-            createElement(
-              `clipPath`,
-              { id: pathId, clipPathUnits: `objectBoundingBox` },
-              [createElement(`path`, { d })]
-            ),
-          ]
-        ),
-        props.children,
-      ]
+          `clipPath`,
+          { id: pathId, clipPathUnits: `objectBoundingBox` },
+          createElement(`path`, { d })
+        )
+      ),
+      props.children
     )
   }
   return WithCorners
@@ -59,8 +53,7 @@ export function withCorners<P>(
 
 const enhanceComponentFactory = (
   cornerFunction: <P>(
-    WrappedComponent: ForwardRefExoticComponent<P> | string,
-    cornerSize?: number
+    WrappedComponent: ForwardRefExoticComponent<P> | string
   ) => FC<P>
 ): typeof cornerFunction & {
   [K in HTMLElementName]: ReturnType<typeof cornerFunction>
@@ -80,12 +73,12 @@ const createComponentFactory = (
 ): typeof componentFactory & {
   [K in HTMLElementName]: ReturnType<typeof componentFactory>
 } => {
-  const pathfinder = createPathfinder(cornerSize, ...corners)
+  // const pathfinder = createPathfinder(cornerSize, ...corners)
   const componentFactory = function <P>(
-    WrappedComponent: ForwardRefExoticComponent<P> | string,
-    cornerSize?: number
+    WrappedComponent: ForwardRefExoticComponent<P> | string
+    // cornerSize?: number
   ): FC<P> {
-    return withCorners(pathfinder, WrappedComponent, cornerSize)
+    return withCorners(WrappedComponent, cornerSize, ...corners)
   }
   return enhanceComponentFactory(componentFactory)
 }
@@ -96,7 +89,7 @@ interface ICorners {
   }
 }
 
-const corners: ICorners = (...cornerFns) => ({
+export const corners: ICorners = (...cornerFns) => ({
   size: (s) => createComponentFactory(s, ...cornerFns),
 })
 
