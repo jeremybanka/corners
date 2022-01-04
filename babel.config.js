@@ -16,6 +16,15 @@ module.exports = (api, targets) => {
         },
       ],
     ],
-    plugins: [[`@babel/plugin-transform-typescript`]],
+    plugins: [
+      [`@babel/plugin-transform-typescript`],
+      [
+        `babel-plugin-root-import`,
+        {
+          rootPathSuffix: `./app`,
+          rootPathPrefix: `~/`,
+        },
+      ],
+    ],
   }
 }
