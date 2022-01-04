@@ -38,13 +38,13 @@ const StyledDiv = styled.div(BoxStyles)
 const MagicBox = forwardRef<HTMLDivElement, { style?: CSSProperties }>(
   ({ children, style }, ref) => {
     const [width, setWidth] = useState(`100%`)
-    // useEffect(() => {
-    //   setWidth(`50%`)
-    //   const interval = setInterval(() => {
-    //     setWidth((width) => (width === `100%` ? `50%` : `100%`))
-    //   }, 2000)
-    //   return () => clearInterval(interval)
-    // }, [])
+    useEffect(() => {
+      setWidth(`50%`)
+      const interval = setInterval(() => {
+        setWidth((width) => (width === `100%` ? `50%` : `100%`))
+      }, 2000)
+      return () => clearInterval(interval)
+    }, [])
     return (
       <StyledDiv
         ref={ref}
