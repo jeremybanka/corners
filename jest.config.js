@@ -3,7 +3,7 @@ module.exports = {
   testEnvironment: `node`,
   modulePathIgnorePatterns: [`dist`, `example`],
   moduleNameMapper: {
-    "~/(.*)": `<rootDir>/app`,
+    "~/(.*)": `<rootDir>/src`,
   },
   testRegex: `test.(ts|js)$`,
   coverageDirectory: `./coverage/`,

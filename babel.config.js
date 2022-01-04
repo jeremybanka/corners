@@ -21,7 +21,7 @@ module.exports = (api, targets) => {
       [
         `babel-plugin-root-import`,
         {
-          rootPathSuffix: `./app`,
+          rootPathSuffix: `./src`,
           rootPathPrefix: `~/`,
         },
       ],
