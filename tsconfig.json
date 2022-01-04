@@ -27,7 +27,7 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "ES2019",
-    "types": ["react/next", "react-dom/next"],
+    "types": ["react/next", "react-dom/next", "jest"],
     "typeRoots": ["node_modules/@types", "types"]
   },
   "include": [
