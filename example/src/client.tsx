@@ -1,11 +1,13 @@
-import React, { CSSProperties, forwardRef, useEffect, useState } from "react"
+import type { CSSProperties } from "react"
+import React, { forwardRef, useEffect, useState } from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { createRoot } from "react-dom"
 
 import corners, { chamfered, rounded, semiChamfered } from "~/index"
-import { CornerSpec, createCorner } from "~/utils/svg"
+import type { CornerSpec } from "~/utils/svg"
+import { createCorner } from "~/utils/svg"
 
 const Main = styled.main`
   display: flex;
@@ -63,15 +65,15 @@ const MagicBox = forwardRef<HTMLDivElement, { style?: CSSProperties }>(
 )
 MagicBox.displayName = `MagicBox`
 
-// const RoundedSpec: CornerSpec = [
-//   [`curve`, { x: 0.438, y: 0 }, { x: 0.68, y: 0 }, { x: 0.84, y: 0.16 }],
-//   [`symmetric`, { x: 1, y: 0.562 }],
-// ]
-// const roundFromCreate = createCorner(RoundedSpec)
-// const rounded2 = corners(roundFromCreate).size(20)
+const RoundedSpec: CornerSpec = [
+  [`curve`, { x: 0.438, y: 0 }, { x: 0.68, y: 0 }, { x: 0.84, y: 0.16 }],
+  [`symmetric`, { x: 1, y: 0.562 }],
+]
+const roundFromCreate = createCorner(RoundedSpec)
+const rounded2 = corners(roundFromCreate).size(20)
 
 const RoundedDiv = styled(rounded(`div`))(BoxStyles)
-// const RoundedDiv2 = styled(rounded2(`div`))(BoxStyles)
+const RoundedDiv2 = styled(rounded2(`div`))(BoxStyles)
 
 const ChamferedSpan = styled(chamfered.span)(BoxStyles)
 const SemiChamferedBox = styled(semiChamfered(MagicBox))(BoxStyles)
@@ -83,7 +85,7 @@ root.render(
   <Main>
     <StyledDiv style={{ borderRadius: `10px` }}>border-radius</StyledDiv>
     <RoundedDiv>rounded clip-path</RoundedDiv>
-    {/* <RoundedDiv2>rounded clip-path</RoundedDiv2> */}
+    <RoundedDiv2>rounded clip-path</RoundedDiv2>
     <ChamferedSpan>chamfered clip-path</ChamferedSpan>
     <SemiChamferedBox>semi-chamfered clip-path</SemiChamferedBox>
   </Main>
