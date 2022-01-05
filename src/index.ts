@@ -87,6 +87,19 @@ interface ICorners {
   }
 }
 
+export type ShadowSpec = {
+  x: number
+  y: number
+  blur: number
+  spread: number
+}
+
+export type CornerOptions = {
+  size: number
+  shadow?: ShadowSpec
+  card?: boolean
+}
+
 const corners: ICorners = (...cornerFns) => ({
   size: (s) => createComponentFactory(s, ...cornerFns),
 })
