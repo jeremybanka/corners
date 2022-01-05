@@ -3,7 +3,7 @@ import { useRef, createElement, useId } from "react"
 
 import { useSize } from "~/hooks/useSize"
 import type { DrawCorner } from "~/utils/svg"
-import { chamfer, createPathfinder, round } from "~/utils/svg"
+import { createPathfinder } from "~/utils/svg"
 
 import { HTML_ELEMENT_NAMES } from "./constants/html"
 import type { HTMLElementName } from "./constants/html"
@@ -72,10 +72,8 @@ const createComponentFactory = (
 ): typeof componentFactory & {
   [K in HTMLElementName]: ReturnType<typeof componentFactory>
 } => {
-  // const pathfinder = createPathfinder(cornerSize, ...corners)
   const componentFactory = function <P>(
     WrappedComponent: ForwardRefExoticComponent<P> | string
-    // cornerSize?: number
   ): FC<P> {
     return withCorners(WrappedComponent, cornerSize, ...corners)
   }
@@ -94,20 +92,4 @@ const corners: ICorners = (...cornerFns) => ({
 })
 export default corners
 
-export type ShadowSpec = {
-  x: number
-  y: number
-  blur: number
-  spread: number
-}
-
-export type CornerOptions = {
-  size: number
-  shadow?: ShadowSpec
-  card?: boolean
-}
-
-export const rounded = corners(round).size(20)
-export const chamfered = corners(chamfer).size(20)
-export const semiChamfered = corners(null, chamfer).size(20)
-export const demiChamfered = corners(chamfer, null).size(20)
+export * from "./samples"
