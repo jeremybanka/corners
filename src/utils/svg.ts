@@ -60,7 +60,7 @@ export const round: DrawCorner = (p1, p2, idx) => {
   }
   const s0 = {
     [axis1]: p2[axis1],
-    [axis2]: interpolate(p2[axis2], p1[axis2], 0.438),
+    [axis2]: interpolate(p1[axis2], p2[axis2], 0.562),
   }
 
   return [
@@ -95,9 +95,7 @@ type PointFinder = (p1: Point2d, p2: Point2d, j: number) => string
 
 export const createCorner = (spec: CornerSpec): DrawCorner => {
   const [...commands] = spec
-  let pointFinders: PointFinder[] = [
-    (p1, _, j) => writePathPoint(p1.x, p1.y, j === 0 ? `M` : `L`),
-  ]
+  let pointFinders: PointFinder[] = []
   for (const command of commands) {
     const [type, ...points] = command
     const newPointFinders = points.map((point, i) => {
@@ -119,7 +117,11 @@ export const createCorner = (spec: CornerSpec): DrawCorner => {
     })
     pointFinders = [...pointFinders, ...newPointFinders]
   }
-  pointFinders = [...pointFinders, (_, p2) => writePathPoint(p2.x, p2.y)]
+  pointFinders = [
+    (p1, _, j) => writePathPoint(p1.x, p1.y, j === 0 ? `M` : `L`),
+    ...pointFinders,
+    (_, p2) => writePathPoint(p2.x, p2.y),
+  ]
   return (p1, p2, idx) => pointFinders.map((finder) => finder(p1, p2, idx))
 }
 

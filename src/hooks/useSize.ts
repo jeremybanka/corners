@@ -1,7 +1,6 @@
+import useResizeObserver from "@react-hook/resize-observer"
 import type { MutableRefObject } from "react"
 import { useState, useLayoutEffect } from "react"
-
-import useResizeObserver from "@react-hook/resize-observer"
 
 type Scale2d = {
   width: number

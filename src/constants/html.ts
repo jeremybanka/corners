@@ -1,4 +1,4 @@
-export const HTML_ELEMENT_NAMES = [
+export const HTML_ELEMENT_NAMES: ReadonlyArray<string> = [
   `a`,
   `abbr`,
   `address`,
@@ -113,6 +113,7 @@ export const HTML_ELEMENT_NAMES = [
   `video`,
   `wbr`,
   `webview`,
-] as const
-export type ElementOf<T extends Readonly<string[]>> = T[number]
+]
+
+export type ElementOf<T extends ReadonlyArray<any>> = T[number]
 export type HTMLElementName = ElementOf<typeof HTML_ELEMENT_NAMES>

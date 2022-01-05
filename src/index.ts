@@ -1,9 +1,12 @@
 import type { FC, ForwardRefExoticComponent } from "react"
 import { useRef, createElement, useId } from "react"
 
-import { HTMLElementName, HTML_ELEMENT_NAMES } from "./constants/html"
 import { useSize } from "~/hooks/useSize"
-import { chamfer, createPathfinder, DrawCorner, round } from "~/utils/svg"
+import type { DrawCorner } from "~/utils/svg"
+import { chamfer, createPathfinder, round } from "~/utils/svg"
+
+import { HTML_ELEMENT_NAMES } from "./constants/html"
+import type { HTMLElementName } from "./constants/html"
 
 export function withCorners<P>(
   WrappedComponent: ForwardRefExoticComponent<P> | string,
@@ -81,13 +84,28 @@ const createComponentFactory = (
 
 interface ICorners {
   (...cornerFns: (DrawCorner | null)[]): {
+    // (options: CornerOptions): ReturnType<typeof componentFactory>
     size: (s: number) => ReturnType<typeof createComponentFactory>
   }
 }
 
-export const corners: ICorners = (...cornerFns) => ({
+const corners: ICorners = (...cornerFns) => ({
   size: (s) => createComponentFactory(s, ...cornerFns),
 })
+export default corners
+
+export type ShadowSpec = {
+  x: number
+  y: number
+  blur: number
+  spread: number
+}
+
+export type CornerOptions = {
+  size: number
+  shadow?: ShadowSpec
+  card?: boolean
+}
 
 export const rounded = corners(round).size(20)
 export const chamfered = corners(chamfer).size(20)
