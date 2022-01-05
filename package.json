@@ -12,7 +12,6 @@
     "build:example": "concurrently \"yarn build:server\" \"yarn build:client\"",
     "dev": "concurrently \"yarn build:example\" \"yarn serve\"",
     "build": "node ./esbuild.config.js",
-    "pretest": "tsc --noEmit",
     "test": "jest --watch --no-coverage",
     "test:cov": "jest --watch",
     "test:once": "jest",
