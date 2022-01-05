@@ -10,4 +10,4 @@ app.post(`/`, function (_, res) {
   res.sendFile(path.join(`./index.html`))
 })
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3001)
