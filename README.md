@@ -6,7 +6,7 @@
 <br>
 
 <p align="center">
-  <a href="https://bundlephobia.com/result?p=@react-hook/resize-observer">
+  <a href="https://bundlephobia.com/result?p=corners">
     <img alt="Bundlephobia" src="https://img.shields.io/bundlephobia/minzip/corners?style=for-the-badge&labelColor=333">
   </a>
   <a aria-label="Types" href="https://www.npmjs.com/package/corners">
@@ -18,7 +18,7 @@
   <a aria-label="NPM version" href="https://www.npmjs.com/package/corners">
     <img alt="NPM Version" src="https://img.shields.io/npm/v/corners?style=for-the-badge&labelColor=333">
   </a>
-  <a aria-label="License" href="https://jaredlunde.mit-license.org/">
+  <a aria-label="License" href="https://github.com/jeremybanka/corners/blob/main/LICENSE">
     <img alt="MIT License" src="https://img.shields.io/github/license/jeremybanka/corners?style=for-the-badge&labelColor=333">
   </a>
 </p>
