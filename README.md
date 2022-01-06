@@ -46,6 +46,22 @@ Create react components with angled or smooth-rounded corners.
 
 ### corners(...cornerFns).size(cornerSize)
 
+```jsx harmony
+import type { FC } from "react"
+import corners, { chamfer } from "corners"
+
+const upperLeftDogeared = corners(null, null, null, chamfer).size(20)
+
+const DogearedDiv = upperLeftDogeared.div
+
+const MyComponent: FC = () => (
+  <DogEaredDiv style={{ background: "black" }}>
+    Hello, World!
+  </DogEaredDiv>
+)
+
+```
+
 | Argument   | Type                                            | Required? | Description                                                                       |
 | ---------- | ----------------------------------------------- | --------- | --------------------------------------------------------------------------------- |
 | cornerFns  | <code>Maybe<[DrawCorner](#drawcorner)>[]</code> | Yes       | 1, 2, or 4 functions that specify the corners for this factory in clockwise order |
