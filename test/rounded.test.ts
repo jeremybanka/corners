@@ -1,5 +1,5 @@
-import type { CornerSpec } from "~/utils/svg"
-import { createCorner, round } from "~/utils/svg"
+import type { CornerSpec } from "~/index"
+import { round, createCorner } from "~/index"
 
 const RoundedSpec: CornerSpec = [
   [`curve`, { x: 0.438, y: 0 }, { x: 0.68, y: 0 }, { x: 0.84, y: 0.16 }],
