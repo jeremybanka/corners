@@ -1,4 +1,4 @@
-import type { FC, ForwardRefExoticComponent } from "react"
+import type { AllHTMLAttributes, FC, ForwardRefExoticComponent } from "react"
 
 import type { HTMLElementName } from "~/constants/html"
 import { HTML_ELEMENT_NAMES } from "~/constants/html"
@@ -25,7 +25,7 @@ const createComponentFactory = (
 } => {
   const componentFactory = function <P>(
     WrappedComponent: ForwardRefExoticComponent<P> | string
-  ): FC<P> {
+  ): FC<AllHTMLAttributes<any> & P> {
     return withCorners(WrappedComponent, cornerSize, ...corners)
   }
 

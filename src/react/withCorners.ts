@@ -1,22 +1,27 @@
-import type { FC, ForwardRefExoticComponent } from "react"
+import type {
+  AllHTMLAttributes,
+  CSSProperties,
+  FC,
+  ForwardRefExoticComponent,
+} from "react"
 import { createElement, useId, useRef } from "react"
 
 import type { DrawCorner } from ".."
-import { createPathfinder } from "../utils/svg/createPathfinder"
+import { createClipPathfinder } from "../utils/svg/createPathfinder"
 import { useSize } from "./useSize"
 
-export function withCorners<P>(
+export function withCorners<P extends { style?: CSSProperties }>(
   WrappedComponent: ForwardRefExoticComponent<P> | string,
   cornerSize: number,
   ...corners: (DrawCorner | null)[]
-): FC<P> {
-  const pathfinder = createPathfinder(cornerSize, ...corners)
+): FC<AllHTMLAttributes<any> & P> {
+  const clipPathfinder = createClipPathfinder(cornerSize, ...corners)
   const WithCorners: FC<P> = (props) => {
     const pathId = useId ? useId() : Math.random().toString()
     const nodeRef = useRef<HTMLElement>(null)
     const { height, width } = useSize(nodeRef)
 
-    const d = pathfinder(height, width, cornerSize)
+    const d = clipPathfinder(height, width, cornerSize)
 
     return createElement(
       WrappedComponent,
@@ -24,6 +29,7 @@ export function withCorners<P>(
         ...props,
         ref: nodeRef,
         style: {
+          ...props.style,
           clipPath: `url(#${pathId})`,
         },
       },
