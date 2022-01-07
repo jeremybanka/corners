@@ -5,6 +5,11 @@ export type Point2d = {
   y: number
 }
 
+export type PointPair = {
+  p1: Point2d
+  p2: Point2d
+}
+
 export type DrawCorner = (p1: Point2d, p2: Point2d, idx: number) => string[]
 
 export default corners
