@@ -14,71 +14,71 @@ export type CreatePathfinder = (
   ...corners: (DrawCorner | null)[]
 ) => Pathfinder
 
-/* eslint-disable no-case-declarations */
 export const createPathfinder: CreatePathfinder = (
   defaultCornerSize,
   ...corners
 ) => {
-  switch (corners.length) {
-    case 1:
-      const corner = corners[0] ?? straight
-      return (height: number, width: number, cornerSize?: number) =>
-        findPath(height, width, cornerSize || defaultCornerSize, [
-          corner,
-          corner,
-          corner,
-          corner,
-        ])
-    case 2:
-      const cornerX = corners[0] ?? straight
-      const cornerY = corners[1] ?? straight
-      return (height: number, width: number, cornerSize?: number) =>
-        findPath(height, width, cornerSize || defaultCornerSize, [
-          cornerX,
-          cornerY,
-          cornerX,
-          cornerY,
-        ])
-    case 4:
-      const cornerA = corners[0] ?? straight
-      const cornerB = corners[1] ?? straight
-      const cornerC = corners[2] ?? straight
-      const cornerD = corners[3] ?? straight
-      return (height: number, width: number, cornerSize?: number) =>
-        findPath(height, width, cornerSize || defaultCornerSize, [
-          cornerA,
-          cornerB,
-          cornerC,
-          cornerD,
-        ])
-    default:
-      throw new Error(`pass 1, 2, or 4 corners`)
+  const fourCorners = expandCorners(...corners)
+  return (height, width, cornerSize = defaultCornerSize) => {
+    if ([height, width, cornerSize].includes(0)) {
+      return ``
+    }
+    const cornerPoints = getCornerPointsForClipPath(cornerSize, height, width)
+    return findPath(cornerPoints, fourCorners)
   }
 }
-/* eslint-enable no-case-declarations */
+
+type FourCorners = [DrawCorner, DrawCorner, DrawCorner, DrawCorner]
+
+type ExpandCorners = (...corners: (DrawCorner | null)[]) => FourCorners
+
+const expandCorners: ExpandCorners = (...corners) => {
+  if ([1, 2, 4].includes(corners.length) === false) {
+    throw new Error(`Expected 1, 2, or 4 corners, got ${corners.length}`)
+  }
+  const A = corners[0] ?? straight
+  const B = 1 in corners ? corners[1] ?? straight : A
+  const C = 2 in corners ? corners[2] ?? straight : A
+  const D = 3 in corners ? corners[3] ?? straight : 1 in corners ? B : A
+  return [A, B, C, D]
+}
+
+type PointPair = {
+  p1: { x: number; y: number }
+  p2: { x: number; y: number }
+}
 
 export const findPath = (
-  height: number,
-  width: number,
-  cornerSize: number,
+  cornerPoints: [PointPair, PointPair, PointPair, PointPair],
   corners: [DrawCorner, DrawCorner, DrawCorner, DrawCorner]
 ): SvgPath => {
-  if (!height || !width || !cornerSize) return ``
-  const maxCornerSize = Math.min(cornerSize, Math.min(height, width) / 2)
-  const cornerHeight = maxCornerSize / height
-  const cornerWidth = maxCornerSize / width
-
-  const cornerPoints = [
-    { p1: { x: 1 - cornerWidth, y: 0 }, p2: { x: 1, y: cornerHeight } },
-    { p1: { x: 1, y: 1 - cornerHeight }, p2: { x: 1 - cornerWidth, y: 1 } },
-    { p1: { x: cornerWidth, y: 1 }, p2: { x: 0, y: 1 - cornerHeight } },
-    { p1: { x: 0, y: cornerHeight }, p2: { x: cornerWidth, y: 0 } },
-  ]
-
   const path =
     cornerPoints.reduce((acc, { p1, p2 }, idx) => {
       const drawCorner = corners[idx]
       return acc + drawCorner(p1, p2, idx).join(`\n`) + `\n`
     }, ``) + `Z`
   return path
+}
+
+type GetCornerPoints = (
+  cornerSize: number,
+  height: number,
+  width: number
+) => [PointPair, PointPair, PointPair, PointPair]
+
+const getCornerPointsForClipPath: GetCornerPoints = (
+  cornerSize: number,
+  height: number,
+  width: number
+) => {
+  const maxCornerSize = Math.min(cornerSize, Math.min(height, width) / 2)
+  const cornerHeight = maxCornerSize / height
+  const cornerWidth = maxCornerSize / width
+
+  return [
+    { p1: { x: 1 - cornerWidth, y: 0 }, p2: { x: 1, y: cornerHeight } },
+    { p1: { x: 1, y: 1 - cornerHeight }, p2: { x: 1 - cornerWidth, y: 1 } },
+    { p1: { x: cornerWidth, y: 1 }, p2: { x: 0, y: 1 - cornerHeight } },
+    { p1: { x: 0, y: cornerHeight }, p2: { x: cornerWidth, y: 0 } },
+  ]
 }
