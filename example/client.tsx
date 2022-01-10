@@ -65,7 +65,7 @@ MagicBox.displayName = `MagicBox`
 
 const RoundedDiv = styled(rounded(`div`))(BoxStyles)
 
-const ChamferedSpan = styled(chamfered.span)(BoxStyles)
+const ChamferedSpan = styled(chamfered.span.with(40))(BoxStyles)
 const SemiChamferedBox = styled(semiChamfered(MagicBox))(BoxStyles)
 
 const rootElement = document.getElementById(`root`)
