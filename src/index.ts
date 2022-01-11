@@ -12,17 +12,20 @@ export type PointPair = {
 
 export type DrawCorner = (p1: Point2d, p2: Point2d, idx: number) => string[]
 
-export type ShadowSpec = {
+export type Layer = {
+  color: string
   x: number
   y: number
   blur: number
   spread: number
+  stroke: number | null
 }
 
 export type CornerOptions = {
-  size: number
-  shadow?: ShadowSpec
-  card?: boolean
+  cornerSize: number
+  useClipPath: boolean
+  above: Layer | Layer[] | null
+  below: Layer | Layer[] | null
 }
 
 export default corners
