@@ -23,9 +23,9 @@ export type Layer = {
 
 export type CornerOptions = {
   cornerSize: number
-  useClipPath: boolean
-  above: Layer | Layer[] | null
-  below: Layer | Layer[] | null
+  noClipping: boolean
+  above: Partial<Layer> | Partial<Layer>[] | null
+  below: Partial<Layer> | Partial<Layer>[] | null
 }
 
 export default corners
