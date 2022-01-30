@@ -62,10 +62,10 @@ const MyComponent: FC = () => (
 
 ```
 
-| Argument   | Type                                            | Required? | Description                                                                       |
-| ---------- | ----------------------------------------------- | --------- | --------------------------------------------------------------------------------- |
-| cornerFns  | <code>Maybe<[DrawCorner](#drawcorner)>[]</code> | Yes       | 1, 2, or 4 functions that specify the corners for this factory in clockwise order |
-| cornerSize | number                                          | Yes       | Equivalent to the `N`px given in css `border-radius`                              |
+| Argument   | Type                                             | Required? | Description                                                                       |
+| ---------- | ------------------------------------------------ | --------- | --------------------------------------------------------------------------------- |
+| cornerFns  | <code>Maybe<[DrawCorner](#draw-corner)>[]</code> | Yes       | 1, 2, or 4 functions that specify the corners for this factory in clockwise order |
+| cornerSize | number                                           | Yes       | Equivalent to the `N`px given in css `border-radius`                              |
 
 
 ## LICENSE
