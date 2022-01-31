@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react"
+
 import { corners } from "./react/createComponentFactory"
 
 export type Point2d = {
@@ -18,7 +20,12 @@ export type Layer = {
   y: number
   blur: number
   spread: number
-  stroke: number | null
+  stroke: {
+    color?: string
+    dashArray?: number[]
+    width?: number
+  } | null
+  blendMode: CSSProperties[`mixBlendMode`]
 }
 
 export type CornerOptions = {

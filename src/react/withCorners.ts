@@ -42,6 +42,7 @@ export function withCorners<P extends { style?: CSSProperties }>(
           zIndex: 0,
           ...props.style,
           clipPath: clipPathfinder ? `url(#${pathId})` : undefined,
+          background: noClipping ? `none` : props.style?.background,
         },
       },
       clipPathfinder &&

@@ -7,6 +7,7 @@ export const DEFAULT_LAYER: Layer = {
   blur: 0,
   spread: 0,
   stroke: null,
+  blendMode: `normal`,
 }
 
 export const DEFAULT_OPTIONS: CornerOptions = {
