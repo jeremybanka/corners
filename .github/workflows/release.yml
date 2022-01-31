@@ -1,4 +1,4 @@
-name: CI
+name: release
 
 on: [ push, pull_request ]
 
@@ -23,9 +23,8 @@ jobs:
         with:
           node-version: 14.x
 
-      - run: yarn
-      - run: yarn test
-
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
 
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@master
