@@ -5,9 +5,9 @@ module.exports = {
   moduleNameMapper: {
     "~/(.*)": `<rootDir>/src`,
   },
-  testRegex: `test.(ts|js)$`,
+  testRegex: `test.(ts|tsx)$`,
   coverageDirectory: `./coverage/`,
   collectCoverage: true,
   coverageReporters: [`json`, `html`, `text`, `text-summary`],
-  collectCoverageFrom: [`src/**/*.{js,ts}`, `tests/**/*.{js,ts}`],
+  collectCoverageFrom: [`src/**/*.{tsx,ts}`, `tests/**/*.{tsx,ts}`],
 }
