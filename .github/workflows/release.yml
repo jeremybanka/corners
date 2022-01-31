@@ -7,9 +7,10 @@ defaults:
     shell: bash
 
 jobs:
-
   release: 
     name: release
+    container:
+      image: node:lts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -18,13 +19,19 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Setup Node.js 14.x
-        uses: actions/setup-node@master
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: node-modules
         with:
-          node-version: 14.x
-
-      - name: Install Dependencies
-        run: yarn --frozen-lockfile
+          path: node_modules/
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependencies
+        run: |
+          if [ ! -d node_modules ]; then
+            yarn
+          fi
 
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@master
