@@ -36,6 +36,7 @@ const createComponentFactory = (
     additionalOptions?: Partial<CornerOptions>
   ): FC<AllHTMLAttributes<any> & P> => {
     const options = { ...DEFAULT_OPTIONS, ...baseOptions, ...additionalOptions }
+    // @ts-expect-error union type too complex. it's okay; this is internal
     return withCorners(WrappedComponent, options, ...corners)
   }
 
@@ -66,7 +67,7 @@ const createComponentFactory = (
 
   // rounded.div
   // or
-  // rounded.div.with({ cornerSize: 10, shadow: { blur: 2, color: "blue" } })
+  // rounded.div.with({ cornerSize: 10, below: [{ blur: 2, color: "blue" }] })
 
   return componentFactoryWithTagProps
 }
