@@ -33,6 +33,10 @@ yarn add corners
 
 Create react components with angled or smooth-rounded corners.
 
+* [Features](#features)
+* [API](#api)
+* [Examples](#examples)
+
 ## Features
 
 - [x] Use one of the preset component factories like `rounded`: `const MyButton = rounded.button`
@@ -44,13 +48,72 @@ Create react components with angled or smooth-rounded corners.
 - [ ] Support for positioning elements outside of the target element
 ## API
 
-### corners(...cornerFns).size(cornerSize)
+### corners
+```ts
+corners(...cornerFns).with({ cornerSize, noClipping, above, below }) => ComponentFactory
+```
+
+Creates a new component factory with the given corner functions. The corner functions are applied in the order they are given.
+
+| Argument   | Type                                               | Required? | Description                                                                       |
+| ---------- | -------------------------------------------------- | --------- | --------------------------------------------------------------------------------- |
+| cornerFns  | <code>Nullable<[DrawCorner](#drawcorner)>[]</code> | Yes       | 1, 2, or 4 functions that specify the corners for this factory in clockwise order |
+| cornerSize | `number`                                           | No        | Equivalent to `N` in css `border-radius: Npx`                                     |
+| noClipping | `boolean`                                          | No        | `true` is equivalent to css `overflow: visible`                                   |
+| above      | <code>Partial<[Layer](#layer)>[]</code>            | No        | Layers with the same shape as the component, but rendered above the component     |
+| below      | <code>Partial<[Layer](#layer)>[]</code>            | No        | Layers with the same shape as the component, but rendered below the component     |
+
+| Returns          | Type                                               | Description                                                                  |
+| ---------------- | -------------------------------------------------- | ---------------------------------------------------------------------------- |
+| ComponentFactory | <code>[ComponentFactory](#componentfactory)</code> | A new component factory with the given corner functions and options applied. |
+
+### DrawCorner 
+#### (p1, p2, idx) => pathPoints
+
+A function that draws a corner
+
+| Argument | Type                        | Required? | Description                                                                                      |
+| -------- | --------------------------- | --------- | ------------------------------------------------------------------------------------------------ |
+| p1       | `{ x: number; y: number; }` | Yes       | The first point of the corner                                                                    |
+| p2       | `{ x: number; y: number; }` | Yes       | The second point of the corner                                                                   |
+| idx      | `number`                    | Yes       | The index of the corner. `0` = top right, `1` = bottom right, `2` = bottom left, `3` = top left. |
+
+| Returns    | Type       | Description       |
+| ---------- | ---------- | ----------------- |
+| pathPoints | `string[]` | svg path commands |
+
+### Layer
+
+A layer takes the same shape as the component it is applied to.
+
+| Property | Type                | Required? | Description                    |
+| -------- | ------------------- | --------- | ------------------------------ |
+| color    | string              | Yes       | The color of the layer         |
+| x        | number              | Yes       | The x offset of the layer      |
+| y        | number              | Yes       | The y offset of the layer      |
+| blur     | number              | Yes       | The blur radius of the layer   |
+| spread   | number              | Yes       | The spread radius of the layer |
+| stroke   | <code>Stroke</code> | No        | The stroke of the layer        |
+
+## Examples
+
+### Make a "dog-eared" component
+
+```
+ /¯¯¯¯¯¯¯¯¯|
+/          |
+|          |
+|__________|
+```
+
+(it should look like a dog-eared page)
+
 
 ```jsx harmony
 import type { FC } from "react"
 import corners, { chamfer } from "corners"
 
-const upperLeftDogeared = corners(null, null, null, chamfer).size(20)
+const upperLeftDogeared = corners(null, null, null, chamfer).with({ cornerSize: 20 })
 
 const DogearedDiv = upperLeftDogeared.div
 
@@ -59,13 +122,32 @@ const MyComponent: FC = () => (
     Hello, World!
   </DogEaredDiv>
 )
-
 ```
 
-| Argument   | Type                                             | Required? | Description                                                                       |
-| ---------- | ------------------------------------------------ | --------- | --------------------------------------------------------------------------------- |
-| cornerFns  | <code>Maybe<[DrawCorner](#draw-corner)>[]</code> | Yes       | 1, 2, or 4 functions that specify the corners for this factory in clockwise order |
-| cornerSize | number                                           | Yes       | Equivalent to the `N`px given in css `border-radius`                              |
+### Make a "squircled" component with a drop shadow
+
+
+
+```jsx harmony
+import type { FC } from "react"
+import { rounded } from "corners"
+
+const LAYER: Record<string, Partial<Layer>> = {
+  FAINT_SHADOW: { color: `#0003`, spread: -4, blur: 12, y: -4 },
+  LIGHT_FILL: { color: `#f3f3f3` },
+}
+const RoundedSpanWithShadow = rounded.span.with({
+  cornerSize: 15,
+  below: [LAYER.LIGHT_FILL, LAYER.FAINT_SHADOW],
+  noClipping: true,
+})
+
+const MyComponent: FC = () => (
+  <RoundedSpanWithShadow>
+    Hello, World!
+  </RoundedSpanWithShadow>
+)
+```
 
 
 ## LICENSE
