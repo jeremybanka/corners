@@ -1,3 +1,14 @@
 {
-  "cSpell.words": ["demi", "esbuild", "outfile", "predeploy", "servedir"]
+  "cSpell.words": [
+    "Bundlephobia",
+    "changesets",
+    "Changesets",
+    "demi",
+    "dotglob",
+    "esbuild",
+    "outfile",
+    "predeploy",
+    "servedir",
+    "shopt"
+  ]
 }

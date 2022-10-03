@@ -6,18 +6,11 @@ module.exports = (api, targets) => {
     babelrc: false,
     ignore: [`./node_modules`],
     presets: [
-      [
-        `@babel/preset-env`,
-        {
-          loose: true,
-          modules: isTestEnv ? `commonjs` : false,
-          targets: isTestEnv ? { node: `current` } : targets,
-          exclude: [`@babel/plugin-transform-regenerator`],
-        },
-      ],
+      `@babel/preset-react`,
+      `@babel/preset-typescript`,
+      `@babel/preset-env`,
     ],
     plugins: [
-      [`@babel/plugin-transform-typescript`],
       [
         `babel-plugin-root-import`,
         {

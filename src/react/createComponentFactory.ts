@@ -1,52 +1,53 @@
 import type { AllHTMLAttributes, FC, ForwardRefExoticComponent } from "react"
 
+import { DEFAULT_OPTIONS } from "~/constants/empties"
 import type { HTMLTagName } from "~/constants/html"
 import { HTML_TAG_NAMES } from "~/constants/html"
 
-import type { DrawCorner } from ".."
+import type { CornerOptions, DrawCorner } from ".."
 import { withCorners } from "./withCorners"
 
 export interface ICorners {
   (...cornerFns: (DrawCorner | null)[]): {
-    // (options: CornerOptions): ReturnType<typeof componentFactory>
+    options: (
+      opts: Partial<CornerOptions>
+    ) => ReturnType<typeof createComponentFactory>
     size: (s: number) => ReturnType<typeof createComponentFactory>
   }
 }
 
 export const corners: ICorners = (...cornerFns) => ({
-  size: (s) => createComponentFactory(s, ...cornerFns),
+  options: (opts) => createComponentFactory(opts, ...cornerFns),
+  size: (cornerSize) => createComponentFactory({ cornerSize }, ...cornerFns),
 })
 
 const createComponentFactory = (
-  defaultCornerSize: number,
+  baseOptions: Partial<CornerOptions> = {},
   ...corners: (DrawCorner | null)[]
 ): typeof componentFactory & {
   [K in HTMLTagName]: ReturnType<typeof componentFactory> & {
-    with: (cornerSize: number) => ReturnType<typeof componentFactory>
+    with: (
+      options: Partial<CornerOptions>
+    ) => ReturnType<typeof componentFactory>
   }
 } => {
   const componentFactory = <P>(
     WrappedComponent: ForwardRefExoticComponent<P> | string,
-    cornerSize?: number
-  ): FC<AllHTMLAttributes<any> & P> =>
-    withCorners(WrappedComponent, cornerSize ?? defaultCornerSize, ...corners)
+    additionalOptions?: Partial<CornerOptions>
+  ): FC<AllHTMLAttributes<any> & P> => {
+    const options = { ...DEFAULT_OPTIONS, ...baseOptions, ...additionalOptions }
+    // @ts-expect-error union type too complex. it's okay; this is internal
+    return withCorners(WrappedComponent, options, ...corners)
+  }
 
   const componentFactoryWithTagProps =
     componentFactory as typeof componentFactory & {
       [K in HTMLTagName]: ReturnType<typeof componentFactory> & {
-        with: (cornerSize: number) => ReturnType<typeof componentFactory>
+        with: (
+          options: Partial<CornerOptions>
+        ) => ReturnType<typeof componentFactory>
       }
     }
-
-  // HTML_TAG_NAMES.forEach((name) => {
-  //   componentFactoryWithTagProps[name] = componentFactory(name)
-  // })
-
-  // const proxy = new Proxy(componentFactoryWithTagProps, {
-  //   get(target, name: HTMLTagName) {
-  //     return target(name)
-  //   },
-  // })
 
   HTML_TAG_NAMES.forEach((name) => {
     // @ts-expect-error our little secret
@@ -58,14 +59,15 @@ const createComponentFactory = (
     })
     Object.defineProperty(componentFactoryWithTagProps[name], `with`, {
       get() {
-        return (size: number) => componentFactory(name, size)
+        return (options: Partial<CornerOptions>) =>
+          componentFactory(name, options)
       },
     })
   })
 
   // rounded.div
   // or
-  // rounded.div.with({ cornerSize: 10, shadow: { blur: 2, color: "blue" } })
+  // rounded.div.with({ cornerSize: 10, below: [{ blur: 2, color: "blue" }] })
 
   return componentFactoryWithTagProps
 }
