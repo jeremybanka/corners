@@ -1,6 +1,6 @@
 {
   "name": "corners",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": false,
   "files": [
     "dist",
@@ -10,7 +10,7 @@
   "main": "dist/index.js",
   "types": "src/index.ts",
   "scripts": {
-    "dev": "esbuild example/client.tsx --outfile=example/web/client.js --servedir=example/web --serve=3001 --bundle --minify --sourcemap",
+    "dev": "esbuild example/client.tsx --outfile=example/web/client.js --servedir=example/web --serve=6144 --bundle --minify --sourcemap",
     "build:example": "esbuild example/client.tsx --outfile=example/web/client.js --bundle --minify --sourcemap",
     "predeploy": "yarn build:example",
     "deploy": "gh-pages -d example/web",
@@ -24,8 +24,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
-    "@babel/plugin-transform-typescript": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@banka/eslint-config-react": "^1.0.0",
     "@changesets/cli": "^2.20.0",
     "@emotion/react": "^11.7.1",
@@ -41,6 +42,7 @@
     "babel-plugin-root-import": "^6.6.0",
     "concurrently": "^6.4.0",
     "esbuild": "^0.14.5",
+    "esbuild-jest": "^0.5.0",
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
@@ -82,6 +84,6 @@
   },
   "homepage": "https://github.com/jeremybanka/corners#readme",
   "bugs": {
-    "url": "https://github.com/jeremybanka/luum/issues"
+    "url": "https://github.com/jeremybanka/corners/issues"
   }
 }

@@ -6,22 +6,31 @@ import type {
 } from "react"
 import { createElement, useId, useRef } from "react"
 
-import type { DrawCorner } from ".."
-import { createClipPathfinder } from "../utils/svg/createPathfinder"
+import type { CornerOptions, DrawCorner } from ".."
+import {
+  createClipPathfinder,
+  createPathfinder,
+} from "../utils/svg/createPathfinder"
+import { ClipContainer } from "./ClipContainer"
+import { SVGLayers } from "./SVGLayers"
 import { useSize } from "./useSize"
 
 export function withCorners<P extends { style?: CSSProperties }>(
   WrappedComponent: ForwardRefExoticComponent<P> | string,
-  cornerSize: number,
+  options: CornerOptions,
   ...corners: (DrawCorner | null)[]
 ): FC<AllHTMLAttributes<any> & P> {
-  const clipPathfinder = createClipPathfinder(cornerSize, ...corners)
+  const { cornerSize, noClipping, above, below } = options
+  const clipPathfinder = noClipping
+    ? null
+    : createClipPathfinder(cornerSize, ...corners)
+  const pathfinder =
+    above || below ? createPathfinder(cornerSize, ...corners) : null
+
   const WithCorners: FC<P> = (props) => {
     const pathId = useId ? useId() : Math.random().toString()
     const nodeRef = useRef<HTMLElement>(null)
     const { height, width } = useSize(nodeRef)
-
-    const d = clipPathfinder(height, width, cornerSize)
 
     return createElement(
       WrappedComponent,
@@ -29,24 +38,29 @@ export function withCorners<P extends { style?: CSSProperties }>(
         ...props,
         ref: nodeRef,
         style: {
+          position: `relative`,
+          zIndex: 0,
           ...props.style,
-          clipPath: `url(#${pathId})`,
+          clipPath: clipPathfinder ? `url(#${pathId})` : undefined,
+          background: noClipping ? `none` : props.style?.background,
         },
       },
-      createElement(
-        `svg`,
-        {
-          width: `10`,
-          height: `10`,
-          viewBox: `0 0 10 10`,
-          style: { position: `absolute`, opacity: 0, pointerEvents: `none` },
-        },
-        createElement(
-          `clipPath`,
-          { id: pathId, clipPathUnits: `objectBoundingBox` },
-          createElement(`path`, { d })
-        )
-      ),
+      clipPathfinder &&
+        ClipContainer({
+          pathId,
+          clipPath: clipPathfinder(height, width, cornerSize),
+        }),
+      pathfinder &&
+        SVGLayers({
+          base: {
+            height,
+            width,
+            cornerSize,
+          },
+          pathfinder,
+          above,
+          below,
+        }),
       props.children
     )
   }
