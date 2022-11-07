@@ -1,5 +1,11 @@
 # corners
 
+## 0.0.10
+
+### Patch Changes
+
+- c87c74d: Internal Refactoring of the Layers System
+
 ## 0.0.9
 
 ### Patch Changes
