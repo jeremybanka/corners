@@ -1,4 +1,4 @@
-import { corners } from "../react/createComponentFactory"
+import { corners } from "../react/interface"
 import { chamfer, round } from "./corners"
 
 export const rounded = corners(round).size(20)
