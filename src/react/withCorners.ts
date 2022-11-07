@@ -11,8 +11,8 @@ import {
   createClipPathfinder,
   createPathfinder,
 } from "../utils/svg/createPathfinder"
-import { SvgClippingPath } from "./SvgClippingPath"
-import { SvgLayers } from "./SvgLayers"
+import { SvgClippingPath } from "./ClippingPath"
+import { SvgLayers } from "./Layers"
 import { useSize } from "./useSize"
 
 export function withCorners<P extends { style?: CSSProperties }>(
