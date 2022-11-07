@@ -1,5 +1,13 @@
 # corners
 
+## 0.0.11
+
+### Patch Changes
+
+- 2587a41: Internal cleanup
+
+  I changed the `package.json` file to organize dependencies better.
+
 ## 0.0.10
 
 ### Patch Changes
