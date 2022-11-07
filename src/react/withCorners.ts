@@ -11,8 +11,8 @@ import {
   createClipPathfinder,
   createPathfinder,
 } from "../utils/svg/createPathfinder"
-import { ClipContainer } from "./ClipContainer"
-import { SVGLayers } from "./SVGLayers"
+import { SvgClippingPath } from "./SvgClippingPath"
+import { SvgLayers } from "./SvgLayers"
 import { useSize } from "./useSize"
 
 export function withCorners<P extends { style?: CSSProperties }>(
@@ -46,20 +46,16 @@ export function withCorners<P extends { style?: CSSProperties }>(
         },
       },
       clipPathfinder &&
-        ClipContainer({
-          pathId,
-          clipPath: clipPathfinder(height, width, cornerSize),
+        SvgClippingPath({
+          id: pathId,
+          d: clipPathfinder(height, width, cornerSize),
         }),
       pathfinder &&
-        SVGLayers({
-          base: {
-            height,
-            width,
-            cornerSize,
-          },
+        SvgLayers({
           pathfinder,
           above,
           below,
+          base: { width, height, cornerSize },
         }),
       props.children
     )

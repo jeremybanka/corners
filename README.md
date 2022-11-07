@@ -39,16 +39,23 @@ Create react components with angled or smooth-rounded corners.
 
 ## Features
 
-- [x] Use one of the preset component factories like `rounded`: `const MyButton = rounded.button`
-- [x] Make your own component factory with `corners`: `const dogEared = corners(chamfer, null, null, null).size(40)`
+- [x] premade component factories: 
+  ```
+  const MyRoundedButton = rounded.button
+  ```
+- [x] make your own factory: 
+  ```
+  const dogEared = corners(chamfer, null, null, null).size(40)
+  const MyDogEaredButton = dogEared.button
+  ```
 - [x] CSS clip-path ensures corners are rendered as empty space
 - [x] Components may be dynamically sized: a resize observer is used to detect changes to component size and update the clip-path
 - [x] Specify the corner size when calling a factory (e.g. `rounded.size(10).div`)
 - [x] Support for drop shadows (e.g. `corners(round).options({shadow: {...}}).div`)
 - [x] Support for positioning elements outside of the target element
-- [ ] Masks that are inset or spread from the target element
+- [ ] Clipping Paths that are inset (or spread ?) from the target element
 - [ ] Layers that are inset or spread from the target element
-- [ ] Simultaneous use of mask and layers
+- [ ] Simultaneous use of clipping path and layers
 
 ## API
 

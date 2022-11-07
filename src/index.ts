@@ -1,6 +1,7 @@
-import type { CSSProperties } from "react"
-
-import { corners } from "./react/createComponentFactory"
+import { corners } from "./react/interface"
+import type { Fragment } from "./utils/patch"
+import { patch } from "./utils/patch"
+import type { Pathfinder } from "./utils/svg/createPathfinder"
 
 export type Point2d = {
   x: number
@@ -12,27 +13,40 @@ export type PointPair = {
   p2: Point2d
 }
 
+export type OneManyOrNull<T> = T | T[] | null
+
+export type Scraps<T extends object> = OneManyOrNull<Fragment<T>>
+
+export const harvest =
+  <T extends object>(base: T) =>
+  (scraps: Scraps<T>): T[] => {
+    if (scraps === null) return []
+    // @ts-expect-error excessive stack depth
+    if (Array.isArray(scraps)) return scraps.map((scrap) => patch(base, scrap))
+    return [patch(base, scraps)]
+  }
+
 export type DrawCorner = (p1: Point2d, p2: Point2d, idx: number) => string[]
 
 export type Layer = {
+  pathfinder: Pathfinder
   color: string
-  x: number
-  y: number
+  offset: Point2d
   blur: number
   spread: number
   stroke: {
-    color?: string
-    dashArray?: number[]
-    width?: number
+    color: string
+    dashArray: number[]
+    width: number
   } | null
-  blendMode: CSSProperties[`mixBlendMode`]
+  // blendMode: CSSProperties[`mixBlendMode`]
 }
 
 export type CornerOptions = {
   cornerSize: number
   noClipping: boolean
-  above: Partial<Layer> | Partial<Layer>[] | null
-  below: Partial<Layer> | Partial<Layer>[] | null
+  above: Scraps<Layer>
+  below: Scraps<Layer>
 }
 
 export default corners

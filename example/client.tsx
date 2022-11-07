@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react"
+import type { CSSProperties, FC } from "react"
 import React, { forwardRef, useEffect, useState } from "react"
 
 import { css } from "@emotion/react"
@@ -7,6 +7,7 @@ import { createRoot } from "react-dom"
 
 import type { Layer } from "~/index"
 import { chamfered, rounded, semiChamfered } from "~/index"
+import type { Fragment } from "~/utils/patch"
 
 const Main = styled.main`
   display: flex;
@@ -67,8 +68,8 @@ MagicBox.displayName = `MagicBox`
 
 const RoundedDiv = styled(rounded(`div`))(BoxStyles)
 
-const LAYER: Record<string, Partial<Layer>> = {
-  FAINT_SHADOW: { color: `#0003`, spread: -4, blur: 12, y: -4 },
+const LAYER: Record<string, Fragment<Layer>> = {
+  FAINT_SHADOW: { color: `#0003`, spread: -4, blur: 12, offset: { y: -4 } },
   LIGHT_FILL: { color: `#f3f3f3` },
   SOLID_STROKE: {
     color: `transparent`,
@@ -91,7 +92,7 @@ const ChamferedDivWithStroke = styled(
 const ChamferedSpanWithShadow = styled(
   semiChamfered.span.with({
     cornerSize: 15,
-    below: [LAYER.SOLID_STROKE, LAYER.LIGHT_FILL, LAYER.FAINT_SHADOW],
+    below: [LAYER.FAINT_SHADOW, LAYER.LIGHT_FILL, LAYER.SOLID_STROKE],
     noClipping: true,
   })
 )(BoxStyles)

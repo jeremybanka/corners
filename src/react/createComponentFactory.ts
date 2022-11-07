@@ -7,21 +7,7 @@ import { HTML_TAG_NAMES } from "~/constants/html"
 import type { CornerOptions, DrawCorner } from ".."
 import { withCorners } from "./withCorners"
 
-export interface ICorners {
-  (...cornerFns: (DrawCorner | null)[]): {
-    options: (
-      opts: Partial<CornerOptions>
-    ) => ReturnType<typeof createComponentFactory>
-    size: (s: number) => ReturnType<typeof createComponentFactory>
-  }
-}
-
-export const corners: ICorners = (...cornerFns) => ({
-  options: (opts) => createComponentFactory(opts, ...cornerFns),
-  size: (cornerSize) => createComponentFactory({ cornerSize }, ...cornerFns),
-})
-
-const createComponentFactory = (
+export const createComponentFactory = (
   baseOptions: Partial<CornerOptions> = {},
   ...corners: (DrawCorner | null)[]
 ): typeof componentFactory & {
@@ -31,6 +17,7 @@ const createComponentFactory = (
     ) => ReturnType<typeof componentFactory>
   }
 } => {
+  // rounded("div") or rounded(myForwardRefExoticComponent)
   const componentFactory = <P>(
     WrappedComponent: ForwardRefExoticComponent<P> | string,
     additionalOptions?: Partial<CornerOptions>
@@ -40,6 +27,9 @@ const createComponentFactory = (
     return withCorners(WrappedComponent, options, ...corners)
   }
 
+  // rounded.div
+  // or
+  // rounded.div.with({ cornerSize: 10, below: [{ blur: 2, color: "blue" }] })
   const componentFactoryWithTagProps =
     componentFactory as typeof componentFactory & {
       [K in HTMLTagName]: ReturnType<typeof componentFactory> & {
@@ -48,9 +38,8 @@ const createComponentFactory = (
         ) => ReturnType<typeof componentFactory>
       }
     }
-
   HTML_TAG_NAMES.forEach((name) => {
-    // @ts-expect-error our little secret
+    // @ts-expect-error our little secret 🤫
     componentFactoryWithTagProps[`__` + name] = componentFactory(name)
     Object.defineProperty(componentFactoryWithTagProps, name, {
       get() {
@@ -64,10 +53,6 @@ const createComponentFactory = (
       },
     })
   })
-
-  // rounded.div
-  // or
-  // rounded.div.with({ cornerSize: 10, below: [{ blur: 2, color: "blue" }] })
 
   return componentFactoryWithTagProps
 }
