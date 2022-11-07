@@ -1,4 +1,4 @@
-import type { CSSProperties, FC } from "react"
+import type { CSSProperties } from "react"
 import React, { forwardRef, useEffect, useState } from "react"
 
 import { css } from "@emotion/react"
@@ -66,7 +66,7 @@ const MagicBox = forwardRef<HTMLDivElement, { style?: CSSProperties }>(
 )
 MagicBox.displayName = `MagicBox`
 
-const RoundedDiv = styled(rounded(`div`))(BoxStyles)
+const RoundedDiv = styled(rounded.div)(BoxStyles)
 
 const LAYER: Record<string, Fragment<Layer>> = {
   FAINT_SHADOW: { color: `#0003`, spread: -4, blur: 12, offset: { y: -4 } },
@@ -103,7 +103,7 @@ const RoundedSectionWithShadow = styled(
     noClipping: true,
   })
 )(BoxStyles)
-// const SemiChamferedBox = styled(semiChamfered(MagicBox))(BoxStyles)
+const SemiChamferedBox = styled(semiChamfered(MagicBox))(BoxStyles)
 
 const rootElement = document.getElementById(`root`)
 if (!rootElement) throw new Error(`Failed to find the root element`)
@@ -115,6 +115,6 @@ root.render(
     <ChamferedDivWithStroke>chamfered clip-path</ChamferedDivWithStroke>
     <ChamferedSpanWithShadow>chamfered clip-path</ChamferedSpanWithShadow>
     <RoundedSectionWithShadow>rounded clip-path</RoundedSectionWithShadow>
-    {/* <SemiChamferedBox>semi-chamfered clip-path</SemiChamferedBox> */}
+    <SemiChamferedBox>semi-chamfered clip-path</SemiChamferedBox>
   </Main>
 )
