@@ -1,4 +1,5 @@
 import type { CornerOptions, Layer } from ".."
+import { createPathfinder, straight } from ".."
 
 export const DEFAULT_LAYER: Layer = {
   color: `black`,
@@ -6,7 +7,7 @@ export const DEFAULT_LAYER: Layer = {
   spread: 0,
   offset: { x: 0, y: 0 },
   stroke: null,
-  // blendMode: `normal`,
+  pathfinder: createPathfinder(0, straight),
 }
 
 export const DEFAULT_OPTIONS: CornerOptions = {

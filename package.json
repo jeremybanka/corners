@@ -3,18 +3,18 @@
   "version": "0.0.11",
   "private": false,
   "files": [
-    "dist",
-    "src",
-    "tsconfig.json"
+    "dist"
   ],
   "main": "dist/index.js",
-  "types": "src/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "esbuild example/client.tsx --outfile=example/web/client.js --servedir=example/web --serve=6144 --bundle --minify --sourcemap",
     "build:example": "esbuild example/client.tsx --outfile=example/web/client.js --bundle --minify --sourcemap",
     "predeploy": "yarn build:example",
     "deploy": "gh-pages -d example/web",
-    "build": "node ./esbuild.config.js",
+    "build:types": "dts-bundle-generator -o dist/index.d.ts src/index.ts",
+    "build:main": "tsx -- esbuild.config.ts",
+    "build": "yarn build:main && yarn build:types",
     "test": "jest --watch --no-coverage",
     "test:cov": "jest --watch",
     "test:once": "jest",
@@ -41,13 +41,14 @@
     "@types/express": "^4.17.13",
     "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.2",
-    "@types/node": "^16.10.1",
+    "@types/node": "^18.11.11",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "babel-plugin-root-import": "^6.6.0",
     "concurrently": "^6.4.0",
+    "dts-bundle-generator": "^7.1.0",
     "esbuild": "^0.14.5",
     "esbuild-jest": "^0.5.0",
     "eslint": "^8.0.0",
@@ -69,6 +70,7 @@
     "react-dom": "^18.0.0-rc.0-next-3dc41d8a2-20211223",
     "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0",
+    "tsx": "^3.12.1",
     "typescript": "^4.8.4"
   },
   "lint-staged": {
