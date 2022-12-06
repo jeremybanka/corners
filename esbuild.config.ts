@@ -4,7 +4,7 @@ build({
   entryPoints: [`src/index.ts`],
   outfile: `dist/index.js`,
   platform: `node`,
-  format: `cjs`,
+  format: `esm`,
   sourcemap: true,
   bundle: true,
   external: [`react`],
