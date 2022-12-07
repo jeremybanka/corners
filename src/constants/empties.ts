@@ -1,5 +1,6 @@
 import type { CornerOptions, Layer } from ".."
-import { createPathfinder, straight } from ".."
+import { straight } from "../preset/corners"
+import { createPathfinder } from "../utils/svg/createPathfinder"
 
 export const DEFAULT_LAYER: Layer = {
   color: `black`,
