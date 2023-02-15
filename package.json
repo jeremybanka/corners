@@ -79,10 +79,7 @@
   "eslintConfig": {
     "extends": [
       "@banka/react"
-    ],
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    }
+    ]
   },
   "homepage": "https://github.com/jeremybanka/corners#readme",
   "bugs": {
