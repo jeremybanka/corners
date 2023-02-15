@@ -1,4 +1,4 @@
-import type { MutableRefObject } from "react"
+import type { RefObject } from "react"
 import { useState, useLayoutEffect } from "react"
 
 import useResizeObserver from "@react-hook/resize-observer"
@@ -8,9 +8,7 @@ type Scale2d = {
   height: number
 }
 
-export const useSize = (
-  target: MutableRefObject<HTMLElement | null>
-): Scale2d => {
+export const useSize = (target: RefObject<HTMLElement>): Scale2d => {
   const [size, setSize] = useState<Scale2d>({
     width: 0,
     height: 0,
