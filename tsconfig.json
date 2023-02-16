@@ -1,34 +1,21 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "paths": {
-      "~/*": ["*"],
-      "@test/*": ["../test/*"]
+      "~/*": ["./src/*"]
     },
-    "declaration": true,
-    "declarationMap": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "incremental": false,
-    "lib": ["ES2021", "dom"],
+    "lib": ["ES2022", "dom"],
     "module": "CommonJS",
+    "noEmit": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "jsx": "react",
-    "strict": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "ES2019",
-    "types": ["react/next", "react-dom/next", "jest"],
-    "typeRoots": ["node_modules/@types", "types"]
-  },
-  "include": ["src", "test", "example", "jest.config.js", "babel.config.js"]
+    "types": ["react/next", "react-dom/next", "vite/client", "vitest/globals"]
+  }
 }
