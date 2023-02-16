@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react"
-import React, { forwardRef, useEffect, useState } from "react"
+import { forwardRef, useEffect, useState } from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
