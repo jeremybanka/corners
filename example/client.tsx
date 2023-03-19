@@ -1,9 +1,9 @@
-import type { CSSProperties } from "react"
+import type { CSSProperties, ReactNode } from "react"
 import { forwardRef, useEffect, useState } from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
-import { createRoot } from "react-dom"
+import { createRoot } from "react-dom/client"
 
 import type { Layer } from "~/index"
 import { chamfered, rounded, semiChamfered } from "~/index"
@@ -38,32 +38,33 @@ const BoxStyles = css`
 
 const StyledDiv = styled.div(BoxStyles)
 
-const MagicBox = forwardRef<HTMLDivElement, { style?: CSSProperties }>(
-  ({ children, style }, ref) => {
-    const [width, setWidth] = useState(`100%`)
-    useEffect(() => {
-      setWidth(`50%`)
-      const interval = setInterval(() => {
-        setWidth((width) => (width === `100%` ? `50%` : `100%`))
-      }, 2000)
-      return () => clearInterval(interval)
-    }, [])
-    return (
-      <StyledDiv
-        ref={ref}
-        style={{
-          ...style,
-          transitionProperty: `all`,
-          transitionTimingFunction: `ease-in-out`,
-          transitionDuration: `1.8s`,
-          width,
-        }}
-      >
-        {children}
-      </StyledDiv>
-    )
-  }
-)
+const MagicBox = forwardRef<
+  HTMLDivElement,
+  { style?: CSSProperties; children?: ReactNode }
+>(({ children, style }, ref) => {
+  const [width, setWidth] = useState(`100%`)
+  useEffect(() => {
+    setWidth(`50%`)
+    const interval = setInterval(() => {
+      setWidth((width) => (width === `100%` ? `50%` : `100%`))
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [])
+  return (
+    <StyledDiv
+      ref={ref}
+      style={{
+        ...style,
+        transitionProperty: `all`,
+        transitionTimingFunction: `ease-in-out`,
+        transitionDuration: `1.8s`,
+        width,
+      }}
+    >
+      {children}
+    </StyledDiv>
+  )
+})
 MagicBox.displayName = `MagicBox`
 
 const RoundedDiv = styled(rounded.div)(BoxStyles)

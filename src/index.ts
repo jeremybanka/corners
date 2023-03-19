@@ -21,7 +21,6 @@ export const harvest =
   <T extends object>(base: T) =>
   (scraps: Scraps<T>): T[] => {
     if (scraps === null) return []
-    // @ts-expect-error excessive stack depth
     if (Array.isArray(scraps)) return scraps.map((scrap) => patch(base, scrap))
     return [patch(base, scraps)]
   }

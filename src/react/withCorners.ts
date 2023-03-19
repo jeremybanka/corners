@@ -3,6 +3,7 @@ import type {
   CSSProperties,
   FC,
   ForwardRefExoticComponent,
+  ReactNode,
 } from "react"
 import { createElement, useId, useRef } from "react"
 
@@ -15,7 +16,9 @@ import {
   createPathfinder,
 } from "../utils/svg/createPathfinder"
 
-export function withCorners<P extends { style?: CSSProperties }>(
+export function withCorners<
+  P extends { style?: CSSProperties; children?: ReactNode }
+>(
   WrappedComponent: ForwardRefExoticComponent<P> | string,
   options: CornerOptions,
   ...corners: (DrawCorner | null)[]
@@ -57,7 +60,7 @@ export function withCorners<P extends { style?: CSSProperties }>(
           below,
           base: { width, height, cornerSize },
         }),
-      props.children
+      `children` in props ? props.children : null
     )
   }
   return WithCorners
