@@ -1,6 +1,6 @@
+import { writePathPoint } from "./writePathPoint"
 import type { DrawCorner, Point2d } from "../.."
 import { interpolate } from "../interpolate"
-import { writePathPoint } from "./writePathPoint"
 
 type SVGCommand =
   | [`curve`, Point2d, Point2d, Point2d]

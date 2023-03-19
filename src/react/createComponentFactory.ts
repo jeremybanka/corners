@@ -4,8 +4,8 @@ import { DEFAULT_OPTIONS } from "~/constants/empties"
 import type { HTMLTagName } from "~/constants/html"
 import { HTML_TAG_NAMES } from "~/constants/html"
 
-import type { CornerOptions, DrawCorner } from ".."
 import { withCorners } from "./withCorners"
+import type { CornerOptions, DrawCorner } from ".."
 
 export const createComponentFactory = (
   baseOptions: Partial<CornerOptions> = {},
