@@ -11,31 +11,22 @@ defaults:
 
 jobs:
   release:
-    name: release
-    container:
-      image: node:lts
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-        with:
-          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
-          fetch-depth: 0
+        uses: actions/checkout@v3
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: node-modules
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v3
         with:
-          path: node_modules/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        run: |
-          if [ ! -d node_modules ]; then
-            yarn
-          fi
+          node-version: 18.x
+
+      - name: Install Dependencies
+        run: yarn
 
       - name: Create Release Pull Request or Publish to npm
+        id: changesets
         uses: changesets/action@v1
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
@@ -43,7 +34,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Deploy to Github Pages
-        run: |
-          yarn deploy
