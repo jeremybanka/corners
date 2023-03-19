@@ -6,14 +6,14 @@ import type {
 } from "react"
 import { createElement, useId, useRef } from "react"
 
+import { SvgClippingPath } from "./ClippingPath"
+import { SvgLayers } from "./Layers"
+import { useSize } from "./useSize"
 import type { CornerOptions, DrawCorner } from ".."
 import {
   createClipPathfinder,
   createPathfinder,
 } from "../utils/svg/createPathfinder"
-import { SvgClippingPath } from "./ClippingPath"
-import { SvgLayers } from "./Layers"
-import { useSize } from "./useSize"
 
 export function withCorners<P extends { style?: CSSProperties }>(
   WrappedComponent: ForwardRefExoticComponent<P> | string,

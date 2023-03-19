@@ -1,5 +1,5 @@
-import type { CornerOptions, DrawCorner } from ".."
 import { createComponentFactory } from "./createComponentFactory"
+import type { CornerOptions, DrawCorner } from ".."
 
 export interface Corners {
   (...cornerFns: (DrawCorner | null)[]): {

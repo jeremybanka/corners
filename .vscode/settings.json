@@ -11,5 +11,6 @@
     "servedir",
     "shopt",
     "tsup"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
