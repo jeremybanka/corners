@@ -16,6 +16,6 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "ES2019",
-    "types": ["react/next", "react-dom/next", "vite/client", "vitest/globals"]
+    "types": ["vite/client", "vitest/globals"]
   }
 }
