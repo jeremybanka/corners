@@ -16,7 +16,8 @@
     "test:once": "vitest run",
     "lint": "eslint \"{src,test}/**/*.ts{,x}\"",
     "lint:fix": "yarn lint -- --fix",
-    "release": "yarn build && changeset publish"
+    "release": "yarn build && changeset publish",
+    "notes": "changeset"
   },
   "dependencies": {
     "@react-hook/resize-observer": "^1.2.5"
