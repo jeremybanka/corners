@@ -8,7 +8,7 @@ import type {
 import { createElement, useId, useRef } from "react"
 
 import { SvgClippingPath } from "./ClippingPath"
-import { SvgLayers } from "./Layers"
+import { SvgLayers } from "./SvgLayers"
 import { useSize } from "./useSize"
 import type { CornerOptions, DrawCorner } from ".."
 import {
