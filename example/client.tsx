@@ -75,10 +75,12 @@ const LAYER: Record<string, Fragment<Layer>> = {
   SOLID_STROKE: {
     color: `transparent`,
     stroke: { color: `#888`, width: 1 },
+    className: `solid-stroke`,
   },
   DOTTED_STROKE: {
     color: `transparent`,
     stroke: { color: `#555`, width: 2, dashArray: [4, 8] },
+    className: `dotted-stroke`,
   },
 }
 
@@ -90,7 +92,7 @@ const ChamferedDivWithStroke = styled(
   })
 )(BoxStyles)
 
-const ChamferedSpanWithShadow = styled(
+const SemiChamferedSpanWithShadow = styled(
   semiChamfered.span.with({
     cornerSize: 15,
     below: [LAYER.FAINT_SHADOW, LAYER.LIGHT_FILL, LAYER.SOLID_STROKE],
@@ -112,10 +114,16 @@ const root = createRoot(rootElement)
 root.render(
   <Main>
     <StyledDiv style={{ borderRadius: `10px` }}>border-radius</StyledDiv>
-    <RoundedDiv>rounded clip-path</RoundedDiv>
-    <ChamferedDivWithStroke>chamfered clip-path</ChamferedDivWithStroke>
-    <ChamferedSpanWithShadow>chamfered clip-path</ChamferedSpanWithShadow>
-    <RoundedSectionWithShadow>rounded clip-path</RoundedSectionWithShadow>
+    <RoundedDiv>rounded, clip-path</RoundedDiv>
+    <ChamferedDivWithStroke>
+      chamfered, stroke layer below
+    </ChamferedDivWithStroke>
+    <SemiChamferedSpanWithShadow>
+      semi-chamfered, solid stroke with fill & shadow layers below
+    </SemiChamferedSpanWithShadow>
+    <RoundedSectionWithShadow>
+      rounded, dotted stroke with fill layer below
+    </RoundedSectionWithShadow>
     <SemiChamferedBox>semi-chamfered clip-path</SemiChamferedBox>
   </Main>
 )
