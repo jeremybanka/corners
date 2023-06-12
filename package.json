@@ -34,7 +34,7 @@
     "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
     "c8": "7.14.0",
-    "esbuild": "0.18.0",
+    "esbuild": "0.18.1",
     "eslint": "8.42.0",
     "gh-pages": "5.0.0",
     "husky": "8.0.3",
