@@ -6,3 +6,5 @@ dist
 example/build
 
 .env
+.yarn/cache
+
