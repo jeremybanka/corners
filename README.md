@@ -27,7 +27,7 @@
 npm i corners
 ```
 ```shell
-yarn add corners
+pnpm add corners
 ```
 <hr>
 

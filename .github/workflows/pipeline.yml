@@ -23,10 +23,10 @@ jobs:
         - name: Install dependencies
           run: |
             if [ ! -d node_modules ]; then
-              yarn
+              pnpm i
             fi
         - name: Lint
-          run: yarn lint
+          run: pnpm run lint
         - name: Cleanup
           if: ${{ always() }}
           run: |
@@ -48,10 +48,10 @@ jobs:
       - name: Install Dependencies
         run: |
           if [ ! -d node_modules ]; then
-            yarn
+            pnpm i
           fi
       - name: Test
-        run: yarn test:once
+        run: pnpm run test:once
       - name: Cleanup
         if: ${{ always() }}
         run: |
