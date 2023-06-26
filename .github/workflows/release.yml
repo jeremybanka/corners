@@ -14,18 +14,41 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: ⏬️ Check out
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 18.x
+      - name: 💼 Set up pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8.6.0
+          run_install: false
+
+      - name: 📝 Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: ⎔  Install Node LTS
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com
+          cache: "pnpm"
 
-      - name: Install Dependencies
-        run: pnpm i
+      - name: "🎒 Cache the build"
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: 🥡  Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🦋 Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:

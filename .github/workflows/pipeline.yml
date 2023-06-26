@@ -1,6 +1,6 @@
 name: CI
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 defaults:
   run:
@@ -12,48 +12,82 @@ jobs:
       image: node:lts
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v3
-        - name: Cache node modules
-          uses: actions/cache@v3
-          env:
-            cache-name: node-modules
-          with:
-            path: node_modules/
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        - name: Install dependencies
-          run: |
-            if [ ! -d node_modules ]; then
-              pnpm i
-            fi
-        - name: Lint
-          run: pnpm run lint
-        - name: Cleanup
-          if: ${{ always() }}
-          run: |
-            shopt -s dotglob
-            rm -rf *
+      - name: ⏬️ Check out
+        uses: actions/checkout@v3
+
+      - name: 💼 Set up pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8.6.0
+          run_install: false
+
+      - name: 📝 Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: ⎔  Install Node LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com
+          cache: "pnpm"
+
+      - name: "🎒 Cache the build"
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🥡  Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🚨 Lint
+        run: pnpm run lint
+
   test:
     container:
       image: node:lts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Cache node modules
-        uses: actions/cache@v3
-        env:
-          cache-name: node-modules
+      - name: ⏬️ Check out
+        uses: actions/checkout@v3
+
+      - name: 💼 Set up pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
         with:
-          path: node_modules/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      - name: Install Dependencies
+          version: 8.6.0
+          run_install: false
+
+      - name: 📝 Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
         run: |
-          if [ ! -d node_modules ]; then
-            pnpm i
-          fi
-      - name: Test
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: ⎔  Install Node LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com
+          cache: "pnpm"
+
+      - name: "🎒 Cache the build"
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🥡  Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🤖  Test
         run: pnpm run test:once
-      - name: Cleanup
-        if: ${{ always() }}
-        run: |
-          shopt -s dotglob
-          rm -rf *
+
