@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev:codegen": "tsx createCodeblocks.ts watch",
+    "dev:next": "next",
+    "dev": "concurrently --kill-others \"npm run dev:codegen\" \"npm run dev:next\"",
     "build": "tsx createCodeblocks.ts all && next build",
     "start": "next start",
     "lint": "eslint"
@@ -30,6 +32,7 @@
     "@types/react-dom": "18.2.6",
     "@types/react-syntax-highlighter": "15.5.7",
     "chokidar": "3.5.3",
+    "concurrently": "^8.2.0",
     "eslint-config-next": "13.4.7",
     "npmlog": "7.0.1",
     "typescript": "5.1.3"

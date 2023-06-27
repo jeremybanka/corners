@@ -21,10 +21,9 @@ const outputDir = `./wrappedComponents` // The directory to write the new TSX fi
 function wrapCode(code: string) {
   return `import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const Component: React.FC = () => (
-  <SyntaxHighlighter language="tsx" style={solarizedlight}>
+  <SyntaxHighlighter language="tsx">
     {${JSON.stringify(code)}}
   </SyntaxHighlighter>
 );
