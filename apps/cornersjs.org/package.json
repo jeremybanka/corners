@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "tsx createCodeblocks.ts all && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "echo NOT IMPLEMENTED YET"
   },
   "dependencies": {
     "@emotion/css": "11.11.2",
