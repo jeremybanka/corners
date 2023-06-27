@@ -1,10 +1,5 @@
-.idea
-.nyc_output
 coverage
 node_modules
 dist
-example/build
-
 .env
-.yarn/cache
 

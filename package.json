@@ -1,24 +1,39 @@
 {
   "name": "@corners/monorepo",
   "scripts": {
-    "dev": "echo \"No dev script configured\" && exit 1",
-    "build:example": "echo \"No build:example script configured\" && exit 1",
+    "dev": "echo todo",
+    "build:example": "nx run corners:build:example",
     "predeploy": "pnpm run build:example",
     "deploy": "echo \"No deploy script configured\" && exit 1",
-    "build": "echo \"No build script configured\" && exit 1",
-    "test": "echo \"No test script configured\" && exit 1",
-    "test:once": "echo \"No test:once script configured\" && exit 1",
-    "lint": "echo \"No lint script configured\" && exit 1",
-    "lint:fix": "echo \"No lint:fix script configured\" && exit 1",
+    "build": "nx build",
+    "test": "nx affected --parallel=5 --target=test",
+    "test:once": "nx exec -- pnpm run _test:once ",
+    "lint": "nx exec -- pnpm run _lint ",
+    "lint:fix": "nx exec -- pnpm run _lint:fix ",
     "release": "pnpm run build && changeset publish",
     "notes": "changeset"
   },
   "devDependencies": {
     "@changesets/cli": "2.26.1",
-    "nx": "16.4.0"
+    "nx": "16.4.0",
+    "nx-cloud": "latest"
   },
   "homepage": "https://github.com/jeremybanka/corners#readme",
   "bugs": {
     "url": "https://github.com/jeremybanka/corners/issues"
+  },
+  "nx": {
+    "targets": {
+      "build:example": {
+        "outputs": [
+          "{projectRoot}/./packages/corners/example/web"
+        ]
+      },
+      "build": {
+        "outputs": [
+          "{projectRoot}/./packages/corners/dist"
+        ]
+      }
+    }
   }
 }
