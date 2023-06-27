@@ -5,16 +5,18 @@
     "build:example": "nx run corners:build:example",
     "predeploy": "pnpm run build:example",
     "deploy": "echo \"No deploy script configured\" && exit 1",
-    "build": "nx build",
-    "test": "nx affected --parallel=5 --target=test",
     "test:once": "nx exec -- pnpm run _test:once ",
-    "lint": "nx exec -- pnpm run _lint ",
-    "lint:fix": "nx exec -- pnpm run _lint:fix ",
-    "release": "pnpm run build && changeset publish",
+    "lint": "turbo run lint",
+    "format": "eslint --fix",
+    "build": "turbo run build",
+    "test": "cross-env CI=true turbo run test:once",
+    "release": "pnpm build && changeset publish",
     "notes": "changeset"
   },
   "devDependencies": {
-    "@changesets/cli": "2.26.1"
+    "@changesets/cli": "2.26.1",
+    "cross-env": "7.0.3",
+    "turbo": "1.10.6"
   },
   "homepage": "https://github.com/jeremybanka/corners#readme",
   "bugs": {

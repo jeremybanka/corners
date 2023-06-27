@@ -16,7 +16,7 @@
     "lint:fix": "pnpm run lint -- --fix"
   },
   "dependencies": {
-    "@react-hook/resize-observer": "^1.2.5"
+    "@react-hook/resize-observer": "1.2.6"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
