@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
+    "@mdx-js/loader": "2.3.0",
+    "@mdx-js/react": "2.3.0",
+    "@next/mdx": "13.4.7",
     "corners": "workspace:^",
     "framer-motion": "10.12.17",
     "next": "13.4.7",
