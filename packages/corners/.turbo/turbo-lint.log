@@ -1,4 +1,4 @@
 
 > corners@0.0.14 lint /Users/jem/dojo/react/corners/packages/corners
-> eslint "{src,test}/**/*.ts{,x}"
+> eslint
 
