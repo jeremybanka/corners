@@ -1,4 +1,0 @@
-
-> corners@0.0.14 lint /Users/pbanka/play/corners/packages/corners
-> eslint "{src,test}/**/*.ts{,x}"
-
