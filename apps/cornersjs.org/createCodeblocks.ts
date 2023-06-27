@@ -4,6 +4,16 @@ import path from "path"
 import chokidar from "chokidar"
 import npmlog from "npmlog"
 
+const myArgs = process.argv.slice(2)
+const lastArgument = myArgs[myArgs.length - 1]
+if (lastArgument == null) {
+  npmlog.error(
+    `createCodeblocks`,
+    `No arguments provided: specify 'watch' or 'all'`
+  )
+  process.exit(1)
+}
+
 const inputDir = `./src/components` // The directory containing the original TSX files
 const outputDir = `./src/wrappedComponents` // The directory to write the new TSX files to
 
@@ -23,8 +33,6 @@ export default Component;
 `
 }
 
-npmlog.info(`createCodeblocks`, `Watching ${inputDir} for changes...`)
-
 // Function to handle a file being added or changed
 function handleFile(filePath: string) {
   npmlog.info(`createCodeblocks`, `Handling file ${filePath}`)
@@ -35,15 +43,38 @@ function handleFile(filePath: string) {
   fs.writeFileSync(outputFilePath, wrappedCode)
 }
 
-// Create the watcher
-const watcher = chokidar.watch(inputDir, { persistent: true })
+if (lastArgument === `watch`) {
+  npmlog.info(`createCodeblocks`, `Watching ${inputDir} for changes...`)
+  const watcher = chokidar.watch(inputDir, { persistent: true })
 
-// Handle the "add" and "change" events
-watcher.on(`add`, (filePath) => {
-  npmlog.info(`ADD`, `Handling add event for ${filePath}`)
-  handleFile(filePath)
-})
-watcher.on(`change`, (filePath) => {
-  npmlog.info(`CHANGE`, `Handling add event for ${filePath}`)
-  handleFile(filePath)
-})
+  watcher.on(`add`, (filePath) => {
+    npmlog.info(`ADD`, `Handling add event for ${filePath}`)
+    handleFile(filePath)
+  })
+  watcher.on(`change`, (filePath) => {
+    npmlog.info(`CHANGE`, `Handling add event for ${filePath}`)
+    handleFile(filePath)
+  })
+} else {
+  npmlog.info(`createCodeblocks`, `Processing all files in ${inputDir}...`)
+  fs.readdir(inputDir, (err, files) => {
+    if (err) {
+      return console.log(`Unable to scan directory: ` + err)
+    }
+
+    files.forEach((file) => {
+      const filePath = path.join(inputDir, file)
+
+      // Check if the path is a file
+      fs.stat(filePath, (err, stats) => {
+        if (err) {
+          return console.log(`Unable to retrieve file stats: ${err}`)
+        }
+
+        if (stats.isFile()) {
+          handleFile(filePath)
+        }
+      })
+    })
+  })
+}

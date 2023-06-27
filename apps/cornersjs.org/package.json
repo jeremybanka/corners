@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "tsx createCodeblocks.ts all && next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -27,8 +27,10 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@types/node": "20.3.2",
+    "@types/npmlog": "^4.1.4",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
+    "@types/react-syntax-highlighter": "^15.5.7",
     "chokidar": "3.5.3",
     "eslint-config-next": "13.4.7",
     "npmlog": "^7.0.1",
