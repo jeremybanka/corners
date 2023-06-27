@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "paths": {
-      "~/*": ["./src/*"]
-    },
     "lib": ["ES2022", "dom"],
     "module": "CommonJS",
     "noEmit": true,

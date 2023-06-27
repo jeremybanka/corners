@@ -1,0 +1,50 @@
+{
+  "name": "corners",
+  "version": "0.0.14",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "esbuild example/client.tsx --outfile=example/web/client.js --servedir=example/web --serve=6144 --bundle --minify --sourcemap",
+    "build:example": "esbuild example/client.tsx --outfile=example/web/client.js --bundle --minify --sourcemap",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest",
+    "test:once": "vitest run",
+    "lint": "eslint \"{src,test}/**/*.ts{,x}\"",
+    "lint:fix": "pnpm run lint -- --fix"
+  },
+  "dependencies": {
+    "@react-hook/resize-observer": "^1.2.5"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@banka/eslint-config-react": "1.4.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "c8": "8.0.0",
+    "esbuild": "0.18.10",
+    "eslint": "8.43.0",
+    "gh-pages": "5.0.0",
+    "jsdom": "22.1.0",
+    "prettier": "2.8.8",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tsconfig-paths": "4.2.0",
+    "tsup": "7.1.0",
+    "typescript": "5.1.3",
+    "vite-tsconfig-paths": "4.2.0",
+    "vitest": "0.32.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@banka/react"
+    ]
+  }
+}
