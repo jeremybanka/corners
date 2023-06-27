@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "esbuild example/client.tsx --outfile=example/web/client.js --servedir=example/web --serve=6144 --bundle --minify --sourcemap",
     "build:example": "esbuild example/client.tsx --outfile=example/web/client.js --bundle --minify --sourcemap",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build:package": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "pnpm run build:package && pnpm run build:example",
     "test": "vitest",
     "test:once": "vitest run",
     "lint": "eslint \"{src,test}/**/*.ts{,x}\"",
