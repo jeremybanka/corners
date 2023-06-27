@@ -1,6 +1,6 @@
-import { css } from "@emotion/react"
 import { chamfered } from "corners"
 
+/*
 const BoxStyles = css`
   box-sizing: border-box;
   width: 100%;
@@ -13,15 +13,12 @@ const BoxStyles = css`
   align-items: center;
   padding: 30px;
 `
+*/
 const ChamferedDivWithStroke = chamfered.div.with({
   cornerSize: 10,
 })
 
 // eslint-disable-next-line
 export default function Foo(): React.ReactNode {
-  return (
-    <ChamferedDivWithStroke css={BoxStyles}>
-      Now is the time
-    </ChamferedDivWithStroke>
-  )
+  return <ChamferedDivWithStroke>Now is the time</ChamferedDivWithStroke>
 }

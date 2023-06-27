@@ -23,6 +23,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  compiler: {
+    emotion: true
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
