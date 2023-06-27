@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/react": "11.10.4",
+    "@emotion/styled": "11.10.4",
+    "@mdx-js/loader": "2.3.0",
+    "@mdx-js/react": "2.3.0",
+    "@next/mdx": "13.4.7",
+    "corners": "workspace:^",
+    "framer-motion": "10.12.17",
+    "next": "13.4.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "11.11.0",
+    "@types/node": "20.3.2",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "chokidar": "3.5.3",
+    "eslint-config-next": "13.4.7",
+    "npmlog": "7.0.1",
+    "typescript": "5.1.3"
+  }
+}

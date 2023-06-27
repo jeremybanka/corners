@@ -6,6 +6,7 @@
     "demi",
     "dotglob",
     "esbuild",
+    "npmlog",
     "outfile",
     "predeploy",
     "servedir",
