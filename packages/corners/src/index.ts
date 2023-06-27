@@ -38,7 +38,7 @@ export type Layer = {
     dashArray: number[]
     width: number
   } | null
-  className: string
+  className?: string
   // blendMode: CSSProperties[`mixBlendMode`]
 }
 
