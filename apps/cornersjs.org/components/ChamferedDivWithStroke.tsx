@@ -15,14 +15,14 @@ const BoxStyles = css`
 `
 
 const ChamferedDivWithStroke = chamfered.div.with({
-  cornerSize: 10,
+  cornerSize: 20,
 })
 
 // eslint-disable-next-line
-export default function Foo(): React.ReactNode {
+export default function DivFactory(props: any): React.ReactNode {
   return (
     <ChamferedDivWithStroke css={BoxStyles}>
-      Now is the time
+      {props.children}
     </ChamferedDivWithStroke>
   )
 }
