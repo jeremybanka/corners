@@ -112,11 +112,11 @@ importers:
   apps/cornersjs.org_:
     dependencies:
       '@emotion/react':
-        specifier: 11.10.4
-        version: 11.10.4(@types/react@18.2.14)(react@18.2.0)
+        specifier: 11.11.1
+        version: 11.11.1(@types/react@18.2.14)(react@18.2.0)
       '@emotion/styled':
-        specifier: 11.10.4
-        version: 11.10.4(@emotion/react@11.10.4)(@types/react@18.2.14)(react@18.2.0)
+        specifier: 11.11.0
+        version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.14)(react@18.2.0)
       '@mdx-js/loader':
         specifier: 2.3.0
         version: 2.3.0(webpack@5.88.0)
@@ -145,7 +145,7 @@ importers:
         specifier: ^8.0.7
         version: 8.0.7(@types/react@18.2.14)(react@18.2.0)
       react-syntax-highlighter:
-        specifier: ^15.5.0
+        specifier: 15.5.0
         version: 15.5.0(react@18.2.0)
     devDependencies:
       '@emotion/babel-plugin':
@@ -154,12 +154,18 @@ importers:
       '@types/node':
         specifier: 20.3.2
         version: 20.3.2
+      '@types/npmlog':
+        specifier: 4.1.4
+        version: 4.1.4
       '@types/react':
         specifier: 18.2.14
         version: 18.2.14
       '@types/react-dom':
         specifier: 18.2.6
         version: 18.2.6
+      '@types/react-syntax-highlighter':
+        specifier: 15.5.7
+        version: 15.5.7
       chokidar:
         specifier: 3.5.3
         version: 3.5.3
@@ -536,30 +542,6 @@ packages:
   /@emotion/memoize@0.8.1:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
 
-  /@emotion/react@11.10.4(@types/react@18.2.14)(react@18.2.0):
-    resolution: {integrity: sha512-j0AkMpr6BL8gldJZ6XQsQ8DnS9TxEQu1R+OGmDZiWjBAJtCcbt0tS3I/YffoqHXxH6MjgI7KdMbYKw3MEiU9eA==}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-      '@types/react': '*'
-      react: '>=16.8.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/react':
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.22.5
-      '@emotion/babel-plugin': 11.11.0
-      '@emotion/cache': 11.11.0
-      '@emotion/serialize': 1.1.2
-      '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
-      '@emotion/utils': 1.2.1
-      '@emotion/weak-memoize': 0.3.1
-      '@types/react': 18.2.14
-      hoist-non-react-statics: 3.3.2
-      react: 18.2.0
-    dev: false
-
   /@emotion/react@11.11.1(@types/react@18.2.14)(react@18.2.0):
     resolution: {integrity: sha512-5mlW1DquU5HaxjLkfkGN1GA/fvVGdyHURRiX/0FHl2cfIfRxSOfmxEH5YS43edp0OldZrZ+dkBKbngxcNCdZvA==}
     peerDependencies:
@@ -607,30 +589,6 @@ packages:
 
   /@emotion/sheet@1.2.2:
     resolution: {integrity: sha512-0QBtGvaqtWi+nx6doRwDdBIzhNdZrXUppvTM4dtZZWEGTXL/XE/yJxLMGlDT1Gt+UHH5IX1n+jkXyytE/av7OA==}
-    dev: false
-
-  /@emotion/styled@11.10.4(@emotion/react@11.10.4)(@types/react@18.2.14)(react@18.2.0):
-    resolution: {integrity: sha512-pRl4R8Ez3UXvOPfc2bzIoV8u9P97UedgHS4FPX594ntwEuAMA114wlaHvOK24HB48uqfXiGlYIZYCxVJ1R1ttQ==}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-      '@emotion/react': ^11.0.0-rc.0
-      '@types/react': '*'
-      react: '>=16.8.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/react':
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.22.5
-      '@emotion/babel-plugin': 11.11.0
-      '@emotion/is-prop-valid': 1.2.1
-      '@emotion/react': 11.10.4(@types/react@18.2.14)(react@18.2.0)
-      '@emotion/serialize': 1.1.2
-      '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
-      '@emotion/utils': 1.2.1
-      '@types/react': 18.2.14
-      react: 18.2.0
     dev: false
 
   /@emotion/styled@11.11.0(@emotion/react@11.11.1)(@types/react@18.2.14)(react@18.2.0):
