@@ -14,7 +14,8 @@
     "notes": "changeset"
   },
   "devDependencies": {
-    "@changesets/cli": "2.26.1"
+    "@changesets/cli": "2.26.1",
+    "nx": "16.4.0"
   },
   "homepage": "https://github.com/jeremybanka/corners#readme",
   "bugs": {
