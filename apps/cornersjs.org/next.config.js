@@ -1,5 +1,3 @@
-/** @type {import('next').NextConfig} */
-
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withMDX = require(`@next/mdx`)({
   extension: /\.mdx?$/,
@@ -16,18 +14,16 @@ const withMDX = require(`@next/mdx`)({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure pageExtensions to include md and mdx
   pageExtensions: [`ts`, `tsx`, `js`, `jsx`, `md`, `mdx`],
-  // Optionally, add any other Next.js config below
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
   compiler: {
-    emotion: true
-  },
-  typescript: {
-    ignoreBuildErrors: true,
+    emotion: true,
   },
 }
 

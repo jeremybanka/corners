@@ -14,17 +14,16 @@ if (lastArgument == null) {
   process.exit(1)
 }
 
-const inputDir = `./src/components` // The directory containing the original TSX files
-const outputDir = `./src/wrappedComponents` // The directory to write the new TSX files to
+const inputDir = `./components` // The directory containing the original TSX files
+const outputDir = `./wrappedComponents` // The directory to write the new TSX files to
 
 // Function to wrap the TSX code in a function component
 function wrapCode(code: string) {
   return `import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const Component: React.FC = () => (
-  <SyntaxHighlighter language="tsx" style={solarizedlight}>
+  <SyntaxHighlighter language="tsx">
     {${JSON.stringify(code)}}
   </SyntaxHighlighter>
 );
