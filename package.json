@@ -2,14 +2,12 @@
   "name": "@corners/monorepo",
   "scripts": {
     "dev": "echo todo",
-    "build:example": "nx run corners:build:example",
     "predeploy": "pnpm run build:example",
     "deploy": "echo \"No deploy script configured\" && exit 1",
-    "test:once": "nx exec -- pnpm run _test:once ",
+    "test": "cross-env CI=true turbo run test:once",
     "lint": "turbo run lint",
     "format": "eslint --fix",
     "build": "turbo run build",
-    "test": "cross-env CI=true turbo run test:once",
     "release": "pnpm build && changeset publish",
     "notes": "changeset"
   },
