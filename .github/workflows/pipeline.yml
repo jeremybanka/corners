@@ -97,4 +97,4 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: 🤖  Test
-        run: pnpm run test:once
+        run: pnpm run test
