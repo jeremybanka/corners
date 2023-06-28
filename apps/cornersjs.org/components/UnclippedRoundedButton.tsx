@@ -17,7 +17,7 @@ export default function UnclippedRoundedButton(): React.ReactNode {
 
   const AdvancedButton = rounded.button.with({
     cornerSize: 30,
-    noClipping: true,
+    useClipPath: false,
     above: { color: `transparent`, stroke: { color: `green`, width: 10 } },
     below: { color: `#e3e3e3` },
   })

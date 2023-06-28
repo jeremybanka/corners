@@ -17,7 +17,7 @@ export default function IncorrectUnclippedRoundedButton(): React.ReactNode {
 
   const RoundedButton = rounded.button.with({
     cornerSize: 30,
-    noClipping: true,
+    useClipPath: false,
     above: { color: `transparent`, stroke: { color: `green`, width: 10 } },
   })
 

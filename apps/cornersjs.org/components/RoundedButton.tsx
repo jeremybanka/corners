@@ -12,18 +12,17 @@ const ButtonStyles = css`
   padding: 10px;
 `
 
-export default function SemiChamferedButton(): React.ReactNode {
+export default function RoundedButton(): React.ReactNode {
   const [clicked, setClicked] = useState(false)
 
-  const ChamferedButton = rounded.button.with({
+  const RoundedButton = rounded.button.with({
     cornerSize: 30,
-    noClipping: true,
-    above: { color: `transparent`, stroke: { color: `green`, width: 1 } },
+    above: { stroke: { color: `green`, width: 1 } },
   })
 
   return (
-    <ChamferedButton onClick={() => setClicked(true)} css={ButtonStyles}>
+    <RoundedButton onClick={() => setClicked(true)} css={ButtonStyles}>
       {clicked ? `CLICKED` : `Click me!`}
-    </ChamferedButton>
+    </RoundedButton>
   )
 }
