@@ -1,7 +1,11 @@
-import { css } from "@emotion/react"
+import Emotion from "@emotion/styled"
 import { chamfered } from "corners"
 
-const BoxStyles = css`
+const styled = {
+  chamferedDiv: Emotion(chamfered.div.with({ cornerSize: 30 })),
+}
+
+export default styled.chamferedDiv`
   box-sizing: border-box;
   width: 100%;
   color: red;
@@ -13,16 +17,3 @@ const BoxStyles = css`
   align-items: center;
   padding: 30px;
 `
-
-const ChamferedDivWithStroke = chamfered.div.with({
-  cornerSize: 20,
-})
-
-// eslint-disable-next-line
-export default function DivFactory(props: any): React.ReactNode {
-  return (
-    <ChamferedDivWithStroke css={BoxStyles}>
-      {props.children}
-    </ChamferedDivWithStroke>
-  )
-}
