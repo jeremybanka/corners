@@ -22,14 +22,9 @@ const App = <P extends JSX.IntrinsicAttributes>({
 }): React.ReactNode => (
   <CacheProvider value={cache}>
     {globalStyles}
-    <Component
-      {...pageProps}
-      className={
-        `className` in pageProps
-          ? `${pageProps.className} ${myFont.className}`
-          : myFont.className
-      }
-    />
+    <article className={myFont.className}>
+      <Component {...pageProps} />
+    </article>
   </CacheProvider>
 )
 

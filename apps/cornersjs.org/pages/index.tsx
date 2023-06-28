@@ -2,6 +2,8 @@ import { css } from "@emotion/react"
 import { rounded } from "corners"
 import Link from "next/link"
 
+/// <reference types="@emotion/react/types/css-prop" />
+
 const ButtonStyles = css`
   width: 100%;
   border: none;
@@ -32,7 +34,6 @@ function RoundedButton(): React.ReactNode {
     </Link>
   )
 }
-/// <reference types="@emotion/react/types/css-prop" />
 
 const Home: React.FC = () => (
   <div
@@ -41,7 +42,7 @@ const Home: React.FC = () => (
       flex-direction: column;
     `}
   >
-    <bubble.link href={`/docs/presets`} />
+    <bubble.link href={`/docs/presets`}>Get Started!</bubble.link>
 
     <header>
       <h1>Home</h1>
