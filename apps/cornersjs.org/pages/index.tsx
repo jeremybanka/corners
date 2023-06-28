@@ -9,11 +9,36 @@ const styled = {
   roundedLink: Emotion(
     rounded(Link, {
       cornerSize: 15,
-      useClipPath: false,
       above: {
         color: `transparent`,
         stroke: { color: `var(--fg-color)`, width: 1 },
       },
+    })
+  ),
+  neoLink: Emotion(
+    rounded(Link, {
+      cornerSize: 10,
+      useClipPath: false,
+      below: [
+        {
+          className: `shadow`,
+          color: `#0004`,
+          blur: 5,
+          spread: -15,
+          offset: { x: -15, y: -15 },
+        },
+        {
+          className: `highlight`,
+          color: `#fff`,
+          blur: 5,
+          spread: -20,
+          offset: { x: 15, y: 15 },
+        },
+        {
+          className: `surface`,
+          color: `var(--bg-color)`,
+        },
+      ],
     })
   ),
   chamferedMain: Emotion(
@@ -33,10 +58,10 @@ const styled = {
       below: [
         {
           className: `shadow`,
-          color: `#0009`,
-          blur: 2,
-          spread: 1,
-          offset: { x: 0, y: -1 },
+          color: `#0004`,
+          blur: 0.3,
+          spread: 0.6,
+          offset: { x: 0, y: -0.3 },
         },
         {
           className: `paper`,
@@ -96,6 +121,21 @@ const softCard = {
   `,
 }
 
+const neo = {
+  link: styled.neoLink`
+    border: none;
+    padding: 10px 15px 8px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
+    &[aria-disabled="true"] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  `,
+}
+
 const Home: React.FC = () => (
   <div
     css={css`
@@ -129,11 +169,20 @@ const Home: React.FC = () => (
         gap: 20px;
         h1 {
           font-size: 60px;
+          line-height: 54px;
           text-align: center;
+          --fg-color: #eae9e9;
+          @media (prefers-color-scheme: light) {
+            --fg-color: #3a3939;
+          }
         }
         article {
           width: 100%;
           height: 50%;
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
         }
       }
     `}
@@ -155,7 +204,7 @@ const Home: React.FC = () => (
       </nav>
     </header>
     <visor.main>
-      <h1>Cut corners with style</h1>
+      <h1>Cut corners \n with style</h1>
       <softCard.article>hello</softCard.article>
       <bubble.link href={`/docs/presets`}>Get Started!</bubble.link>
     </visor.main>

@@ -7,6 +7,7 @@ export const globalStyles = (
         box-sizing: border-box;
         padding: 0;
         margin: 0;
+        color: var(--fg-color);
       }
       :root {
         color-scheme: light dark;
@@ -15,8 +16,8 @@ export const globalStyles = (
         --hyperlink-color: #09f;
         --hyperlink-hover-color: #0df;
         --hyperlink-visited-color: #99f;
+
         background: var(--bg-color);
-        color: var(--fg-color);
         min-height: 100vh;
         font-family: Manufab, Helvetica, Arial, sans-serif;
         font-size: 21px;
@@ -39,7 +40,7 @@ export const globalStyles = (
       @media (prefers-color-scheme: light) {
         :root {
           --fg-color: #333;
-          --bg-color: #fff;
+          --bg-color: #faf9f9;
           --hyperlink-color: #08f;
           --hyperlink-hover-color: #04f;
           --hyperlink-visited-color: #99f;
