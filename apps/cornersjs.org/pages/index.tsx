@@ -2,16 +2,6 @@ import { css } from "@emotion/react"
 import { rounded } from "corners"
 import Link from "next/link"
 
-import {
-  Animated,
-  Basic,
-  bounce,
-  Combined,
-  Pink,
-  BasicExtended,
-  ComponentSelectorsExtended,
-} from "../shared/styles"
-
 const ButtonStyles = css`
   width: 100%;
   border: none;
@@ -21,6 +11,13 @@ const ButtonStyles = css`
   padding: 10px;
   cursor: pointer;
 `
+const bubble = {
+  link: rounded(Link, {
+    cornerSize: 30,
+    useClipPath: true,
+    above: { color: `transparent`, stroke: { color: `green`, width: 1 } },
+  }),
+}
 
 function RoundedButton(): React.ReactNode {
   const RoundedButton = rounded.button.with({
@@ -35,24 +32,23 @@ function RoundedButton(): React.ReactNode {
     </Link>
   )
 }
+/// <reference types="@emotion/react/types/css-prop" />
 
-const Home = () => (
+const Home: React.FC = () => (
   <div
     css={css`
       display: flex;
       flex-direction: column;
     `}
   >
-    <RoundedButton />
-    <Basic>Cool Styles</Basic>
-    <Pink>Pink text</Pink>
-    <Combined>
-      With <code>:hover</code>.
-    </Combined>
-    <Animated animation={bounce}>Let's bounce.</Animated>
-    <ComponentSelectorsExtended>
-      <BasicExtended>Nested</BasicExtended>
-    </ComponentSelectorsExtended>
+    <bubble.link href={`/docs/presets`} />
+
+    <header>
+      <h1>Home</h1>
+    </header>
+    <main>
+      <p>Home page content</p>
+    </main>
   </div>
 )
 

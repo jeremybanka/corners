@@ -1,11 +1,17 @@
-import createCache from '@emotion/cache'
-import { CacheProvider } from '@emotion/react'
+import createCache from "@emotion/cache"
+import { CacheProvider } from "@emotion/react"
 
-import { globalStyles } from '../shared/styles'
+import { globalStyles } from "../shared/styles"
 
-const cache = createCache({ key: 'next' })
+const cache = createCache({ key: `next` })
 
-const App = ({ Component, pageProps }) => (
+const App = <P extends JSX.IntrinsicAttributes>({
+  Component,
+  pageProps,
+}: {
+  Component: React.ComponentType<P>
+  pageProps: P
+}): React.ReactNode => (
   <CacheProvider value={cache}>
     {globalStyles}
     <Component {...pageProps} />

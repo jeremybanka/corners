@@ -1,83 +1,47 @@
-import { css, Global, keyframes, Keyframes } from '@emotion/react'
-import styled from '@emotion/styled'
+import { css, Global } from "@emotion/react"
 
 export const globalStyles = (
   <Global
     styles={css`
-      html,
-      body {
-        padding: 3rem 1rem;
+      * {
+        box-sizing: border-box;
+        padding: 0;
         margin: 0;
-        background: papayawhip;
+      }
+      :root {
+        color-scheme: light dark;
+        --fg-color: #fff;
+        --bg-color: #070707;
+        background: var(--bg-color);
+        color: var(--fg-color);
         min-height: 100%;
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 24px;
+        font-family: Manufab, Helvetica, Arial, sans-serif;
+        font-size: 21px;
+      }
+      a {
+        font-weight: 500;
+        color: #09f;
+        text-decoration: inherit;
+        &:hover {
+          color: #0df;
+          text-decoration: underline;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          /* --fg-color: #333;
+          --bg-color: #fff; */
+          color: var(--fg-color);
+          background-color: var(--bg-color);
+        }
+        a:hover {
+          color: #08f;
+        }
+        button {
+          background-color: #f9f9f9;
+        }
       }
     `}
   />
 )
-
-export const basicStyles = css({
-  backgroundColor: 'white',
-  color: 'cornflowerblue',
-  border: '1px solid lightgreen',
-  borderRight: 'none',
-  borderBottom: 'none',
-  boxShadow: '5px 5px 0 0 lightgreen, 10px 10px 0 0 lightyellow',
-  transition: 'all 0.1s linear',
-  margin: '3rem 0',
-  padding: '1rem 0.5rem',
-})
-
-export const hoverStyles = css`
-  &:hover {
-    color: white;
-    background-color: lightgray;
-    border-color: aqua;
-    box-shadow: -15px -15px 0 0 aqua, -30px -30px 0 0 cornflowerblue;
-  }
-`
-export const bounce = keyframes`
-  from {
-    transform: scale(1.01);
-  }
-  to {
-    transform: scale(0.99);
-  }
-`
-
-export const Basic = styled.div`
-  ${basicStyles};
-`
-
-export const Combined = styled.div`
-  ${basicStyles};
-  ${hoverStyles};
-  & code {
-    background-color: linen;
-  }
-`
-
-export const Pink = styled(Basic)({
-  color: 'hotpink',
-})
-
-export const BasicExtended = styled(Basic, {
-  shouldForwardProp: (propertyName: string) => !propertyName.startsWith('$'),
-})``
-
-export const ComponentSelectorsExtended = styled.div`
-  ${BasicExtended} {
-    color: green;
-  }
-  box-shadow: -5px -5px 0 0 green;
-`
-
-export const Animated = styled.div<{ animation: Keyframes }>`
-  ${basicStyles};
-  ${hoverStyles};
-  & code {
-    background-color: linen;
-  }
-  animation: ${({ animation }) => animation} 0.2s infinite ease-in-out alternate;
-`
