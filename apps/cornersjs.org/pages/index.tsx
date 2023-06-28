@@ -9,7 +9,7 @@ const styled = {
   roundedLink: Emotion(
     rounded(Link, {
       cornerSize: 15,
-      useClipPath: true,
+      useClipPath: false,
       above: {
         color: `transparent`,
         stroke: { color: `var(--fg-color)`, width: 1 },
@@ -75,6 +75,10 @@ const bubble = {
     &:hover {
       text-decoration: none;
     }
+    &[aria-disabled="true"] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   `,
 }
 
@@ -110,6 +114,7 @@ const Home: React.FC = () => (
             gap: 10px;
             li {
               list-style: none;
+              display: flex;
             }
           }
         }
@@ -138,10 +143,12 @@ const Home: React.FC = () => (
       <nav>
         <ul>
           <li>
-            <Link href={`/docs/presets`}>Docs</Link>
+            <bubble.link href={`/docs/presets`}>Docs</bubble.link>
           </li>
           <li>
-            <Link href={`/blog`}>Blog</Link>
+            <bubble.link href={`/blog`} aria-disabled={true}>
+              Blog
+            </bubble.link>
           </li>
         </ul>
         {/* <inlaid.searchBar placeholder="Search..." /> */}
