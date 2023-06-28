@@ -1,5 +1,13 @@
 # notes
 
+- FIRST example needs to be done defferently in code
+- side-by side rounded corners and squorcle
+- 
+
+
+
+
+
 - [ ] Initial work
   - [x] remove husky/lint-staged
   - [x] convert to pnpm / clean out yarn package-cache
