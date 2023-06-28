@@ -66,6 +66,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
           margin-top: 10px;
         }
         pre {
+          font-size: 16px !important;
           background-color: #222 !important;
           * {
             color: #ddd;
