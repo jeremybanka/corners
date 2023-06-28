@@ -23,9 +23,11 @@ function wrapCode(code: string) {
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 const Component: React.FC = () => (
+  <span className="codeblock">
   <SyntaxHighlighter language="tsx">
     {${JSON.stringify(code)}}
   </SyntaxHighlighter>
+  </span>
 );
 
 export default Component;

@@ -1,17 +1,11 @@
 import createCache from "@emotion/cache"
-import { CacheProvider } from "@emotion/react"
+import { CacheProvider, css } from "@emotion/react"
 import localFont from "next/font/local"
 
+import { bubble, logo } from "../shared/containers"
 import { globalStyles } from "../shared/styles"
 
 const cache = createCache({ key: `next` })
-
-const myFont = localFont({
-  /* eslint-disable-next-line quotes */
-  src: "./ManufabVF.ttf",
-  /* eslint-disable-next-line quotes */
-  display: "swap",
-})
 
 const App = <P extends JSX.IntrinsicAttributes>({
   Component,
@@ -22,7 +16,81 @@ const App = <P extends JSX.IntrinsicAttributes>({
 }): React.ReactNode => (
   <CacheProvider value={cache}>
     {globalStyles}
-    <article className={myFont.className}>
+    <article
+      // className={`${Manufab.className} ${Theia.className}`}
+      css={css`
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 10px;
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 15px;
+          nav {
+            ul {
+              display: flex;
+              gap: 10px;
+              li {
+                list-style: none;
+                display: flex;
+              }
+            }
+          }
+        }
+        // docs
+        > *:not(header):not(main) {
+          width: 100%;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        p {
+          font-size: 21px;
+          line-height: 1.33;
+        }
+        p + p {
+          text-indent: 1em;
+        }
+        h1 {
+          font-size: 90px;
+          padding-top: 30px;
+        }
+        h2 {
+          font-size: 36px;
+          padding-top: 30px;
+          padding-bottom: 10px;
+        }
+        > *:not(pre, p, h1, h2, h3) {
+          margin-top: 10px;
+        }
+        pre {
+          background-color: #222 !important;
+          * {
+            color: #ddd;
+            text-shadow: none !important;
+            background: none !important;
+          }
+        }
+      `}
+    >
+      <header>
+        <logo.span>corners</logo.span>
+        <nav>
+          <ul>
+            <li>
+              <bubble.link href={`/docs/presets`}>Docs</bubble.link>
+            </li>
+            <li>
+              <bubble.link href={`/blog`} aria-disabled={true}>
+                Blog
+              </bubble.link>
+            </li>
+          </ul>
+          {/* <inlaid.searchBar placeholder="Search..." /> */}
+        </nav>
+      </header>
       <Component {...pageProps} />
     </article>
   </CacheProvider>

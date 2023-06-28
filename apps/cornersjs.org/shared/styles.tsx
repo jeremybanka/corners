@@ -3,6 +3,15 @@ import { css, Global } from "@emotion/react"
 export const globalStyles = (
   <Global
     styles={css`
+      @font-face {
+        font-family: Manufab;
+        src: url("/ManufabVF.ttf") format("truetype-variations");
+      }
+      @font-face {
+        font-family: Theia;
+        font-weight: 500;
+        src: url("/Theia0.2.500-500.otf") format("opentype");
+      }
       * {
         box-sizing: border-box;
         padding: 0;
@@ -36,6 +45,10 @@ export const globalStyles = (
         &:visited {
           --fg-color: var(--hyperlink-visited-color);
         }
+      }
+      code {
+        font-family: Theia, monospace !important;
+        background: #7777;
       }
 
       @media (prefers-color-scheme: light) {
