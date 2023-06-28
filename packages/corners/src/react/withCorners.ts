@@ -45,7 +45,6 @@ export function withCorners<
           zIndex: 0,
           ...props.style,
           clipPath: clipPathfinder ? `url(#${pathId})` : undefined,
-          background: useClipPath ? props.style?.background : undefined,
         },
       },
       clipPathfinder &&
