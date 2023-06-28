@@ -3,7 +3,7 @@ import { straight } from "../preset/corners"
 import { createPathfinder } from "../utils/svg/createPathfinder"
 
 export const DEFAULT_LAYER: Layer = {
-  color: `black`,
+  color: `transparent`,
   blur: 0,
   spread: 0,
   offset: { x: 0, y: 0 },
