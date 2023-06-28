@@ -1,0 +1,30 @@
+import IncorrectUnclippedRoundedButtonCode from "../../wrappedComponents/IncorrectUnclippedRoundedButton"
+import UnclippedRoundedButtonCode from "../../wrappedComponents/UnclippedRoundedButton"
+
+import IncorrectUnclippedRoundedButton from "../../components/IncorrectUnclippedRoundedButton"
+import UnclippedRoundedButton from "../../components/UnclippedRoundedButton"
+import ReactMarkdown from "react-markdown"
+
+[comment]: <> (This is step 3)
+
+## clipping
+
+The way `corners` works, by default, is to "clip" or "mask" the DOM element that you provide it, but as you become more advanced with using `corners`, you will likely decide that these training-wheels are getting in your way. You can create very advanced shapes with corners, if you really use it to its fullest extent!
+
+Let's start by turning off clipping. We'll do this by providing the property `useClipPath: false` to `corners` when we instantiate it, as follows:
+
+<IncorrectUnclippedRoundedButton />
+<IncorrectUnclippedRoundedButtonCode />
+
+As you can see, the background color of the button "leaks" out of the button now, causing it to look awful. The `useClipPath` (which defaults to `true`) had your back on this one, but now that you've decided to turn it off, you're on your own for figuring out the background. But there's a solution!
+
+## Adding a layer **below** your DOM element
+
+`corners` can deal with this problem quite elegantly by giving you the opportunity to provide an additional layer **below** your DOM element. To accomplish this, we're going remove the `background` of the original DOM element, and we're going to add a new layer `below`, as follows:
+
+<UnclippedRoundedButton>Cool unclipped button</UnclippedRoundedButton>
+<UnclippedRoundedButtonCode />
+
+And now you can see that we have gotten our background back.
+
+> NOTE: Incidentally, you'll note that we have a much bigger border on these buttons. If you attempt to make a larger border on a button with `useClipPath` set to `true`, you'll find that the border is not as large as you expect it to be. Why? Because half of the border is _inside_ the DOM element, and half of it is _outside_ the DOM element. The half that is outside of the DOM element gets clipped out and cannot be seen.

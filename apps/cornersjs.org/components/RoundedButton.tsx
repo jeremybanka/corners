@@ -1,24 +1,24 @@
 import { useState } from "react"
 
 import { css } from "@emotion/react"
-import { semiChamfered } from "corners"
+import { rounded } from "corners"
 
 const ButtonStyles = css`
   width: 100%;
   border: none;
-  color: white;
+  background: #e3e3e3;
+  color: black;
   font-size: 5vmin;
   padding: 10px;
 `
 
-export default function SemiChamforedButton(): React.ReactNode {
+export default function SemiChamferedButton(): React.ReactNode {
   const [clicked, setClicked] = useState(false)
 
-  const ChamferedButton = semiChamfered.button.with({
-    cornerSize: 20,
+  const ChamferedButton = rounded.button.with({
+    cornerSize: 30,
     noClipping: true,
-    above: [{ color: `transparent`, stroke: { color: `green`, width: 1 } }],
-    below: [{ color: clicked ? `red` : `teal` }],
+    above: { color: `transparent`, stroke: { color: `green`, width: 1 } },
   })
 
   return (
