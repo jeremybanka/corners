@@ -2,7 +2,7 @@
 
 import { css } from "@emotion/react"
 import Emotion from "@emotion/styled"
-import { chamfered, rounded, semiChamfered } from "corners"
+import corners, { chamfer, chamfered, rounded, semiChamfered } from "corners"
 import Link from "next/link"
 
 const styled = {
@@ -83,6 +83,21 @@ const styled = {
       },
     })
   ),
+  logoSpan: Emotion(
+    corners(chamfer, null, null, null).options({
+      cornerSize: Infinity,
+      useClipPath: false,
+      below: [
+        {
+          color: `var(--fg-color)`,
+          offset: { x: 5, y: 4 },
+        },
+        {
+          color: `var(--bg-color)`,
+        },
+      ],
+    })(`span`)
+  ),
 }
 
 const inlaid = {
@@ -136,6 +151,18 @@ const neo = {
   `,
 }
 
+const logo = {
+  span: styled.logoSpan`
+    padding-top: 5px;
+    padding-left: 2px;
+    padding-bottom: 1px;
+    padding-right: 8px;
+    line-height: 23px;
+    font-size: 27px;
+    font-variation-settings: "wght" 700;
+  `,
+}
+
 const Home: React.FC = () => (
   <div
     css={css`
@@ -168,8 +195,8 @@ const Home: React.FC = () => (
         flex-grow: 1;
         gap: 20px;
         h1 {
-          font-size: 60px;
-          line-height: 54px;
+          font-size: 90px;
+          line-height: 81px;
           text-align: center;
           --fg-color: #eae9e9;
           @media (prefers-color-scheme: light) {
@@ -184,11 +211,14 @@ const Home: React.FC = () => (
           justify-content: center;
           align-items: center;
         }
+        a {
+          font-size: 40px;
+        }
       }
     `}
   >
     <header>
-      <h1>corners</h1>
+      <logo.span>corners</logo.span>
       <nav>
         <ul>
           <li>
@@ -204,7 +234,9 @@ const Home: React.FC = () => (
       </nav>
     </header>
     <visor.main>
-      <h1>Cut corners \n with style</h1>
+      <h1>
+        Cut corners <br /> with style
+      </h1>
       <softCard.article>hello</softCard.article>
       <bubble.link href={`/docs/presets`}>Get Started!</bubble.link>
     </visor.main>

@@ -12,10 +12,11 @@ export const globalStyles = (
       :root {
         color-scheme: light dark;
         --fg-color: #fff;
-        --bg-color: #9200ff;
+        --bg-color: #111;
         --hyperlink-color: #09f;
         --hyperlink-hover-color: #0df;
         --hyperlink-visited-color: #99f;
+        --special-color: #9200ff;
 
         background: var(--bg-color);
         min-height: 100vh;
