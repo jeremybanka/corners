@@ -8,7 +8,10 @@
     "dev": "concurrently --kill-others \"npm run dev:codegen\" \"npm run dev:next\"",
     "build": "tsx createCodeblocks.ts all && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:once": "echo NOT YET IMPLEMENTED",
+    "test": "echo NOT YET IMPLEMENTED",
+    "release": "echo NOT YET IMPLEMENTED"
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
