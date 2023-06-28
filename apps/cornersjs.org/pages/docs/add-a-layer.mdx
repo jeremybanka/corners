@@ -9,7 +9,7 @@ import ReactMarkdown from "react-markdown"
 
 # Add a layer
 
-In the examples we've seen so far with presets, we have not played around borders yet. Borders and drop-shadows present us with special problems on the DOM. That's because `corners` uses an SVG clipping-path on the DOM object that you give it. If you associate `corners` with a `div` element, for example, the clipping-path acts as a mask on that `div`, and cuts out part of that div to render the `div` the way you want it.
+In the examples we've seen so far with presets, we have not played around with borders yet. Borders and drop-shadows present us with special problems on the DOM. That's because `corners` uses an SVG clipping-path on the DOM object that you give it. If you associate `corners` with a `div` element, for example, the clipping-path acts as a mask on that `div`, and cuts out part of that div to render the `div` the way you want it.
 
 However, if the `div` has a border on it, it will look wrong. Let's take a simple example of this:
 
@@ -20,7 +20,7 @@ You can see in this example, the `<button>` that was rendered is missing parts o
 
 ## Let's add a layer
 
-A `layer` is an SVG that is rendered in addition to the DOM element that you provide to the `corners` library when you invoke it. You have already seen the `cornerSize` attribute when invoking an object with corners. In addition to this, you can also add an `above` property. This will add an SVG to your DOM element "above" (in z-height) the DOM element, and this is the tool that you'll use to generate a proper border on your object.
+A `layer` is an SVG that is rendered in addition to the DOM element that you provide the `corners` library when you invoke it. You have already seen the `cornerSize` attribute when invoking an object with corners. In addition to this, you can also add an `above` property. This will add an SVG to your DOM element "above" it, and this is the tool that you'll use to generate a proper border on your object.
 
 Here is a properly-implemented rounded button with a border that renders without being masked out.
 

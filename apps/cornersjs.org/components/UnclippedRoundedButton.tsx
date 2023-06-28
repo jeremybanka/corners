@@ -6,10 +6,10 @@ import { rounded } from "corners"
 const ButtonStyles = css`
   width: 100%;
   border: none;
-  background: #e3e3e3;
   color: black;
   font-size: 5vmin;
   padding: 10px;
+  background: transparent;
 `
 
 export default function UnclippedRoundedButton(): React.ReactNode {
@@ -18,7 +18,7 @@ export default function UnclippedRoundedButton(): React.ReactNode {
   const AdvancedButton = rounded.button.with({
     cornerSize: 30,
     useClipPath: false,
-    above: { color: `transparent`, stroke: { color: `green`, width: 10 } },
+    above: { color: `transparent`, stroke: { color: `green`, width: 1 } },
     below: { color: `#e3e3e3` },
   })
 
