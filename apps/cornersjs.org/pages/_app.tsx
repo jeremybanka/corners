@@ -1,6 +1,5 @@
 import createCache from "@emotion/cache"
 import { CacheProvider, css } from "@emotion/react"
-import localFont from "next/font/local"
 
 import { bubble, logo } from "../shared/containers"
 import { globalStyles } from "../shared/styles"
@@ -17,7 +16,6 @@ const App = <P extends JSX.IntrinsicAttributes>({
   <CacheProvider value={cache}>
     {globalStyles}
     <article
-      // className={`${Manufab.className} ${Theia.className}`}
       css={css`
         display: flex;
         flex-direction: column;
@@ -39,7 +37,8 @@ const App = <P extends JSX.IntrinsicAttributes>({
             }
           }
         }
-        // docs
+
+        // docs styling - gotta be this way until we move to remote mdx
         > *:not(header):not(main) {
           width: 100%;
           max-width: 700px;
@@ -89,7 +88,6 @@ const App = <P extends JSX.IntrinsicAttributes>({
               </bubble.link>
             </li>
           </ul>
-          {/* <inlaid.searchBar placeholder="Search..." /> */}
         </nav>
       </header>
       <Component {...pageProps} />
