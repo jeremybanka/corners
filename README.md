@@ -62,18 +62,18 @@ Create react components with angled or smooth-rounded corners.
 
 ### corners
 ```ts
-corners(...cornerFns).with({ cornerSize, noClipping, above, below }) => ComponentFactory
+corners(...cornerFns).with({ cornerSize, useClipPath, above, below }) => ComponentFactory
 ```
 
 Creates a new component factory with the given corner functions. The corner functions are applied in the order they are given.
 
-| Argument   | Type                                               | Required? | Description                                                                       |
-| ---------- | -------------------------------------------------- | --------- | --------------------------------------------------------------------------------- |
-| cornerFns  | <code>Nullable<[DrawCorner](#drawcorner)>[]</code> | Yes       | 1, 2, or 4 functions that specify the corners for this factory in clockwise order |
-| cornerSize | `number`                                           | No        | Equivalent to `N` in css `border-radius: Npx`                                     |
-| noClipping | `boolean`                                          | No        | `true` is equivalent to css `overflow: visible`                                   |
-| above      | <code>Partial<[Layer](#layer)>[]</code>            | No        | Layers with the same shape as the component, but rendered above the component     |
-| below      | <code>Partial<[Layer](#layer)>[]</code>            | No        | Layers with the same shape as the component, but rendered below the component     |
+| Argument    | Type                                               | Required? | Description                                                                       |
+| ----------- | -------------------------------------------------- | --------- | --------------------------------------------------------------------------------- |
+| cornerFns   | <code>Nullable<[DrawCorner](#drawcorner)>[]</code> | Yes       | 1, 2, or 4 functions that specify the corners for this factory in clockwise order |
+| cornerSize  | `number`                                           | No        | Equivalent to `N` in css `border-radius: Npx`                                     |
+| useClipPath | `boolean`                                          | No        | `true` is equivalent to css `overflow: hidden`                                    |
+| above       | <code>Partial<[Layer](#layer)>[]</code>            | No        | Layers with the same shape as the component, but rendered above the component     |
+| below       | <code>Partial<[Layer](#layer)>[]</code>            | No        | Layers with the same shape as the component, but rendered below the component     |
 
 | Returns          | Type                                               | Description                                                                  |
 | ---------------- | -------------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -151,7 +151,7 @@ const LAYER: Record<string, Partial<Layer>> = {
 const RoundedSpanWithShadow = rounded.span.with({
   cornerSize: 15,
   below: [LAYER.LIGHT_FILL, LAYER.FAINT_SHADOW],
-  noClipping: true,
+  useClipPath: false,
 })
 
 const MyComponent: FC = () => (

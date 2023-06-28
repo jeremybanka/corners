@@ -44,7 +44,7 @@ export type Layer = {
 
 export type CornerOptions = {
   cornerSize: number
-  noClipping: boolean
+  useClipPath: boolean
   above: Scraps<Layer>
   below: Scraps<Layer>
 }
