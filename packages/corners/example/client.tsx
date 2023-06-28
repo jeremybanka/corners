@@ -88,7 +88,7 @@ const ChamferedDivWithStroke = styled(
   chamfered.div.with({
     cornerSize: 10,
     below: LAYER.SOLID_STROKE,
-    noClipping: true,
+    useClipPath: false,
   })
 )(BoxStyles)
 
@@ -96,14 +96,14 @@ const SemiChamferedSpanWithShadow = styled(
   semiChamfered.span.with({
     cornerSize: 15,
     below: [LAYER.FAINT_SHADOW, LAYER.LIGHT_FILL, LAYER.SOLID_STROKE],
-    noClipping: true,
+    useClipPath: false,
   })
 )(BoxStyles)
 const RoundedSectionWithShadow = styled(
   rounded.section.with({
     cornerSize: 15,
     below: [LAYER.LIGHT_FILL, LAYER.DOTTED_STROKE],
-    noClipping: true,
+    useClipPath: false,
   })
 )(BoxStyles)
 const SemiChamferedBox = styled(semiChamfered(MagicBox))(BoxStyles)

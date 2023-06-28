@@ -23,10 +23,10 @@ export function withCorners<
   options: CornerOptions,
   ...corners: (DrawCorner | null)[]
 ): FC<AllHTMLAttributes<any> & P> {
-  const { cornerSize, noClipping, above, below } = options
-  const clipPathfinder = noClipping
-    ? null
-    : createClipPathfinder(cornerSize, ...corners)
+  const { cornerSize, useClipPath, above, below } = options
+  const clipPathfinder = useClipPath
+    ? createClipPathfinder(cornerSize, ...corners)
+    : null
   const pathfinder =
     above || below ? createPathfinder(cornerSize, ...corners) : null
 
@@ -45,7 +45,6 @@ export function withCorners<
           zIndex: 0,
           ...props.style,
           clipPath: clipPathfinder ? `url(#${pathId})` : undefined,
-          background: noClipping ? `none` : props.style?.background,
         },
       },
       clipPathfinder &&

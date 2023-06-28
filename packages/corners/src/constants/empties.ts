@@ -12,7 +12,7 @@ export const DEFAULT_LAYER: Layer = {
 }
 
 export const DEFAULT_OPTIONS: CornerOptions = {
-  noClipping: false,
+  useClipPath: true,
   cornerSize: 15,
   above: null,
   below: null,
