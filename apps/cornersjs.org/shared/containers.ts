@@ -81,7 +81,7 @@ const styled = {
       },
     })
   ),
-  logoSpan: Emotion(
+  logoLink: Emotion(
     corners(chamfer, null, null, null).options({
       cornerSize: Infinity,
       useClipPath: false,
@@ -94,7 +94,7 @@ const styled = {
           color: `var(--bg-color)`,
         },
       ],
-    })(`span`)
+    })(Link)
   ),
 }
 
@@ -150,7 +150,7 @@ export const neo = {
 }
 
 export const logo = {
-  span: styled.logoSpan`
+  link: styled.logoLink`
     padding-top: 5px;
     padding-left: 2px;
     padding-bottom: 1px;

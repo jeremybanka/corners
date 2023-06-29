@@ -53,6 +53,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
           text-indent: 1em;
         }
         h1 {
+          font-family: Manufab;
           font-size: 90px;
           padding-top: 30px;
         }
@@ -78,7 +79,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
       `}
     >
       <header>
-        <logo.span>corners</logo.span>
+        <logo.link href={`/`}>corners</logo.link>
         <nav>
           <ul>
             <li>

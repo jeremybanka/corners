@@ -29,12 +29,12 @@ export const globalStyles = (
 
         background: var(--bg-color);
         min-height: 100vh;
-        font-family: Manufab, Helvetica, Arial, sans-serif;
+        font-family: Palatino;
         font-size: 21px;
       }
       a {
-        color: var(--fg-color);
         --fg-color: var(--hyperlink-color);
+        color: var(--fg-color);
         font-weight: 500;
         font-variation-settings: "wght" 500;
         text-decoration: inherit;

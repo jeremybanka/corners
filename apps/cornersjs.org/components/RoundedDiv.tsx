@@ -1,13 +1,28 @@
-import Emotion from "@emotion/styled"
 import { rounded } from "corners"
 
-const styled = {
-  roundedDiv: Emotion(rounded.div.with({ cornerSize: 30 })),
-}
+const RoundedDiv60 = rounded.div.with({ cornerSize: 77 })
 
-export default styled.roundedDiv`
-  background: #e3e3e3;
-  font-size: 5vmin;
-  font-family: Charter;
-  padding: 30px;
-`
+export default function RoundedDiv(): JSX.Element {
+  return (
+    <RoundedDiv60
+      style={{
+        fontFamily: `Manufab`,
+        fontWeight: 500,
+        textAlign: `center`,
+        background: `#eee3`,
+        color: `var(--bg-color)`,
+        fontSize: `3vmin`,
+        padding: `12px`,
+        margin: `0 auto`,
+        minHeight: `33vh`,
+        minWidth: `77vw`,
+        display: `flex`,
+        alignItems: `center`,
+        justifyContent: `center`,
+      }}
+    >
+      ♥️ <br />
+      corners.js
+    </RoundedDiv60>
+  )
+}

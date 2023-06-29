@@ -4,7 +4,7 @@ export default function NowIsTheTime(): JSX.Element {
   return (
     <semiChamfered.div
       style={{
-        fontFamily: `Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif`,
+        fontFamily: `Impact`,
         background: `repeating-linear-gradient(
           45deg,
           #fd0,
@@ -13,7 +13,7 @@ export default function NowIsTheTime(): JSX.Element {
           #fe0 20px
         )`,
         color: `black`,
-        fontSize: `5vmin`,
+        fontSize: `7vmax`,
         padding: `30px`,
         margin: `0 auto`,
       }}
