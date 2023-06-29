@@ -21,13 +21,14 @@ const outputDir = `./wrappedComponents` // The directory to write the new TSX fi
 function wrapCode(code: string) {
   return `import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { rounded } from "corners"
 
 const Component: React.FC = () => (
-  <span className="codeblock">
+  <rounded.span className="codeblock">
   <SyntaxHighlighter language="tsx">
     {${JSON.stringify(code)}}
   </SyntaxHighlighter>
-  </span>
+  </rounded.span>
 );
 
 export default Component;

@@ -39,7 +39,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
         }
 
         // docs styling - gotta be this way until we move to remote mdx
-        > *:not(header):not(main) {
+        > *:not(header):not(main):not(div) {
           width: 100%;
           max-width: 700px;
           margin-left: auto;
