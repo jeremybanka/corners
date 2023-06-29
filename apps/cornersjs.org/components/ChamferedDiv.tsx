@@ -1,13 +1,18 @@
-import styled from "@emotion/styled"
 import { chamfered } from "corners"
 
-const MyDiv = styled(chamfered.div)`
-  font-family: Copperplate;
-  background: linear-gradient(90deg, #da7, #c96);
-  color: #fc9;
-  font-size: 7vmax;
-  padding: 3vmax;
-  margin: 0 auto;
-`
-
-export default MyDiv
+export default function NowIsAlmostTheTime(): JSX.Element {
+  return (
+    <chamfered.div
+      style={{
+        fontFamily: `Copperplate`,
+        background: `#db9`,
+        color: `#ca8`,
+        fontSize: `7vmax`,
+        padding: `3vmax`,
+        margin: `0 auto`,
+      }}
+    >
+      now is almost the time
+    </chamfered.div>
+  )
+}

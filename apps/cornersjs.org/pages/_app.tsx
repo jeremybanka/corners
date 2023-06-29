@@ -57,6 +57,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
           padding-top: 30px;
         }
         h2 {
+          font-weight: 500;
           font-size: 36px;
           padding-top: 30px;
           padding-bottom: 10px;
@@ -65,6 +66,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
           margin-top: 10px;
         }
         pre {
+          margin: 0 !important;
           font-size: 16px !important;
           background-color: #222 !important;
           * {
@@ -80,7 +82,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
         <nav>
           <ul>
             <li>
-              <bubble.link href={`/docs/presets`}>Docs</bubble.link>
+              <bubble.link href={`/docs`}>Docs</bubble.link>
             </li>
             <li>
               <bubble.link href={`/blog`} aria-disabled={true}>

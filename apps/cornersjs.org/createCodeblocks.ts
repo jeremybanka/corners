@@ -25,9 +25,9 @@ import { rounded } from "corners"
 
 const Component: React.FC = () => (
   <rounded.span className="codeblock">
-  <SyntaxHighlighter language="tsx">
-    {${JSON.stringify(code)}}
-  </SyntaxHighlighter>
+    <SyntaxHighlighter language="tsx">
+      {${JSON.stringify(code)}}
+    </SyntaxHighlighter>
   </rounded.span>
 );
 
