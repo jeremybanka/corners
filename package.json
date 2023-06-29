@@ -19,7 +19,7 @@
     "prettier": "2.8.8",
     "tsx": "3.12.7",
     "turbo": "1.10.6",
-    "typescript": "5.1.5"
+    "typescript": "5.1.6"
   },
   "homepage": "https://github.com/jeremybanka/corners#readme",
   "bugs": {
