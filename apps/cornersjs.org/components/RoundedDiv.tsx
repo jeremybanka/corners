@@ -9,7 +9,7 @@ export default function RoundedDiv(): JSX.Element {
         fontFamily: `Manufab`,
         fontWeight: 500,
         textAlign: `center`,
-        background: `#eee3`,
+        background: `#7773`,
         color: `var(--bg-color)`,
         fontSize: `3vmin`,
         padding: `12px`,

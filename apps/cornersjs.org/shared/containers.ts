@@ -42,28 +42,35 @@ const styled = {
   chamferedMain: Emotion(
     chamfered(`main`, {
       cornerSize: 5,
-      useClipPath: false,
+      useClipPath: true,
       above: {
         color: `transparent`,
-        stroke: { color: `var(--fg-color)`, width: 1 },
+        stroke: { color: `var(--fg-color)`, width: 2 },
       },
     })
   ),
   roundedArticle10: Emotion(
     rounded(`article`, {
-      cornerSize: 10,
+      cornerSize: 50,
       useClipPath: false,
       below: [
         {
           className: `shadow`,
-          color: `#0004`,
-          blur: 0.3,
-          spread: 0.6,
-          offset: { x: 0, y: -0.3 },
+          color: `#bebebe`,
+          blur: 60,
+          spread: 30,
+          offset: { x: 30, y: -30 },
+        },
+        {
+          className: `highlight`,
+          color: `#fff`,
+          blur: 60,
+          spread: 30,
+          offset: { x: -30, y: 30 },
         },
         {
           className: `paper`,
-          color: `#fff`,
+          color: `#eae9e9`,
         },
       ],
     })
@@ -123,15 +130,12 @@ export const bubble = {
 export const visor = {
   main: styled.chamferedMain`
     padding: 10px 15px;
-    background: linear-gradient(0deg, #fd01 0%, transparent 100%);
+    /* background: linear-gradient(0deg, #fd01 0%, transparent 100%); */
   `,
 }
 
 export const softCard = {
-  article: styled.roundedArticle10`
-    padding: 10px 15px;
-    background: linear-gradient(0deg, #fd01 0%, transparent 100%);
-  `,
+  article: styled.roundedArticle10``,
 }
 
 export const neo = {

@@ -14,6 +14,7 @@ const Home: React.FC = () => (
       flex: 1;
       flex-grow: 1;
       gap: 20px;
+      background-color: #eae9e9;
       h1 {
         font-size: 90px;
         line-height: 81px;
@@ -24,8 +25,9 @@ const Home: React.FC = () => (
         }
       }
       article {
-        width: 100%;
+        width: 50%;
         height: 50%;
+        margin: 0 50px;
         display: flex;
         flex-flow: column;
         justify-content: center;
