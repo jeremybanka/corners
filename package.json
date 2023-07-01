@@ -15,7 +15,7 @@
     "@banka/eslint-config-react": "1.4.0",
     "@changesets/cli": "2.26.2",
     "cross-env": "7.0.3",
-    "eslint": "8.43.0",
+    "eslint": "8.44.0",
     "prettier": "2.8.8",
     "tsx": "3.12.7",
     "turbo": "1.10.7",
