@@ -1,5 +1,11 @@
 # cornersjs.org
 
+## 0.1.2
+
+### Patch Changes
+
+- 84638cb: add docs
+
 ## 0.1.1
 
 ### Patch Changes
