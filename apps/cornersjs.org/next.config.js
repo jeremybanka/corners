@@ -14,7 +14,7 @@ const withMDX = require(`@next/mdx`)({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: 'build',
+  distDir: `build`,
   pageExtensions: [`ts`, `tsx`, `js`, `jsx`, `md`, `mdx`],
   reactStrictMode: true,
   typescript: {
