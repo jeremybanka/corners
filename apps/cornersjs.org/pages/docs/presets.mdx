@@ -1,8 +1,8 @@
-import ChamferedDivWithStrokeCode from "../../wrappedComponents/ChamferedDivWithStroke"
+import ChamferedDivCode from "../../wrappedComponents/ChamferedDiv"
 import SemiChamferedDivCode from "../../wrappedComponents/SemiChamferedDiv"
 import RoundedDivCode from "../../wrappedComponents/RoundedDiv"
 
-import ChamferedDivWithStroke from "../../components/ChamferedDivWithStroke"
+import ChamferedDiv from "../../components/ChamferedDiv"
 import SemiChamferedDiv from "../../components/SemiChamferedDiv"
 import RoundedDiv from "../../components/RoundedDiv"
 import ReactMarkdown from "react-markdown"
@@ -17,21 +17,19 @@ Corners provides you with the ability to make exotic shapes and associate them w
 
 The `chamfered` preset is a rectangle with all of the corners cleaved off, like this:
 
-<ChamferedDivWithStroke>Now is the time</ChamferedDivWithStroke>
-
-<ChamferedDivWithStrokeCode />
+<ChamferedDiv />
+<ChamferedDivCode />
 
 ## `semi-chamfered`
 
 Next, the `semi-chamfered` preset cuts just two edges off of the generic rectangle instead of all four. Let's show an example of how this is used.
 
-<SemiChamferedDiv>Now is almost the time </SemiChamferedDiv>
-
+<SemiChamferedDiv />
 <SemiChamferedDivCode />
 
 ## `rounded`
 
 Okay, this is what you've been waiting for. You know what things look like with `border-radius` turned on. These items have a _very specific_ look, and it's pretty unsatisfying (if you ask us). But have you seen the rounded corners from systems like iOS? These are very different in shape. Have you ever wanted to do a button or a div on the web the same way that Apple does them on an iPhone? Well, now you can. This shape, incidentally, is called a [squircle](https://en.wikipedia.org/wiki/Squircle). Let's compare a div defined by `border-radius` with a div defined by `corners` using the `rounded` preset:
 
-<RoundedDiv>This is a rounded div, or a "squircle"</RoundedDiv>
+<RoundedDiv />
 <RoundedDivCode />

@@ -1,59 +1,49 @@
+/// <reference types="@emotion/react/types/css-prop" />
+
 import { css } from "@emotion/react"
-import { rounded } from "corners"
-import Link from "next/link"
 
-import {
-  Animated,
-  Basic,
-  bounce,
-  Combined,
-  Pink,
-  BasicExtended,
-  ComponentSelectorsExtended,
-} from "../shared/styles"
+import { bubble, visor, softCard } from "../shared/containers"
 
-const ButtonStyles = css`
-  width: 100%;
-  border: none;
-  background: #e3e3e3;
-  color: black;
-  font-size: 5vmin;
-  padding: 10px;
-  cursor: pointer;
-`
-
-function RoundedButton(): React.ReactNode {
-  const RoundedButton = rounded.button.with({
-    cornerSize: 30,
-    useClipPath: true,
-    above: { color: `transparent`, stroke: { color: `green`, width: 1 } },
-  })
-
-  return (
-    <Link href="/docs/presets">
-      <RoundedButton css={ButtonStyles}>Get Started!</RoundedButton>
-    </Link>
-  )
-}
-
-const Home = () => (
-  <div
+const Home: React.FC = () => (
+  <visor.main
     css={css`
       display: flex;
-      flex-direction: column;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      flex-grow: 1;
+      gap: 20px;
+      background-color: #eae9e9;
+      h1 {
+        font-size: 90px;
+        line-height: 81px;
+        text-align: center;
+        --fg-color: #eae9e9;
+        @media (prefers-color-scheme: light) {
+          --fg-color: #3a3939;
+        }
+      }
+      article {
+        width: 50%;
+        height: 50%;
+        margin: 0 50px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+      }
+      a {
+        font-size: 40px;
+      }
     `}
   >
-    <RoundedButton />
-    <Basic>Cool Styles</Basic>
-    <Pink>Pink text</Pink>
-    <Combined>
-      With <code>:hover</code>.
-    </Combined>
-    <Animated animation={bounce}>Let's bounce.</Animated>
-    <ComponentSelectorsExtended>
-      <BasicExtended>Nested</BasicExtended>
-    </ComponentSelectorsExtended>
-  </div>
+    <h1>
+      Cut corners <br /> with style
+    </h1>
+    <softCard.article></softCard.article>
+    <bubble.link href={`/docs/presets`}>Get Started!</bubble.link>
+  </visor.main>
 )
 
 export default Home

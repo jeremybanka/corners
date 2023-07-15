@@ -1,8 +1,8 @@
-import RoundedButtonCode from "../../wrappedComponents/RoundedButton"
-import IncorrectRoundedButtonCode from "../../wrappedComponents/IncorrectRoundedButton"
+import SuccessfulUseOfLayerStrokeCode from "../../wrappedComponents/SuccessfulUseOfLayerStroke"
+import ProblematicUseOfCssBorderCode from "../../wrappedComponents/ProblematicUseOfCssBorder"
 
-import RoundedButton from "../../components/RoundedButton"
-import IncorrectRoundedButton from "../../components/IncorrectRoundedButton"
+import { SuccessfulUseOfLayerStroke } from "../../components/SuccessfulUseOfLayerStroke"
+import { ProblematicUseOfCssBorder } from "../../components/ProblematicUseOfCssBorder"
 import ReactMarkdown from "react-markdown"
 
 [comment]: <> (This is step 2)
@@ -13,8 +13,8 @@ In the examples we've seen so far with presets, we have not played around with b
 
 However, if the `div` has a border on it, it will look wrong. Let's take a simple example of this:
 
-<IncorrectRoundedButton>Click me</IncorrectRoundedButton>
-<IncorrectRoundedButtonCode />
+<ProblematicUseOfCssBorder />
+<ProblematicUseOfCssBorderCode />
 
 You can see in this example, the `<button>` that was rendered is missing parts of its border. So how do we fix this? We need to add a **layer** to our object.
 
@@ -24,6 +24,5 @@ A `layer` is an SVG that is rendered in addition to the DOM element that you pro
 
 Here is a properly-implemented rounded button with a border that renders without being masked out.
 
-<RoundedButton />
-
-<RoundedButtonCode />
+<SuccessfulUseOfLayerStroke />
+<SuccessfulUseOfLayerStrokeCode />

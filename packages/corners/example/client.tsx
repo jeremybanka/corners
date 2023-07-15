@@ -27,7 +27,6 @@ const BoxStyles = css`
   box-sizing: border-box;
   width: 100%;
   color: grey;
-  background: #e3e3e3;
   display: flex;
   font-size: 5vmin;
   font-family: Charter;
@@ -74,7 +73,7 @@ const LAYER: Record<string, Fragment<Layer>> = {
   LIGHT_FILL: { color: `#f3f3f3` },
   SOLID_STROKE: {
     color: `transparent`,
-    stroke: { color: `#888`, width: 1 },
+    stroke: { color: `#888`, width: 2 },
     className: `solid-stroke`,
   },
   DOTTED_STROKE: {
@@ -88,7 +87,7 @@ const ChamferedDivWithStroke = styled(
   chamfered.div.with({
     cornerSize: 10,
     below: LAYER.SOLID_STROKE,
-    useClipPath: false,
+    useClipPath: true,
   })
 )(BoxStyles)
 
@@ -113,8 +112,16 @@ if (!rootElement) throw new Error(`Failed to find the root element`)
 const root = createRoot(rootElement)
 root.render(
   <Main>
-    <StyledDiv style={{ borderRadius: `10px` }}>border-radius</StyledDiv>
-    <RoundedDiv>rounded, clip-path</RoundedDiv>
+    <StyledDiv style={{ background: `#ddd`, borderRadius: `10px` }}>
+      border-radius
+    </StyledDiv>
+    <RoundedDiv
+      style={{
+        background: `#ddd`,
+      }}
+    >
+      rounded, clip-path
+    </RoundedDiv>
     <ChamferedDivWithStroke>
       chamfered, stroke layer below
     </ChamferedDivWithStroke>
@@ -124,6 +131,12 @@ root.render(
     <RoundedSectionWithShadow>
       rounded, dotted stroke with fill layer below
     </RoundedSectionWithShadow>
-    <SemiChamferedBox>semi-chamfered clip-path</SemiChamferedBox>
+    <SemiChamferedBox
+      style={{
+        background: `#ddd`,
+      }}
+    >
+      semi-chamfered clip-path
+    </SemiChamferedBox>
   </Main>
 )
