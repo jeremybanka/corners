@@ -4,4 +4,4 @@ dist
 .env
 .turbo
 apps/cornersjs.org/wrappedComponents/*
-apps/cornersjs.org/.next
+apps/cornersjs.org/build
