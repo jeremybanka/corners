@@ -1,4 +1,4 @@
-name: release
+name: Release
 
 on:
   push:
@@ -9,39 +9,40 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-defaults:
-  run:
-    shell: bash
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 jobs:
-  release:
-    name: Release
+  Release:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: ⏬️ Check out
+      - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
-      - name: 💼 Set up pnpm
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v3
+
+      - name: Install Pnpm
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 8.6.0
+          version: 8
           run_install: false
 
-      - name: 📝 Get pnpm store directory
+      - name: Discover Pnpm Cache
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: ⎔  Install Node LTS
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com
-          cache: "pnpm"
-
-      - name: "🎒 Cache the build"
+      - name: Use Pnpm cache
         uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -49,15 +50,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: 🥡  Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install Dependencies
+        run: pnpm i
 
-      - name: 🦋 Create Release Pull Request or Publish to npm
+      - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: pnpm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          publish: pnpm release

@@ -1,4 +1,4 @@
-name: CI
+name: Integration
 
 on:
   push:
@@ -10,40 +10,40 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
 defaults:
   run:
     shell: bash
 
 jobs:
-  lint:
+  Lint:
+    runs-on: ubuntu-latest
     container:
       image: node:lts
-    runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: ⏬️ Check out
+      - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
-      - name: 💼 Set up pnpm
+      - name: Install Pnpm
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 8.6.0
+          version: 8
           run_install: false
 
-      - name: 📝 Get pnpm store directory
+      - name: Discover Pnpm Cache
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: ⎔  Install Node LTS
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com
-          cache: "pnpm"
-
-      - name: "🎒 Cache the build"
+      - name: Use Pnpm cache
         uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -51,41 +51,42 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: 🥡  Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install Dependencies
+        run: pnpm i
 
-      - name: 🚨 Lint
-        run: pnpm run lint
+      - name: Lint
+        run: pnpm lint
 
-  test:
+      - name: Type Check
+        run: pnpm tsc
+
+  Test:
+    name: Build & Test
+    runs-on: ubuntu-latest
     container:
       image: node:lts
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⏬️ Check out
-        uses: actions/checkout@v3
+    timeout-minutes: 15
 
-      - name: 💼 Set up pnpm
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Install Pnpm
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
-          version: 8.6.0
+          version: 8
           run_install: false
 
-      - name: 📝 Get pnpm store directory
+      - name: Discover Pnpm Cache
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: ⎔  Install Node LTS
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com
-          cache: "pnpm"
-
-      - name: "🎒 Cache the build"
+      - name: Use Pnpm cache
         uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -93,8 +94,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: 🥡  Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install Dependencies
+        run: pnpm i
 
-      - name: 🤖  Test
-        run: pnpm run test
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test
