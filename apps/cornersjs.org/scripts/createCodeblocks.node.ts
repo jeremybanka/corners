@@ -19,7 +19,7 @@ const outputDir = `./wrappedComponents` // The directory to write the new TSX fi
 
 // Function to wrap the TSX code in a function component
 function wrapCode(code: string) {
-  return `import React from 'react';
+  return `import * as React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { rounded } from "corners"
 
