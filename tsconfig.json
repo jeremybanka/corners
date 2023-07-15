@@ -13,6 +13,10 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "ES2019",
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "paths": {
+      "~": ["./packages/corners/src"],
+      "~/*": ["./packages/corners/src/*"]
+    }
   }
 }
