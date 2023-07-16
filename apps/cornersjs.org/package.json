@@ -20,7 +20,6 @@
     "@mdx-js/loader": "2.3.0",
     "@mdx-js/react": "2.3.0",
     "@next/mdx": "13.4.10",
-    "corners": "workspace:^",
     "framer-motion": "10.12.21",
     "next": "13.4.10",
     "react": "18.2.0",

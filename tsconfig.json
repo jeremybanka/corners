@@ -16,7 +16,8 @@
     "types": ["vitest/globals"],
     "paths": {
       "~": ["./packages/corners/src"],
-      "~/*": ["./packages/corners/src/*"]
+      "~/*": ["./packages/corners/src/*"],
+      "corners": ["./packages/corners/src"]
     }
   },
   "exclude": ["**/*.node.ts"]
