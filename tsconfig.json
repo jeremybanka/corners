@@ -13,6 +13,12 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "ES2019",
-    "types": ["vitest/globals"]
-  }
+    "types": ["vitest/globals"],
+    "baseUrl": "./",
+    "paths": {
+      "~": ["."],
+      "~/*": ["./*"]
+    }
+  },
+  "exclude": ["**/*.node.ts", "./apps"]
 }

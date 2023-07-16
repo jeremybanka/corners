@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "paths": {
+      "corners": ["./packages/corners/src"]
+    }
+  },
+  "include": ["**/*.node.ts"],
+  "exclude": ["**/*.test.ts"]
+}

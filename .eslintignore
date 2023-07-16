@@ -1,4 +1,4 @@
 dist/
 node_modules/
 coverage/
-apps/cornersjs.org/src/wrappedComponents/
+apps/cornersjs.org/wrappedComponents/

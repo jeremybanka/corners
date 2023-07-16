@@ -1,8 +1,8 @@
 import type { AllHTMLAttributes, FC, ForwardRefExoticComponent } from "react"
 
-import { DEFAULT_OPTIONS } from "~/constants/empties"
-import type { HTMLTagName } from "~/constants/html"
-import { HTML_TAG_NAMES } from "~/constants/html"
+import { DEFAULT_OPTIONS } from "~/packages/corners/src/constants/empties"
+import type { HTMLTagName } from "~/packages/corners/src/constants/html"
+import { HTML_TAG_NAMES } from "~/packages/corners/src/constants/html"
 
 import { withCorners } from "./withCorners"
 import type { CornerOptions, DrawCorner } from ".."
