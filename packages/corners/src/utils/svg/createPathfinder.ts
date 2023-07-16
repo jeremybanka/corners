@@ -1,5 +1,5 @@
-import type { DrawCorner, PointPair } from "~/index"
-import { straight } from "~/preset/corners"
+import type { DrawCorner, PointPair } from "~/packages/corners/src"
+import { straight } from "~/packages/corners/src/preset/corners"
 
 import type { FindCornerPoints } from "./findCornerPoints"
 import {

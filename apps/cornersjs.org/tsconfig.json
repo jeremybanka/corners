@@ -17,7 +17,7 @@
     "incremental": true,
     "jsxImportSource": "@emotion/react",
     "paths": {
-      "corners": ["../../packages/corners/src"]
+      "corners": ["./packages/corners/dist"]
     }
   },
   "include": [

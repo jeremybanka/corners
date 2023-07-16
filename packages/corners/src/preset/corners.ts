@@ -1,5 +1,5 @@
-import { interpolate } from "~/utils/interpolate"
-import { writePathPoint } from "~/utils/svg/writePathPoint"
+import { interpolate } from "~/packages/corners/src/utils/interpolate"
+import { writePathPoint } from "~/packages/corners/src/utils/svg/writePathPoint"
 
 import type { DrawCorner } from ".."
 

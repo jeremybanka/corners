@@ -1,5 +1,5 @@
-import type { CornerSpec } from "~/index"
-import { createCorner } from "~/utils/svg/createCorner"
+import type { CornerSpec } from "~/packages/corners/src/index"
+import { createCorner } from "~/packages/corners/src/utils/svg/createCorner"
 
 import { round } from "./corners"
 

@@ -1,6 +1,6 @@
 import type { FC } from "react"
 
-import { DEFAULT_LAYER } from "~/constants/empties"
+import { DEFAULT_LAYER } from "~/packages/corners/src/constants/empties"
 
 import type { Layer, Pathfinder, Scraps } from ".."
 import { harvest } from ".."

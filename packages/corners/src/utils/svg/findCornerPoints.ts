@@ -1,4 +1,4 @@
-import type { PointPair } from "~/index"
+import type { PointPair } from "~/packages/corners/src/index"
 
 export type FindCornerPoints = (
   cornerSize: number,

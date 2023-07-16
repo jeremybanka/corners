@@ -5,9 +5,9 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { createRoot } from "react-dom/client"
 
-import type { Layer } from "~/index"
-import { chamfered, rounded, semiChamfered } from "~/index"
-import type { Fragment } from "~/utils/patch"
+import type { Layer } from "~/packages/corners/src/index"
+import { chamfered, rounded, semiChamfered } from "~/packages/corners/src/index"
+import type { Fragment } from "~/packages/corners/src/utils/patch"
 
 const Main = styled.main`
   display: flex;
