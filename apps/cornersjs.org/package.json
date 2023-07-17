@@ -1,49 +1,46 @@
 {
-  "name": "cornersjs.org",
-  "version": "0.1.2",
-  "private": true,
-  "scripts": {
-    "dev:gen": "tsx scripts/createCodeblocks.node.ts --tsconfig ../../tsconfig.node.json watch",
-    "dev:next": "next",
-    "dev": "concurrently --kill-others \"npm run dev:gen\" \"npm run dev:next\"",
-    "build": "tsx scripts/createCodeblocks.node.ts --tsconfig ../../tsconfig.node.json all && next build",
-    "start": "next start",
-    "lint": "eslint",
-    "test:once": "echo NOT YET IMPLEMENTED",
-    "test": "echo NOT YET IMPLEMENTED",
-    "release": "echo NOT YET IMPLEMENTED"
-  },
-  "dependencies": {
-    "@emotion/cache": "11.11.0",
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
-    "@mdx-js/loader": "2.3.0",
-    "@mdx-js/react": "2.3.0",
-    "@next/mdx": "13.4.10",
-    "corners": "workspace:^",
-    "framer-motion": "10.12.21",
-    "next": "13.4.10",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-markdown": "8.0.7",
-    "react-syntax-highlighter": "15.5.0"
-  },
-  "devDependencies": {
-    "@emotion/babel-plugin": "11.11.0",
-    "@types/node": "20.4.2",
-    "@types/npmlog": "4.1.4",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
-    "@types/react-syntax-highlighter": "15.5.7",
-    "chokidar": "3.5.3",
-    "concurrently": "8.2.0",
-    "eslint-config-next": "13.4.10",
-    "npmlog": "7.0.1",
-    "typescript": "5.1.6"
-  },
-  "eslintConfig": {
-    "extends": [
-      "@banka/react"
-    ]
-  }
+	"name": "cornersjs.org",
+	"version": "0.1.2",
+	"private": true,
+	"scripts": {
+		"dev:gen": "tsx scripts/createCodeblocks.node.ts --tsconfig ../../tsconfig.node.json watch",
+		"dev:next": "next",
+		"dev": "concurrently --kill-others \"npm run dev:gen\" \"npm run dev:next\"",
+		"build": "tsx scripts/createCodeblocks.node.ts --tsconfig ../../tsconfig.node.json all && next build",
+		"start": "next start",
+		"lint:rome": "rome check .",
+		"lint:eslint": "eslint .",
+		"lint": "npm run lint:rome && npm run lint:eslint",
+		"test:once": "echo NOT YET IMPLEMENTED",
+		"test": "echo NOT YET IMPLEMENTED",
+		"release": "echo NOT YET IMPLEMENTED"
+	},
+	"dependencies": {
+		"@emotion/cache": "11.11.0",
+		"@emotion/react": "11.11.1",
+		"@emotion/styled": "11.11.0",
+		"@mdx-js/loader": "2.3.0",
+		"@mdx-js/react": "2.3.0",
+		"@next/mdx": "13.4.10",
+		"corners": "workspace:^",
+		"framer-motion": "10.12.21",
+		"next": "13.4.10",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-markdown": "8.0.7",
+		"react-syntax-highlighter": "15.5.0"
+	},
+	"devDependencies": {
+		"@emotion/babel-plugin": "11.11.0",
+		"@types/node": "20.4.2",
+		"@types/npmlog": "4.1.4",
+		"@types/react": "18.2.15",
+		"@types/react-dom": "18.2.7",
+		"@types/react-syntax-highlighter": "15.5.7",
+		"chokidar": "3.5.3",
+		"concurrently": "8.2.0",
+		"eslint-config-next": "13.4.10",
+		"npmlog": "7.0.1",
+		"typescript": "5.1.6"
+	}
 }

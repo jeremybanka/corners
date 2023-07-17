@@ -7,16 +7,16 @@ import { globalStyles } from "../shared/styles"
 const cache = createCache({ key: `next` })
 
 const App = <P extends JSX.IntrinsicAttributes>({
-  Component,
-  pageProps,
+	Component,
+	pageProps,
 }: {
-  Component: React.ComponentType<P>
-  pageProps: P
+	Component: React.ComponentType<P>
+	pageProps: P
 }): React.ReactNode => (
-  <CacheProvider value={cache}>
-    {globalStyles}
-    <article
-      css={css`
+	<CacheProvider value={cache}>
+		{globalStyles}
+		<article
+			css={css`
         display: flex;
         flex-direction: column;
         height: 100vh;
@@ -77,25 +77,25 @@ const App = <P extends JSX.IntrinsicAttributes>({
           }
         }
       `}
-    >
-      <header>
-        <logo.link href={`/`}>corners</logo.link>
-        <nav>
-          <ul>
-            <li>
-              <bubble.link href={`/docs`}>Docs</bubble.link>
-            </li>
-            <li>
-              <bubble.link href={`/blog`} aria-disabled={true}>
-                Blog
-              </bubble.link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <Component {...pageProps} />
-    </article>
-  </CacheProvider>
+		>
+			<header>
+				<logo.link href={`/`}>corners</logo.link>
+				<nav>
+					<ul>
+						<li>
+							<bubble.link href={`/docs`}>Docs</bubble.link>
+						</li>
+						<li>
+							<bubble.link href={`/blog`} aria-disabled={true}>
+								Blog
+							</bubble.link>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<Component {...pageProps} />
+		</article>
+	</CacheProvider>
 )
 
 export default App

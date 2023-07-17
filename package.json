@@ -1,43 +1,33 @@
 {
-  "name": "@corners/monorepo",
-  "scripts": {
-    "dev": "echo todo",
-    "predeploy": "pnpm run build:example",
-    "deploy": "echo \"No deploy script configured\" && exit 1",
-    "test": "cross-env CI=true turbo run test:once",
-    "lint": "turbo run lint",
-    "format": "eslint --fix",
-    "build": "turbo run build",
-    "release": "pnpm build && changeset publish",
-    "notes": "changeset"
-  },
-  "devDependencies": {
-    "@banka/eslint-config-react": "1.4.0",
-    "@changesets/cli": "2.26.2",
-    "cross-env": "7.0.3",
-    "eslint": "8.45.0",
-    "prettier": "2.8.8",
-    "tsx": "3.12.7",
-    "turbo": "1.10.7",
-    "typescript": "5.1.6",
-    "vitest": "0.33.0"
-  },
-  "homepage": "https://github.com/jeremybanka/corners#readme",
-  "bugs": {
-    "url": "https://github.com/jeremybanka/corners/issues"
-  },
-  "nx": {
-    "targets": {
-      "build:example": {
-        "outputs": [
-          "{projectRoot}/./packages/corners/example/web"
-        ]
-      },
-      "build": {
-        "outputs": [
-          "{projectRoot}/./packages/corners/dist"
-        ]
-      }
-    }
-  }
+	"name": "@corners/monorepo",
+	"scripts": {
+		"dev": "echo todo",
+		"predeploy": "pnpm run build:example",
+		"deploy": "echo \"No deploy script configured\" && exit 1",
+		"test": "cross-env CI=true turbo run test:once",
+		"lint:rome": "turbo run lint:rome",
+		"lint:eslint": "turbo run lint:rome",
+		"format": "eslint --fix",
+		"build": "turbo run build",
+		"release": "pnpm build && changeset publish",
+		"notes": "changeset"
+	},
+	"devDependencies": {
+		"@changesets/cli": "2.26.2",
+		"@typescript-eslint/eslint-plugin": "6.0.0",
+		"@typescript-eslint/parser": "6.0.0",
+		"cross-env": "7.0.3",
+		"eslint": "8.45.0",
+		"eslint-plugin-import": "2.27.5",
+		"prettier": "3.0.0",
+		"rome": "12.1.3",
+		"tsx": "3.12.7",
+		"turbo": "1.10.7",
+		"typescript": "5.1.6",
+		"vitest": "0.33.0"
+	},
+	"homepage": "https://github.com/jeremybanka/corners#readme",
+	"bugs": {
+		"url": "https://github.com/jeremybanka/corners/issues"
+	}
 }

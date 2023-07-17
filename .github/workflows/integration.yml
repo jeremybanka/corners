@@ -57,8 +57,12 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Lint
-        run: pnpm lint
+      
+      - name: Rome
+        run: pnpm lint:rome
+
+      - name: ESLint
+        run: pnpm lint:eslint
 
       - name: Type Check
         run: pnpm tsc
