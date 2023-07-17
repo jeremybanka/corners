@@ -40,6 +40,6 @@
 		"vitest": "0.33.0"
 	},
 	"eslintConfig": {
-		"extends": ["@banka/react"]
+		"extends": ["@banka/rome"]
 	}
 }

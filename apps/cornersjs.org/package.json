@@ -44,6 +44,6 @@
 		"typescript": "5.1.6"
 	},
 	"eslintConfig": {
-		"extends": ["@banka/react"]
+		"extends": ["@banka/rome"]
 	}
 }
