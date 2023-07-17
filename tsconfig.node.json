@@ -6,6 +6,6 @@
       "corners": ["./packages/corners/src"]
     }
   },
-  "include": ["**/*.node.ts"],
+  "include": ["**/*.node.ts", "**/*.config.ts"],
   "exclude": ["**/*.test.ts"]
 }

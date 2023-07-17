@@ -25,5 +25,13 @@
   "homepage": "https://github.com/jeremybanka/corners#readme",
   "bugs": {
     "url": "https://github.com/jeremybanka/corners/issues"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@banka/react"
+    ],
+    "parserOptions": {
+      "project": "tsconfig.json"
+    }
   }
 }
