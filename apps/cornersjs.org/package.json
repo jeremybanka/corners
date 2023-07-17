@@ -44,6 +44,9 @@
   "eslintConfig": {
     "extends": [
       "@banka/react"
-    ]
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
   }
 }
