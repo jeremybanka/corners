@@ -5,8 +5,8 @@ import { css } from "@emotion/react"
 import { bubble, visor, softCard } from "../shared/containers"
 
 const Home: React.FC = () => (
-  <visor.main
-    css={css`
+	<visor.main
+		css={css`
       display: flex;
       flex-flow: column;
       justify-content: center;
@@ -37,13 +37,13 @@ const Home: React.FC = () => (
         font-size: 40px;
       }
     `}
-  >
-    <h1>
-      Cut corners <br /> with style
-    </h1>
-    <softCard.article></softCard.article>
-    <bubble.link href={`/docs/presets`}>Get Started!</bubble.link>
-  </visor.main>
+	>
+		<h1>
+			Cut corners <br /> with style
+		</h1>
+		<softCard.article />
+		<bubble.link href={`/docs/presets`}>Get Started!</bubble.link>
+	</visor.main>
 )
 
 export default Home

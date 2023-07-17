@@ -1,17 +1,46 @@
 {
-  "cSpell.words": [
-    "Bundlephobia",
-    "changesets",
-    "Changesets",
-    "demi",
-    "dotglob",
-    "esbuild",
-    "npmlog",
-    "outfile",
-    "predeploy",
-    "servedir",
-    "shopt",
-    "tsup"
-  ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+	"editor.wordSeparators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
+	"cSpell.words": [
+		"Bundlephobia",
+		"changesets",
+		"Changesets",
+		"cornersjs",
+		"demi",
+		"dotglob",
+		"esbuild",
+		"npmlog",
+		"outfile",
+		"predeploy",
+		"servedir",
+		"shopt",
+		"tsup"
+	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"[typescript]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"[typescriptreact]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"[html]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[css]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"references.preferredLocation": "peek"
 }

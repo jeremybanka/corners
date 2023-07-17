@@ -1,47 +1,45 @@
 {
-  "name": "corners",
-  "version": "0.1.0",
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "dev": "esbuild example/client.tsx --outfile=example/web/client.js --servedir=example/web --serve=6144 --bundle --minify --sourcemap",
-    "build:example": "esbuild example/client.tsx --outfile=example/web/client.js --bundle --minify --sourcemap",
-    "build:package": "tsup src/index.ts --format cjs,esm --dts",
-    "build": "pnpm build:package && pnpm build:example",
-    "test": "vitest",
-    "test:once": "vitest run",
-    "lint": "eslint \"{src,test}/**/*.ts{,x}\"",
-    "lint:fix": "pnpm run lint -- --fix"
-  },
-  "dependencies": {
-    "@react-hook/resize-observer": "1.2.6"
-  },
-  "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
-  },
-  "devDependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
-    "c8": "8.0.0",
-    "esbuild": "0.18.13",
-    "gh-pages": "5.0.0",
-    "jsdom": "22.1.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tsconfig-paths": "4.2.0",
-    "tsup": "7.1.0",
-    "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.33.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "@banka/react"
-    ]
-  }
+	"name": "corners",
+	"version": "0.1.0",
+	"files": ["dist"],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"dev": "esbuild example/client.tsx --outfile=example/web/client.js --servedir=example/web --serve=6144 --bundle --minify --sourcemap",
+		"build:example": "esbuild example/client.tsx --outfile=example/web/client.js --bundle --minify --sourcemap",
+		"build:package": "tsup src/index.ts --format cjs,esm --dts",
+		"build": "pnpm build:package && pnpm build:example",
+		"test": "vitest",
+		"test:once": "vitest run",
+		"lint:rome": "rome check .",
+		"lint:eslint": "eslint .",
+		"lint": "npm run lint:rome && npm run lint:eslint",
+		"lint:fix": "pnpm run lint -- --fix"
+	},
+	"dependencies": {
+		"@react-hook/resize-observer": "1.2.6"
+	},
+	"peerDependencies": {
+		"react": ">=18.0.0",
+		"react-dom": ">=18.0.0"
+	},
+	"devDependencies": {
+		"@emotion/react": "11.11.1",
+		"@emotion/styled": "11.11.0",
+		"@types/react": "18.2.15",
+		"@types/react-dom": "18.2.7",
+		"c8": "8.0.0",
+		"esbuild": "0.18.13",
+		"gh-pages": "5.0.0",
+		"jsdom": "22.1.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"tsconfig-paths": "4.2.0",
+		"tsup": "7.1.0",
+		"vite-tsconfig-paths": "4.2.0",
+		"vitest": "0.33.0"
+	},
+	"eslintConfig": {
+		"extends": ["@banka/react"]
+	}
 }
