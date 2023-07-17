@@ -13,17 +13,17 @@ const ButtonStyles = css`
 `
 
 export default function IncorrectUnclippedRoundedButton(): React.ReactNode {
-  const [clicked, setClicked] = useState(false)
+	const [clicked, setClicked] = useState(false)
 
-  const RoundedButton = rounded.button.with({
-    cornerSize: 30,
-    useClipPath: false,
-    above: { color: `transparent`, stroke: { color: `green`, width: 1 } },
-  })
+	const RoundedButton = rounded.button.with({
+		cornerSize: 30,
+		useClipPath: false,
+		above: { color: `transparent`, stroke: { color: `green`, width: 1 } },
+	})
 
-  return (
-    <RoundedButton onClick={() => setClicked(true)} css={ButtonStyles}>
-      {clicked ? `CLICKED` : `click me!`}
-    </RoundedButton>
-  )
+	return (
+		<RoundedButton onClick={() => setClicked(true)} css={ButtonStyles}>
+			{clicked ? `CLICKED` : `click me!`}
+		</RoundedButton>
+	)
 }

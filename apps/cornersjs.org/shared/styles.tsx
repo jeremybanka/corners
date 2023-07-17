@@ -1,8 +1,8 @@
 import { css, Global } from "@emotion/react"
 
 export const globalStyles = (
-  <Global
-    styles={css`
+	<Global
+		styles={css`
       @font-face {
         font-family: Manufab;
         src: url("/ManufabVF.ttf") format("truetype-variations");
@@ -64,5 +64,5 @@ export const globalStyles = (
         }
       }
     `}
-  />
+	/>
 )
