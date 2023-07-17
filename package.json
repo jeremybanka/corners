@@ -12,7 +12,7 @@
     "notes": "changeset"
   },
   "devDependencies": {
-    "@banka/eslint-config-react": "1.4.0",
+    "@banka/eslint-config-react": "2.0.0",
     "@changesets/cli": "2.26.2",
     "cross-env": "7.0.3",
     "eslint": "8.45.0",
