@@ -4,4 +4,5 @@ dist
 .env
 .turbo
 apps/cornersjs.org/exhibits-wrapped/*
+!apps/cornersjs.org/exhibits-wrapped/.gitkeep
 apps/cornersjs.org/build
