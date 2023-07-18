@@ -13,8 +13,8 @@
   <a aria-label="Types" href="https://www.npmjs.com/package/corners">
     <img alt="Types" src="https://img.shields.io/npm/types/corners?style=for-the-badge&labelColor=333">
   </a>
-  <a aria-label="Build status" href="https://github.com/jeremybanka/corners/actions/workflows/pipeline.yml">
-    <img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/jeremybanka/corners/pipeline.yml?branch=main&style=for-the-badge&labelColor=333">
+  <a aria-label="Build status" href="https://github.com/jeremybanka/corners/actions/workflows/integration.yml">
+    <img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/jeremybanka/corners/integration.yml?branch=main&style=for-the-badge&labelColor=333">
   </a>
   <a aria-label="NPM version" href="https://www.npmjs.com/package/corners">
     <img alt="NPM Version" src="https://img.shields.io/npm/v/corners?style=for-the-badge&labelColor=333">
