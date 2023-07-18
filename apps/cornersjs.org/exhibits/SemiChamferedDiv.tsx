@@ -6,12 +6,12 @@ export default function NowIsTheTime(): JSX.Element {
 			style={{
 				fontFamily: `Impact`,
 				background: `repeating-linear-gradient(
-          45deg,
-          #fd0,
-          #fd0 10px,
-          #fe0 10px,
-          #fe0 20px
-        )`,
+					45deg,
+					#fd0,
+					#fd0 10px,
+					#fe0 10px,
+					#fe0 20px
+				)`,
 				color: `black`,
 				fontSize: `7vmax`,
 				padding: `30px`,

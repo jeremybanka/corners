@@ -8,24 +8,25 @@ const myArgs = process.argv.slice(2)
 const lastArgument = myArgs[myArgs.length - 1]
 if (lastArgument == null) {
 	npmlog.error(
-		`createCodeblocks`,
+		`wrap-exhibits`,
 		`No arguments provided: specify 'watch' or 'all'`,
 	)
 	process.exit(1)
 }
 
-const inputDir = `./components` // The directory containing the original TSX files
-const outputDir = `./wrappedComponents` // The directory to write the new TSX files to
+const inputDir = `./exhibits` // The directory containing the original TSX files
+const outputDir = `./exhibits-wrapped` // The directory to write the new TSX files to
 
 // Function to wrap the TSX code in a function component
 function wrapCode(code: string) {
 	return `import * as React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { rounded } from "corners"
 
 const Component: React.FC = () => (
-  <rounded.span className="codeblock">
-    <SyntaxHighlighter language="tsx">
+  <rounded.span className="codeblock" >
+    <SyntaxHighlighter language="tsx" style={vscDarkPlus}>
       {${JSON.stringify(code)}}
     </SyntaxHighlighter>
   </rounded.span>
@@ -37,7 +38,7 @@ export default Component;
 
 // Function to handle a file being added or changed
 function handleFile(filePath: string) {
-	npmlog.info(`createCodeblocks`, `Handling file ${filePath}`)
+	npmlog.info(`wrap-exhibits`, `Handling file ${filePath}`)
 	const code = fs.readFileSync(filePath, `utf8`)
 	const fileName = path.basename(filePath)
 	const outputFilePath = path.resolve(outputDir, fileName)
@@ -46,7 +47,7 @@ function handleFile(filePath: string) {
 }
 
 if (lastArgument === `watch`) {
-	npmlog.info(`createCodeblocks`, `Watching ${inputDir} for changes...`)
+	npmlog.info(`wrap-exhibits`, `Watching ${inputDir} for changes...`)
 	const watcher = chokidar.watch(inputDir, { persistent: true })
 
 	watcher.on(`add`, (filePath) => {
@@ -58,7 +59,7 @@ if (lastArgument === `watch`) {
 		handleFile(filePath)
 	})
 } else {
-	npmlog.info(`createCodeblocks`, `Processing all files in ${inputDir}...`)
+	npmlog.info(`wrap-exhibits`, `Processing all files in ${inputDir}...`)
 	fs.readdir(inputDir, (err, files) => {
 		if (err) {
 			return console.log(`Unable to scan directory: ` + err)

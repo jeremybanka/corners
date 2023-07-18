@@ -27,6 +27,9 @@ const App = <P extends JSX.IntrinsicAttributes>({
           align-items: center;
           padding: 10px 15px;
           nav {
+            display: flex;
+            flex-flow: row nowrap;
+            flex-grow: 1;
             ul {
               display: flex;
               gap: 10px;
@@ -34,6 +37,10 @@ const App = <P extends JSX.IntrinsicAttributes>({
                 list-style: none;
                 display: flex;
               }
+            }
+            .spacer {
+              flex: 1;
+              flex-grow: 1;
             }
           }
         }
@@ -68,9 +75,9 @@ const App = <P extends JSX.IntrinsicAttributes>({
         }
         pre {
           margin: 0 !important;
-          font-size: 16px !important;
           background-color: #222 !important;
           * {
+            font-size: 16px !important;
             color: #ddd;
             text-shadow: none !important;
             background: none !important;
@@ -89,6 +96,13 @@ const App = <P extends JSX.IntrinsicAttributes>({
 							<bubble.link href={`/blog`} aria-disabled={true}>
 								Blog
 							</bubble.link>
+						</li>
+					</ul>
+					<span className="spacer" />
+					<ul>
+						<input type="text" placeholder="Search" />
+						<li>
+							<bubble.link href={``}>GitHub</bubble.link>
 						</li>
 					</ul>
 				</nav>

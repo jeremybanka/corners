@@ -3,5 +3,5 @@ node_modules
 dist
 .env
 .turbo
-apps/cornersjs.org/wrappedComponents/*
+apps/cornersjs.org/exhibits-wrapped/*
 apps/cornersjs.org/build

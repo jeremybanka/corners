@@ -3,10 +3,10 @@
 	"version": "0.1.2",
 	"private": true,
 	"scripts": {
-		"dev:gen": "tsx scripts/createCodeblocks.node.ts --tsconfig ../../tsconfig.node.json watch",
+		"dev:gen": "tsx scripts/wrap-exhibits.node.ts --tsconfig ../../tsconfig.node.json watch",
 		"dev:next": "next",
 		"dev": "concurrently --kill-others \"npm run dev:gen\" \"npm run dev:next\"",
-		"build": "tsx scripts/createCodeblocks.node.ts --tsconfig ../../tsconfig.node.json all && next build",
+		"build": "tsx scripts/wrap-exhibits.node.ts --tsconfig ../../tsconfig.node.json all && next build",
 		"start": "next start",
 		"lint:rome": "rome check .",
 		"lint:eslint": "eslint .",
