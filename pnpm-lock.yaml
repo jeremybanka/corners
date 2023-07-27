@@ -69,8 +69,8 @@ importers:
         specifier: workspace:^
         version: link:../../packages/corners
       framer-motion:
-        specifier: 10.13.1
-        version: 10.13.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 10.13.2
+        version: 10.13.2(react-dom@18.2.0)(react@18.2.0)
       next:
         specifier: 13.4.12
         version: 13.4.12(react-dom@18.2.0)(react@18.2.0)
@@ -3394,8 +3394,8 @@ packages:
     engines: {node: '>=0.4.x'}
     dev: false
 
-  /framer-motion@10.13.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-uiKsaLEoySeln3eOPy8wUB3FkNtRRiVga5xJOkgs7C0sHVyvpJajXJFSoabt+emBojgnMQY0epnjl0ppoYPxkQ==}
+  /framer-motion@10.13.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qrHQ7b5t8IxQziCN3pIsG8EhXrhPEK2uY7lLpYwzsh+p7L1nthc7zauM67kwD8g9vzS/Ul+NmfZe3luyOHX8CQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
