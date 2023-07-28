@@ -2,8 +2,9 @@ import createCache from "@emotion/cache"
 import { CacheProvider, css } from "@emotion/react"
 
 import { bubble, logo } from "../shared/containers"
+import { link } from "../shared/link"
 import { globalStyles } from "../shared/styles"
-
+import Kitty from "../svg/kitty.svg"
 const cache = createCache({ key: `next` })
 
 const App = <P extends JSX.IntrinsicAttributes>({
@@ -37,6 +38,24 @@ const App = <P extends JSX.IntrinsicAttributes>({
               li {
                 list-style: none;
                 display: flex;
+                a {
+                  padding: 0;
+                  width: 54px;
+                  height: 54px;
+                  display: flex;
+                  align-items: flex-end;
+                  justify-content: flex-end;
+                  --fg-color: var(--color-light-soft);
+                  .stroke > path {
+                    stroke: var(--color-light-faint);
+                  }
+                  .kitty {
+                    margin: -25%;
+                    path {
+                      fill: var(--fg-color) !important;
+                    }
+                  }
+                }
               }
             }
             .spacer {
@@ -45,7 +64,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
             }
           }
         }
-        main {
+        > main {
           display: flex;
           flex-direction: column;
           height: 100vh;
@@ -66,7 +85,7 @@ const App = <P extends JSX.IntrinsicAttributes>({
           }
           h1 {
             font-family: Manufab;
-            font-size: 90px;
+            /* font-size: 90px; */
             padding-top: 30px;
           }
           h2 {
@@ -95,20 +114,22 @@ const App = <P extends JSX.IntrinsicAttributes>({
 				<logo.link href={`/`}>corners</logo.link>
 				<nav>
 					<ul>
-						<li>
+						{/* <li>
 							<bubble.link href={`/docs`}>Docs</bubble.link>
 						</li>
 						<li>
 							<bubble.link href={`/blog`} aria-disabled={true}>
 								Blog
 							</bubble.link>
-						</li>
+						</li> */}
 					</ul>
 					<span className="spacer" />
 					<ul>
-						<input type="text" placeholder="Search" />
+						{/* <input type="text" placeholder="Search" /> */}
 						<li>
-							<bubble.link href={``}>GitHub</bubble.link>
+							<link.right href={``} className="">
+								<Kitty className="kitty" />
+							</link.right>
 						</li>
 					</ul>
 				</nav>

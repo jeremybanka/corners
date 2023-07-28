@@ -2,7 +2,8 @@
 
 import { css } from "@emotion/react"
 
-import { bubble, visor, softCard } from "../shared/containers"
+import { visor, softCard } from "../shared/containers"
+import { link } from "../shared/link"
 
 const Home: React.FC = () => (
 	<visor.main
@@ -14,10 +15,10 @@ const Home: React.FC = () => (
       flex: 1;
       flex-grow: 1;
       gap: 20px;
-      background-color: #eae9e9;
+      background-color: var(--bg-shade-1);
       h1 {
-        font-size: 90px;
-        line-height: 81px;
+        font-size: 8vmax;
+        line-height: 7vmax; 
         text-align: center;
         --fg-color: #eae9e9;
         @media (prefers-color-scheme: light) {
@@ -33,8 +34,10 @@ const Home: React.FC = () => (
         justify-content: center;
         align-items: center;
       }
-      a {
-        font-size: 40px;
+      > section {
+        margin-top: 40px;
+        display: flex;
+        gap: 10px;
       }
     `}
 	>
@@ -42,7 +45,10 @@ const Home: React.FC = () => (
 			Cut corners <br /> with style
 		</h1>
 		<softCard.article />
-		<bubble.link href={`/docs/presets`}>Get Started!</bubble.link>
+		<section>
+			<link.left href={`/docs`}>Read the Docs</link.left>
+			<link.main href={`/docs/presets`}>Get Started!</link.main>
+		</section>
 	</visor.main>
 )
 

@@ -1,6 +1,6 @@
 import { css } from "@emotion/react"
 
-import { bubble } from "../../shared/containers"
+import { link } from "../../shared/link"
 
 export default function DocRoot(): React.ReactNode {
 	return (
@@ -15,17 +15,25 @@ export default function DocRoot(): React.ReactNode {
 					li {
 						list-style: none;
 						display: flex;
+						width: 100%;
+						a {
+							width: 100%;
+							height: 80px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						}
 					}
 				`}
 			>
 				<li>
-					<bubble.link href={`/docs/presets`}>Presets</bubble.link>
+					<link.left href={`/docs/presets`}>Presets</link.left>
 				</li>
 				<li>
-					<bubble.link href={`/docs/add-a-layer`}>Add a Layer</bubble.link>
+					<link.center href={`/docs/add-a-layer`}>Add a Layer</link.center>
 				</li>
 				<li>
-					<bubble.link href={`/docs/use-clip-path`}>Use Clip Path</bubble.link>
+					<link.right href={`/docs/use-clip-path`}>Use Clip Path</link.right>
 				</li>
 			</ul>
 		</>
