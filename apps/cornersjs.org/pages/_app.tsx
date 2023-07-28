@@ -20,14 +20,18 @@ const App = <P extends JSX.IntrinsicAttributes>({
 			css={css`
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        min-height: 100vh;
         padding: 10px;
+
         header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding: 10px 15px;
           gap: 20px;
+          position: sticky;
+          top: 0;
+          z-index: 100;
           nav {
             display: flex;
             flex-flow: row nowrap;
@@ -70,7 +74,8 @@ const App = <P extends JSX.IntrinsicAttributes>({
         > main {
           display: flex;
           flex-direction: column;
-          height: 100vh;
+          min-height: 100vh;
+          flex-grow: 1;
           padding: 10px;
           // docs styling - gotta be this way until we move to remote mdx
           > *:not(header):not(main):not(div) {
