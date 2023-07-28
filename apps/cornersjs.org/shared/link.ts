@@ -7,7 +7,7 @@ import Link from "next/link"
 const shape = (...params: Parameters<typeof corners>) =>
 	Emotion(
 		corners(...params).options({
-			cornerSize: 7,
+			cornerSize: 12,
 			useClipPath: false,
 			below: [
 				{ color: `var(--bg-color)`, className: `fill` },
@@ -20,9 +20,19 @@ const styled = {
 	linkLeft: shape(null, null, null, chamfer),
 	linkCenter: shape(null),
 	linkRight: shape(null, chamfer, null, null),
+	anchorRight: Emotion(
+		corners(null, chamfer, null, null).options({
+			cornerSize: 12,
+			useClipPath: false,
+			below: [
+				{ color: `var(--bg-color)`, className: `fill` },
+				{ stroke: { color: `var(--fg-color)`, width: 1 }, className: `stroke` },
+			],
+		})(`a`),
+	),
 	linkMain: Emotion(
 		corners(null, chamfer, null, null).options({
-			cornerSize: 7,
+			cornerSize: 12,
 			useClipPath: false,
 			below: [
 				{ color: `var(--hyperlink-color)`, className: `fill` },
@@ -36,7 +46,7 @@ const commonCss = css`
 	font-family: manufab;
 	font-variation-settings: "wght" 600;
 	font-size: 24px;
-	padding: 10px 15px 8px;
+	padding: 10px 20px 8px;
 	background: none;
 	border: none;
 	color: var(--bg-color);
@@ -68,5 +78,12 @@ export const link = {
 		svg.fill > path {
 			fill: var(--fg-color);
 		}
+	`,
+}
+
+export const anchor = {
+	right: styled.anchorRight`
+		${commonCss}
+		color: var(--fg-color);
 	`,
 }

@@ -1,8 +1,8 @@
 import createCache from "@emotion/cache"
 import { CacheProvider, css } from "@emotion/react"
 
-import { bubble, logo } from "../shared/containers"
-import { link } from "../shared/link"
+import { logo } from "../shared/containers"
+import { anchor } from "../shared/link"
 import { globalStyles } from "../shared/styles"
 import Kitty from "../svg/kitty.svg"
 const cache = createCache({ key: `next` })
@@ -49,8 +49,11 @@ const App = <P extends JSX.IntrinsicAttributes>({
                   .stroke > path {
                     stroke: var(--color-light-faint);
                   }
-                  .kitty {
-                    margin: -25%;
+                  svg.kitty {
+                    margin: -12px;
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
                     path {
                       fill: var(--fg-color) !important;
                     }
@@ -127,9 +130,12 @@ const App = <P extends JSX.IntrinsicAttributes>({
 					<ul>
 						{/* <input type="text" placeholder="Search" /> */}
 						<li>
-							<link.right href={``} className="">
+							<anchor.right
+								href={`https://github.com/jeremybanka/corners`}
+								className=""
+							>
 								<Kitty className="kitty" />
-							</link.right>
+							</anchor.right>
 						</li>
 					</ul>
 				</nav>
