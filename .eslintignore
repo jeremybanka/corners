@@ -2,4 +2,4 @@
 dist/
 node_modules/
 coverage/
-apps/cornersjs.org/wrappedComponents/
+apps/cornersjs.org/exhibits-wrapped

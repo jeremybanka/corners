@@ -41,11 +41,11 @@ const styled = {
 	),
 	chamferedMain: Emotion(
 		chamfered(`main`, {
-			cornerSize: 5,
+			cornerSize: 10,
 			useClipPath: true,
 			above: {
 				color: `transparent`,
-				stroke: { color: `var(--fg-color)`, width: 2 },
+				stroke: { color: `var(--color-light-faint)`, width: 3 },
 			},
 		}),
 	),
@@ -56,21 +56,21 @@ const styled = {
 			below: [
 				{
 					className: `shadow`,
-					color: `#bebebe`,
+					color: `--bg-shade-2`,
 					blur: 60,
 					spread: 30,
 					offset: { x: 30, y: -30 },
 				},
 				{
 					className: `highlight`,
-					color: `#fff`,
+					color: `var(--bg-tint-1)`,
 					blur: 60,
 					spread: 30,
 					offset: { x: -30, y: 30 },
 				},
 				{
 					className: `paper`,
-					color: `#eae9e9`,
+					color: `var(--bg-shade-1)`,
 				},
 			],
 		}),
@@ -155,6 +155,7 @@ export const neo = {
 
 export const logo = {
 	link: styled.logoLink`
+	  font-family: manufab;
     padding-top: 5px;
     padding-left: 2px;
     padding-bottom: 1px;
