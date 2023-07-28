@@ -1,3 +1,5 @@
+import { css } from "@emotion/react"
+
 import { bubble } from "../../shared/containers"
 
 export default function DocRoot(): React.ReactNode {
@@ -5,7 +7,17 @@ export default function DocRoot(): React.ReactNode {
 		<>
 			<h1>Docs</h1>
 			{/* links to all the docs */}
-			<ul>
+			<ul
+				css={css`
+					display: flex;
+					flex-flow: column nowrap;
+					gap: 10px;
+					li {
+						list-style: none;
+						display: flex;
+					}
+				`}
+			>
 				<li>
 					<bubble.link href={`/docs/presets`}>Presets</bubble.link>
 				</li>
