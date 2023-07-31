@@ -1,7 +1,6 @@
 import type {
 	AllHTMLAttributes,
 	CSSProperties,
-	FC,
 	ForwardRefExoticComponent,
 	ReactNode,
 } from "react"
@@ -22,7 +21,7 @@ export function withCorners<
 	WrappedComponent: ForwardRefExoticComponent<P> | string,
 	options: CornerOptions,
 	...corners: (DrawCorner | null)[]
-): FC<AllHTMLAttributes<any> & P> {
+): (props: AllHTMLAttributes<any> & P) => JSX.Element {
 	const { cornerSize, useClipPath, above, below } = options
 	const clipPathfinder = useClipPath
 		? createClipPathfinder(cornerSize, ...corners)
@@ -30,7 +29,7 @@ export function withCorners<
 	const pathfinder =
 		above || below ? createPathfinder(cornerSize, ...corners) : null
 
-	const WithCorners: FC<P> = (props) => {
+	const WithCorners = (props: P): JSX.Element => {
 		const pathId = useId ? useId() : Math.random().toString()
 		const nodeRef = useRef<HTMLElement>(null)
 		const { height, width } = useSize(nodeRef)
