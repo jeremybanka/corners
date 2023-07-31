@@ -1,5 +1,6 @@
 import createCache from "@emotion/cache"
 import { CacheProvider, css } from "@emotion/react"
+import Head from "next/head"
 
 import { logo } from "../shared/containers"
 import { anchor } from "../shared/link"
@@ -15,7 +16,11 @@ const App = <P extends JSX.IntrinsicAttributes>({
 	pageProps: P
 }): React.ReactNode => (
 	<CacheProvider value={cache}>
-		{globalStyles}
+		<Head>
+			<title>Corners</title>
+			<link rel="icon" href="/favicon.svg" />
+			{globalStyles}
+		</Head>
 		<article
 			css={css`
         display: flex;
@@ -49,9 +54,9 @@ const App = <P extends JSX.IntrinsicAttributes>({
                   display: flex;
                   align-items: flex-end;
                   justify-content: flex-end;
-                  --fg-color: var(--color-light-soft);
+                  --fg-color: var(--fg-soft);
                   .stroke > path {
-                    stroke: var(--color-light-faint);
+                    stroke: var(--fg-faint);
                   }
                   svg.kitty {
                     margin: -12px;
@@ -74,7 +79,6 @@ const App = <P extends JSX.IntrinsicAttributes>({
         > main {
           display: flex;
           flex-direction: column;
-          min-height: 100vh;
           flex-grow: 1;
           padding: 10px;
           // docs styling - gotta be this way until we move to remote mdx
