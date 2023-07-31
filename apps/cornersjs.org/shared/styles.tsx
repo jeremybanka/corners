@@ -3,6 +3,7 @@ import { css, Global } from "@emotion/react"
 export const globalStyles = (
 	<Global
 		styles={css`
+      @import url("https://use.typekit.net/dmd3xpt.css");
       @font-face {
         font-family: Manufab;
         src: url("/ManufabVF.ttf") format("truetype-variations");
@@ -21,26 +22,29 @@ export const globalStyles = (
       :root {
         color-scheme: light dark;
         --color-light: #fff;
-        --color-light-soft: #ccc;
-        --color-light-faint: #444;
         --color-dark: #111;
-        --color-dark-shade-1: #222;
+        --fg-soft: #ccc;
+        --fg-faint: #444;
         --fg-color: var(--color-light);
         --bg-color: var(--color-dark);
-        --bg-tint-1: #191919;
-        --bg-shade-1: #0a0a0a;
+        --bg-tint-1: #333;
+        --bg-shade-1: #222;
+        --bg-shade-2: #000;
         --hyperlink-color: #09f;
         --hyperlink-hover-color: #0df;
         --hyperlink-visited-color: #99f;
         --special-color: #9200ff;
         @media (prefers-color-scheme: light) {
           :root {
-            --fg-color: #333;
+            --color-light: #f9f9f9;
+            --color-dark: #333;
+            --fg-color: var(--color-dark);
             --fg-soft: #777;
-            --bg-color: #f9f9f9;
-            --bg-tint1: #fff;
-            --bg-shade1: #f3f3f3;
-            --bg-shade2: ##bebebe;
+            --fg-faint: #bbb;
+            --bg-color: var(--color-light);
+            --bg-tint-1: #fff;
+            --bg-shade-1: #f3f3f3;
+            --bg-shade-2: #d8d8d8;
             --hyperlink-color: #08f;
             --hyperlink-hover-color: #04f;
             --hyperlink-visited-color: #99f;
@@ -51,7 +55,7 @@ export const globalStyles = (
         }
         background: var(--bg-color);
         min-height: 100vh;
-        font-family: Palatino;
+        font-family: Georgia 'serif';
         font-size: 21px;
       }
       a {

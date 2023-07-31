@@ -8,6 +8,7 @@ import { link } from "../shared/link"
 const Home: React.FC = () => (
 	<visor.main
 		css={css`
+      position: relative;
       display: flex;
       flex-flow: column;
       justify-content: center;
@@ -27,7 +28,8 @@ const Home: React.FC = () => (
       }
       article {
         width: 50%;
-        height: 50%;
+        max-height: 33vh;
+        flex-grow: 1;
         margin: 0 50px;
         display: flex;
         flex-flow: column;

@@ -10,7 +10,6 @@ const shape = (...params: Parameters<typeof corners>) =>
 			cornerSize: 12,
 			useClipPath: false,
 			below: [
-				{ color: `var(--bg-color)`, className: `fill` },
 				{ stroke: { color: `var(--fg-color)`, width: 1 }, className: `stroke` },
 			],
 		})(motion(Link)),

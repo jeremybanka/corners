@@ -45,7 +45,7 @@ const styled = {
 			useClipPath: true,
 			above: {
 				color: `transparent`,
-				stroke: { color: `var(--color-light-faint)`, width: 3 },
+				stroke: { color: `var(--fg-faint)`, width: 3 },
 			},
 		}),
 	),
@@ -56,7 +56,7 @@ const styled = {
 			below: [
 				{
 					className: `shadow`,
-					color: `--bg-shade-2`,
+					color: `var(--bg-shade-2)`,
 					blur: 60,
 					spread: 30,
 					offset: { x: 30, y: -30 },
@@ -94,8 +94,8 @@ const styled = {
 			useClipPath: false,
 			below: [
 				{
-					color: `var(--fg-color)`,
-					offset: { x: 5, y: 4 },
+					stroke: { color: `var(--fg-color)`, width: 4 },
+					offset: { x: 6, y: 6 },
 				},
 				{
 					color: `var(--bg-color)`,
