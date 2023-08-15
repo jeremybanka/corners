@@ -34,7 +34,7 @@
 	"devDependencies": {
 		"@emotion/babel-plugin": "11.11.0",
 		"@types/node": "20.4.10",
-		"@svgr/webpack": "8.0.1",
+		"@svgr/webpack": "8.1.0",
 		"@types/npmlog": "4.1.4",
 		"@types/react": "18.2.20",
 		"@types/react-dom": "18.2.7",
