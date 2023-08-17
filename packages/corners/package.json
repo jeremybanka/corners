@@ -37,6 +37,6 @@
 		"tsconfig-paths": "4.2.0",
 		"tsup": "7.2.0",
 		"vite-tsconfig-paths": "4.2.0",
-		"vitest": "0.34.1"
+		"vitest": "0.34.2"
 	}
 }
