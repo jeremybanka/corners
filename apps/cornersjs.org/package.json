@@ -28,7 +28,7 @@
 		"fp-ts": "2.16.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-markdown": "8.0.7",
+		"react-markdown": "9.0.0",
 		"react-syntax-highlighter": "15.5.0"
 	},
 	"devDependencies": {
