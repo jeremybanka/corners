@@ -100,8 +100,8 @@ importers:
         specifier: 20.6.3
         version: 20.6.3
       '@types/npmlog':
-        specifier: 4.1.4
-        version: 4.1.4
+        specifier: 4.1.5
+        version: 4.1.5
       '@types/react':
         specifier: 18.2.21
         version: 18.2.21
@@ -3029,8 +3029,10 @@ packages:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: true
 
-  /@types/npmlog@4.1.4:
-    resolution: {integrity: sha512-WKG4gTr8przEZBiJ5r3s8ZIAoMXNbOgQ+j/d5O4X3x6kZJRLNvyUJuUK/KoG3+8BaOHPhp2m7WC6JKKeovDSzQ==}
+  /@types/npmlog@4.1.5:
+    resolution: {integrity: sha512-Fl3TEbwPoR7V1z6CMJ18whXOUkOYqF5eCkGKTir2VuevdLYUmcwj9mQdvXzuY0oagZBbsy0J7df41jn+ZcwGRA==}
+    dependencies:
+      '@types/node': 20.6.3
     dev: true
 
   /@types/parse-json@4.0.0:
