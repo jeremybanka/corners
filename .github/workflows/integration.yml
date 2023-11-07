@@ -58,8 +58,8 @@ jobs:
         run: pnpm build
 
       
-      - name: Rome
-        run: pnpm lint:rome
+      - name: Biome
+        run: pnpm lint:biome
 
       - name: ESLint
         run: pnpm lint:eslint
