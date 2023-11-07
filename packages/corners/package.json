@@ -11,9 +11,9 @@
 		"build": "pnpm build:package && pnpm build:example",
 		"test": "vitest",
 		"test:once": "vitest run",
-		"lint:rome": "rome check .",
+		"lint:biome": "biome check .",
 		"lint:eslint": "eslint .",
-		"lint": "npm run lint:rome && npm run lint:eslint",
+		"lint": "npm run lint:biome && npm run lint:eslint",
 		"lint:fix": "pnpm run lint -- --fix"
 	},
 	"dependencies": {

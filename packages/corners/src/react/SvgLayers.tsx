@@ -33,7 +33,7 @@ export const SvgLayers: FC<{
 						]
 						const d = pathfinder(height, width, cornerSize)
 						return (
-							// rome-ignore lint/a11y/noSvgWithoutTitle: this is a decorative element
+							// biome-ignore lint/a11y/noSvgWithoutTitle: this is a decorative element
 							<svg
 								key={`${idx === 0 ? `below` : `above`}-${offset.x}-${
 									offset.y

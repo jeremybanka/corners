@@ -1,5 +1,5 @@
 import type { RefObject } from "react"
-import { useState, useLayoutEffect } from "react"
+import { useLayoutEffect, useState } from "react"
 
 import useResizeObserver from "@react-hook/resize-observer"
 

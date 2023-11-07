@@ -65,7 +65,7 @@ if (lastArgument === `watch`) {
 			return console.log(`Unable to scan directory: ` + err)
 		}
 
-		files.forEach((file) => {
+		for (const file of files) {
 			const filePath = path.join(inputDir, file)
 
 			// Check if the path is a file
@@ -78,6 +78,6 @@ if (lastArgument === `watch`) {
 					handleFile(filePath)
 				}
 			})
-		})
+		}
 	})
 }

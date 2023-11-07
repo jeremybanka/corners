@@ -4,7 +4,7 @@ export const SvgClippingPath: FC<{
 	id: string
 	d: string
 }> = ({ id, d }) => (
-	// rome-ignore lint/a11y/noSvgWithoutTitle: this is a decorative element
+	// biome-ignore lint/a11y/noSvgWithoutTitle: this is a decorative element
 	<svg
 		width="10"
 		height="10"
