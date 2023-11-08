@@ -13,8 +13,9 @@ module.exports = {
     sourceType: `module`,
     ecmaFeatures: { jsx: true },
     project: [`./tsconfig.json`, `./tsconfig.node.json`, `./apps/cornersjs.org/tsconfig.json`],
+    tsconfigRootDir: __dirname,
   },
-  ignorePatterns: [`**/dist/**`],
+  ignorePatterns: [`**/dist/**`, `**/web/**`, `**/exhibits-wrapped/**`],
   env: {
     node: true,
     browser: true,
@@ -66,29 +67,6 @@ module.exports = {
     "import/named": 0,
     "import/no-unresolved": `off`,
     "import/prefer-default-export": `off`,
-    "import/order": [
-      `error`,
-      {
-        "groups": [`builtin`, `external`, `internal`],
-        "pathGroups": [
-          {
-            pattern: `~`,
-            group: `internal`,
-            position: `before`,
-          },
-          {
-            pattern: `~/**`,
-            group: `internal`,
-            position: `before`,
-          },
-        ],
-        "newlines-between": `always`,
-        "alphabetize": {
-          order: `asc`,
-          caseInsensitive: true,
-        },
-      },
-    ],
     "quotes": [`error`, `backtick`],
     "quote-props": [`error`, `consistent`, { unnecessary: false }],
   },

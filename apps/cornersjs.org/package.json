@@ -8,9 +8,9 @@
 		"dev": "concurrently --kill-others \"npm run dev:gen\" \"npm run dev:next\"",
 		"build": "tsx scripts/wrap-exhibits.node.ts --tsconfig ../../tsconfig.node.json all && next build",
 		"start": "next start",
-		"lint:rome": "rome check .",
+		"lint:biome": "biome check .",
 		"lint:eslint": "eslint .",
-		"lint": "npm run lint:rome && npm run lint:eslint",
+		"lint": "npm run lint:biome && npm run lint:eslint",
 		"test:once": "echo NOT YET IMPLEMENTED",
 		"test": "echo NOT YET IMPLEMENTED",
 		"release": "echo NOT YET IMPLEMENTED"

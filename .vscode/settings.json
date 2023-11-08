@@ -20,11 +20,11 @@
 	},
 	"[typescript]": {
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[typescriptreact]": {
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[html]": {
 		"editor.formatOnSave": true,
@@ -40,7 +40,7 @@
 	},
 	"[json]": {
 		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "rome.rome"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"references.preferredLocation": "peek"
 }

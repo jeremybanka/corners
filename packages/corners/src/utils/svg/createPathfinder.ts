@@ -3,8 +3,8 @@ import { straight } from "~/packages/corners/src/preset/corners"
 
 import type { FindCornerPoints } from "./findCornerPoints"
 import {
-	findCornerPointsForPath,
 	findCornerPointsForClipPath,
+	findCornerPointsForPath,
 } from "./findCornerPoints"
 
 type SvgPathString = string

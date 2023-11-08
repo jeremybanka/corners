@@ -1,24 +1,24 @@
 {
-  "compilerOptions": {
-    "lib": ["ES2022", "dom"],
-    "module": "CommonJS",
-    "noEmit": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "jsx": "react-jsx",
-    "skipLibCheck": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "target": "ES2019",
-    "types": ["vitest/globals"],
-    "baseUrl": "./",
-    "paths": {
-      "~": ["."],
-      "~/*": ["./*"]
-    }
-  },
-  "exclude": ["**/*.node.ts", "./apps"]
+	"compilerOptions": {
+		"lib": ["ES2022", "dom"],
+		"module": "CommonJS",
+		"noEmit": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"jsx": "react-jsx",
+		"skipLibCheck": true,
+		"strictBindCallApply": true,
+		"strictFunctionTypes": true,
+		"strictNullChecks": true,
+		"target": "ES2019",
+		"types": ["vitest/globals"],
+		"baseUrl": "./",
+		"paths": {
+			"~": ["."],
+			"~/*": ["./*"]
+		}
+	},
+	"exclude": ["**/*.node.ts", "./apps"]
 }

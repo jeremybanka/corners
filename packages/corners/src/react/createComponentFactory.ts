@@ -4,8 +4,8 @@ import { DEFAULT_OPTIONS } from "~/packages/corners/src/constants/empties"
 import type { HTMLTagName } from "~/packages/corners/src/constants/html"
 import { HTML_TAG_NAMES } from "~/packages/corners/src/constants/html"
 
-import { withCorners } from "./withCorners"
 import type { CornerOptions, DrawCorner } from ".."
+import { withCorners } from "./withCorners"
 
 export const createComponentFactory = (
 	baseOptions: Partial<CornerOptions> = {},
@@ -38,7 +38,7 @@ export const createComponentFactory = (
 				) => ReturnType<typeof componentFactory>
 			}
 		}
-	HTML_TAG_NAMES.forEach((name) => {
+	for (const name of HTML_TAG_NAMES) {
 		// @ts-expect-error our little secret 🤫
 		componentFactoryWithTagProps[`__` + name] = componentFactory(name)
 		Object.defineProperty(componentFactoryWithTagProps, name, {
@@ -52,7 +52,7 @@ export const createComponentFactory = (
 					componentFactory(name, options)
 			},
 		})
-	})
+	}
 
 	return componentFactoryWithTagProps
 }

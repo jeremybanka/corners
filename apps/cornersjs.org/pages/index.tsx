@@ -2,7 +2,7 @@
 
 import { css } from "@emotion/react"
 
-import { visor, softCard } from "../shared/containers"
+import { softCard, visor } from "../shared/containers"
 import { link } from "../shared/link"
 
 const Home: React.FC = () => (

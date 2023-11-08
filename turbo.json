@@ -12,12 +12,12 @@
 			"inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
 		},
 
-		"lint:rome": {
+		"lint:biome": {
 			"cache": false
 		},
 		"lint:eslint": {},
 		"lint": {
-			"dependsOn": ["lint:rome", "lint:eslint"]
+			"dependsOn": ["lint:biome", "lint:eslint"]
 		},
 		"deploy": {
 			"dependsOn": ["build", "test:once", "lint"]
