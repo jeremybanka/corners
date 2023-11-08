@@ -21,6 +21,7 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
+		"./next.config.js",
 		"../../scripts/createCodeblocks.ts"
 	],
 	"exclude": ["node_modules", "./scripts"]

@@ -13,7 +13,7 @@
 		"test:once": "vitest run",
 		"lint:biome": "biome check .",
 		"lint:eslint": "eslint .",
-		"lint": "npm run lint:biome && npm run lint:eslint",
+		"lint": "pnpm run lint:biome && pnpm run lint:eslint",
 		"lint:fix": "pnpm run lint -- --fix"
 	},
 	"dependencies": {
