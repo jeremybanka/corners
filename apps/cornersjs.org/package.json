@@ -21,7 +21,7 @@
 		"@emotion/styled": "11.11.0",
 		"@mdx-js/loader": "3.0.0",
 		"@mdx-js/react": "3.0.0",
-		"@next/mdx": "14.0.2",
+		"@next/mdx": "14.0.3",
 		"corners": "workspace:^",
 		"framer-motion": "10.16.5",
 		"next": "14.0.3",
