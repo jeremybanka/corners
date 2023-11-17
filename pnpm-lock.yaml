@@ -167,8 +167,8 @@ importers:
         specifier: 4.2.0
         version: 4.2.0
       tsup:
-        specifier: 7.2.0
-        version: 7.2.0(typescript@5.2.2)
+        specifier: 7.3.0
+        version: 7.3.0(typescript@5.2.2)
       vite-tsconfig-paths:
         specifier: 4.2.1
         version: 4.2.1(typescript@5.2.2)
@@ -2769,6 +2769,102 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@rollup/rollup-android-arm-eabi@4.4.1:
+    resolution: {integrity: sha512-Ss4suS/sd+6xLRu+MLCkED2mUrAyqHmmvZB+zpzZ9Znn9S8wCkTQCJaQ8P8aHofnvG5L16u9MVnJjCqioPErwQ==}
+    cpu: [arm]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-android-arm64@4.4.1:
+    resolution: {integrity: sha512-sRSkGTvGsARwWd7TzC8LKRf8FiPn7257vd/edzmvG4RIr9x68KBN0/Ek48CkuUJ5Pj/Dp9vKWv6PEupjKWjTYA==}
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-darwin-arm64@4.4.1:
+    resolution: {integrity: sha512-nz0AiGrrXyaWpsmBXUGOBiRDU0wyfSXbFuF98pPvIO8O6auQsPG6riWsfQqmCCC5FNd8zKQ4JhgugRNAkBJ8mQ==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-darwin-x64@4.4.1:
+    resolution: {integrity: sha512-Ogqvf4/Ve/faMaiPRvzsJEqajbqs00LO+8vtrPBVvLgdw4wBg6ZDXdkDAZO+4MLnrc8mhGV6VJAzYScZdPLtJg==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-linux-arm-gnueabihf@4.4.1:
+    resolution: {integrity: sha512-9zc2tqlr6HfO+hx9+wktUlWTRdje7Ub15iJqKcqg5uJZ+iKqmd2CMxlgPpXi7+bU7bjfDIuvCvnGk7wewFEhCg==}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-linux-arm64-gnu@4.4.1:
+    resolution: {integrity: sha512-phLb1fN3rq2o1j1v+nKxXUTSJnAhzhU0hLrl7Qzb0fLpwkGMHDem+o6d+ZI8+/BlTXfMU4kVWGvy6g9k/B8L6Q==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-linux-arm64-musl@4.4.1:
+    resolution: {integrity: sha512-M2sDtw4tf57VPSjbTAN/lz1doWUqO2CbQuX3L9K6GWIR5uw9j+ROKCvvUNBY8WUbMxwaoc8mH9HmmBKsLht7+w==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-linux-x64-gnu@4.4.1:
+    resolution: {integrity: sha512-mHIlRLX+hx+30cD6c4BaBOsSqdnCE4ok7/KDvjHYAHoSuveoMMxIisZFvcLhUnyZcPBXDGZTuBoalcuh43UfQQ==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-linux-x64-musl@4.4.1:
+    resolution: {integrity: sha512-tB+RZuDi3zxFx7vDrjTNGVLu2KNyzYv+UY8jz7e4TMEoAj7iEt8Qk6xVu6mo3pgjnsHj6jnq3uuRsHp97DLwOA==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-win32-arm64-msvc@4.4.1:
+    resolution: {integrity: sha512-Hdn39PzOQowK/HZzYpCuZdJC91PE6EaGbTe2VCA9oq2u18evkisQfws0Smh9QQGNNRa/T7MOuGNQoLeXhhE3PQ==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-win32-ia32-msvc@4.4.1:
+    resolution: {integrity: sha512-tLpKb1Elm9fM8c5w3nl4N1eLTP4bCqTYw9tqUBxX8/hsxqHO3dxc2qPbZ9PNkdK4tg4iLEYn0pOUnVByRd2CbA==}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rollup/rollup-win32-x64-msvc@4.4.1:
+    resolution: {integrity: sha512-eAhItDX9yQtZVM3yvXS/VR3qPqcnXvnLyx1pLXl4JzyNMBNO3KC986t/iAg2zcMzpAp9JSvxB5VZGnBiNoA98w==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@rushstack/eslint-patch@1.4.0:
     resolution: {integrity: sha512-cEjvTPU32OM9lUFegJagO0mRnIn+rbqrG89vV8/xLnLFX0DoR0r1oy5IlTga71Q7uT3Qus7qm7wgeiMT/+Irlg==}
     dev: true
@@ -3781,13 +3877,13 @@ packages:
       run-applescript: 5.0.0
     dev: true
 
-  /bundle-require@4.0.1(esbuild@0.18.20):
+  /bundle-require@4.0.1(esbuild@0.19.5):
     resolution: {integrity: sha512-9NQkRHlNdNpDBGmLpngF3EFDcwodhMUuLz9PaWYciVcQF9SE4LFjM2DB/xV1Li5JiuDMv7ZUWuC3rGbqR0MAXQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     peerDependencies:
       esbuild: '>=0.17'
     dependencies:
-      esbuild: 0.18.20
+      esbuild: 0.19.5
       load-tsconfig: 0.2.5
     dev: true
 
@@ -7604,6 +7700,26 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /rollup@4.4.1:
+    resolution: {integrity: sha512-idZzrUpWSblPJX66i+GzrpjKE3vbYrlWirUHteoAbjKReZwa0cohAErOYA5efoMmNCdvG9yrJS+w9Kl6csaH4w==}
+    engines: {node: '>=18.0.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      '@rollup/rollup-android-arm-eabi': 4.4.1
+      '@rollup/rollup-android-arm64': 4.4.1
+      '@rollup/rollup-darwin-arm64': 4.4.1
+      '@rollup/rollup-darwin-x64': 4.4.1
+      '@rollup/rollup-linux-arm-gnueabihf': 4.4.1
+      '@rollup/rollup-linux-arm64-gnu': 4.4.1
+      '@rollup/rollup-linux-arm64-musl': 4.4.1
+      '@rollup/rollup-linux-x64-gnu': 4.4.1
+      '@rollup/rollup-linux-x64-musl': 4.4.1
+      '@rollup/rollup-win32-arm64-msvc': 4.4.1
+      '@rollup/rollup-win32-ia32-msvc': 4.4.1
+      '@rollup/rollup-win32-x64-msvc': 4.4.1
+      fsevents: 2.3.3
+    dev: true
+
   /rrweb-cssom@0.6.0:
     resolution: {integrity: sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw==}
     dev: true
@@ -8287,14 +8403,14 @@ packages:
   /tslib@2.6.0:
     resolution: {integrity: sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==}
 
-  /tsup@7.2.0(typescript@5.2.2):
-    resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
-    engines: {node: '>=16.14'}
+  /tsup@7.3.0(typescript@5.2.2):
+    resolution: {integrity: sha512-Ja1eaSRrE+QarmATlNO5fse2aOACYMBX+IZRKy1T+gpyH+jXgRrl5l4nHIQJQ1DoDgEjHDTw8cpE085UdBZuWQ==}
+    engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
       '@swc/core': ^1
       postcss: ^8.4.12
-      typescript: '>=4.1.0'
+      typescript: '>=4.5.0'
     peerDependenciesMeta:
       '@swc/core':
         optional: true
@@ -8303,17 +8419,17 @@ packages:
       typescript:
         optional: true
     dependencies:
-      bundle-require: 4.0.1(esbuild@0.18.20)
+      bundle-require: 4.0.1(esbuild@0.19.5)
       cac: 6.7.14
       chokidar: 3.5.3
       debug: 4.3.4
-      esbuild: 0.18.20
+      esbuild: 0.19.5
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
       postcss-load-config: 4.0.1
       resolve-from: 5.0.0
-      rollup: 3.25.3
+      rollup: 4.4.1
       source-map: 0.8.0-beta.0
       sucrase: 3.32.0
       tree-kill: 1.2.2
