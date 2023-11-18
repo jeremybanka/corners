@@ -152,8 +152,8 @@ importers:
         specifier: 0.19.5
         version: 0.19.5
       gh-pages:
-        specifier: 6.0.0
-        version: 6.0.0
+        specifier: 6.1.0
+        version: 6.1.0
       jsdom:
         specifier: 22.1.0
         version: 22.1.0
@@ -5397,8 +5397,8 @@ packages:
       resolve-pkg-maps: 1.0.0
     dev: true
 
-  /gh-pages@6.0.0:
-    resolution: {integrity: sha512-FXZWJRsvP/fK2HJGY+Di6FRNHvqFF6gOIELaopDjXXgjeOYSNURcuYwEO/6bwuq6koP5Lnkvnr5GViXzuOB89g==}
+  /gh-pages@6.1.0:
+    resolution: {integrity: sha512-MdXigvqN3I66Y+tAZsQJMzpBWQOI1snD6BYuECmP+GEdryYMMOQvzn4AConk/+qNg/XIuQhB1xNGrl3Rmj1iow==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
