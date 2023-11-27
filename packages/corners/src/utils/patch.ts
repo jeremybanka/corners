@@ -29,8 +29,8 @@ export const patch = <Base extends object>(
 			const nodeCopy = Array.isArray(node)
 				? [...node]
 				: typeof node === `object` && node !== null
-				? { ...node }
-				: node
+				  ? { ...node }
+				  : node
 			targetParent[childKey] = nodeCopy
 		}
 	})

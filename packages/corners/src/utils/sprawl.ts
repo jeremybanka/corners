@@ -32,8 +32,8 @@ export const sprawl = (
 		const subNodes = Array.isArray(node)
 			? node.map((v, i) => [i, v])
 			: isPlainObject(node)
-			? Object.entries(node)
-			: []
+			  ? Object.entries(node)
+			  : []
 		for (const [k, v] of subNodes) {
 			const subResult = walk(`${path}/${k}`, v)
 			if (subResult?.jobComplete) {
