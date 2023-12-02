@@ -52,16 +52,16 @@ importers:
         version: 11.11.0
       '@emotion/react':
         specifier: 11.11.1
-        version: 11.11.1(@types/react@18.2.39)(react@18.2.0)
+        version: 11.11.1(@types/react@18.2.40)(react@18.2.0)
       '@emotion/styled':
         specifier: 11.11.0
-        version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.39)(react@18.2.0)
+        version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.40)(react@18.2.0)
       '@mdx-js/loader':
         specifier: 3.0.0
         version: 3.0.0(webpack@5.88.0)
       '@mdx-js/react':
         specifier: 3.0.0
-        version: 3.0.0(@types/react@18.2.39)(react@18.2.0)
+        version: 3.0.0(@types/react@18.2.40)(react@18.2.0)
       '@next/mdx':
         specifier: 14.0.3
         version: 14.0.3(@mdx-js/loader@3.0.0)(@mdx-js/react@3.0.0)
@@ -85,7 +85,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-markdown:
         specifier: 9.0.1
-        version: 9.0.1(@types/react@18.2.39)(react@18.2.0)
+        version: 9.0.1(@types/react@18.2.40)(react@18.2.0)
       react-syntax-highlighter:
         specifier: 15.5.0
         version: 15.5.0(react@18.2.0)
@@ -103,8 +103,8 @@ importers:
         specifier: 7.0.0
         version: 7.0.0
       '@types/react':
-        specifier: 18.2.39
-        version: 18.2.39
+        specifier: 18.2.40
+        version: 18.2.40
       '@types/react-dom':
         specifier: 18.2.17
         version: 18.2.17
@@ -135,13 +135,13 @@ importers:
     devDependencies:
       '@emotion/react':
         specifier: 11.11.1
-        version: 11.11.1(@types/react@18.2.39)(react@18.2.0)
+        version: 11.11.1(@types/react@18.2.40)(react@18.2.0)
       '@emotion/styled':
         specifier: 11.11.0
-        version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.39)(react@18.2.0)
+        version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.40)(react@18.2.0)
       '@types/react':
-        specifier: 18.2.39
-        version: 18.2.39
+        specifier: 18.2.40
+        version: 18.2.40
       '@types/react-dom':
         specifier: 18.2.17
         version: 18.2.17
@@ -1758,7 +1758,7 @@ packages:
   /@emotion/memoize@0.8.1:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
 
-  /@emotion/react@11.11.1(@types/react@18.2.39)(react@18.2.0):
+  /@emotion/react@11.11.1(@types/react@18.2.40)(react@18.2.0):
     resolution: {integrity: sha512-5mlW1DquU5HaxjLkfkGN1GA/fvVGdyHURRiX/0FHl2cfIfRxSOfmxEH5YS43edp0OldZrZ+dkBKbngxcNCdZvA==}
     peerDependencies:
       '@types/react': '*'
@@ -1774,7 +1774,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
-      '@types/react': 18.2.39
+      '@types/react': 18.2.40
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
 
@@ -1790,7 +1790,7 @@ packages:
   /@emotion/sheet@1.2.2:
     resolution: {integrity: sha512-0QBtGvaqtWi+nx6doRwDdBIzhNdZrXUppvTM4dtZZWEGTXL/XE/yJxLMGlDT1Gt+UHH5IX1n+jkXyytE/av7OA==}
 
-  /@emotion/styled@11.11.0(@emotion/react@11.11.1)(@types/react@18.2.39)(react@18.2.0):
+  /@emotion/styled@11.11.0(@emotion/react@11.11.1)(@types/react@18.2.40)(react@18.2.0):
     resolution: {integrity: sha512-hM5Nnvu9P3midq5aaXj4I+lnSfNi7Pmd4EWk1fOZ3pxookaQTNew6bp4JaCBYM4HVFZF9g7UjJmsUmC2JlxOng==}
     peerDependencies:
       '@emotion/react': ^11.0.0-rc.0
@@ -1803,11 +1803,11 @@ packages:
       '@babel/runtime': 7.22.5
       '@emotion/babel-plugin': 11.11.0
       '@emotion/is-prop-valid': 1.2.1
-      '@emotion/react': 11.11.1(@types/react@18.2.39)(react@18.2.0)
+      '@emotion/react': 11.11.1(@types/react@18.2.40)(react@18.2.0)
       '@emotion/serialize': 1.1.2
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
-      '@types/react': 18.2.39
+      '@types/react': 18.2.40
       react: 18.2.0
 
   /@emotion/unitless@0.8.1:
@@ -2590,14 +2590,14 @@ packages:
       - supports-color
     dev: false
 
-  /@mdx-js/react@3.0.0(@types/react@18.2.39)(react@18.2.0):
+  /@mdx-js/react@3.0.0(@types/react@18.2.40)(react@18.2.0):
     resolution: {integrity: sha512-nDctevR9KyYFyV+m+/+S4cpzCWHqj+iHDHq3QrsWezcC+B17uZdIWgCguESUkwFhM3n/56KxWVE3V6EokrmONQ==}
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.5
-      '@types/react': 18.2.39
+      '@types/react': 18.2.40
       react: 18.2.0
     dev: false
 
@@ -2623,7 +2623,7 @@ packages:
         optional: true
     dependencies:
       '@mdx-js/loader': 3.0.0(webpack@5.88.0)
-      '@mdx-js/react': 3.0.0(@types/react@18.2.39)(react@18.2.0)
+      '@mdx-js/react': 3.0.0(@types/react@18.2.40)(react@18.2.0)
       source-map: 0.7.4
     dev: false
 
@@ -3151,17 +3151,17 @@ packages:
   /@types/react-dom@18.2.17:
     resolution: {integrity: sha512-rvrT/M7Df5eykWFxn6MYt5Pem/Dbyc1N8Y0S9Mrkw2WFCRiqUgw9P7ul2NpwsXCSM1DVdENzdG9J5SreqfAIWg==}
     dependencies:
-      '@types/react': 18.2.39
+      '@types/react': 18.2.40
     dev: true
 
   /@types/react-syntax-highlighter@15.5.10:
     resolution: {integrity: sha512-Vf8nNkGHnjwK37b2wDs92zJSAWS2Mb57NcYHgajCNssHeTNEixvjINnXJkKdY0V0/eLrYkPP1xDKvNmYIr4HIg==}
     dependencies:
-      '@types/react': 18.2.39
+      '@types/react': 18.2.40
     dev: true
 
-  /@types/react@18.2.39:
-    resolution: {integrity: sha512-Oiw+ppED6IremMInLV4HXGbfbG6GyziY3kqAwJYOR0PNbkYDmLWQA3a95EhdSmamsvbkJN96ZNN+YD+fGjzSBA==}
+  /@types/react@18.2.40:
+    resolution: {integrity: sha512-H+BUhb9C1zBtogDLAk+KCNRKiHDrqSwQT/0z0PVTwMFBxqg3011ByLomADtgkgMkfwj4AMOiXBReyLTUBg681g==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -7503,14 +7503,14 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
-  /react-markdown@9.0.1(@types/react@18.2.39)(react@18.2.0):
+  /react-markdown@9.0.1(@types/react@18.2.40)(react@18.2.0):
     resolution: {integrity: sha512-186Gw/vF1uRkydbsOIkcGXw7aHq0sZOCRFFjGrr7b9+nVZg4UfA4enXCaxm4fUzecU38sWfrNDitGhshuU7rdg==}
     peerDependencies:
       '@types/react': '>=18'
       react: '>=18'
     dependencies:
       '@types/hast': 3.0.1
-      '@types/react': 18.2.39
+      '@types/react': 18.2.40
       devlop: 1.1.0
       hast-util-to-jsx-runtime: 2.2.0
       html-url-attributes: 3.0.0
