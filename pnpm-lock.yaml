@@ -72,8 +72,8 @@ importers:
         specifier: 2.16.1
         version: 2.16.1
       framer-motion:
-        specifier: 10.16.14
-        version: 10.16.14(react-dom@18.2.0)(react@18.2.0)
+        specifier: 10.16.15
+        version: 10.16.15(react-dom@18.2.0)(react@18.2.0)
       next:
         specifier: 14.0.3
         version: 14.0.3(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
@@ -5119,8 +5119,8 @@ packages:
     resolution: {integrity: sha512-by7U5W8dkIzcvDofUcO42yl9JbnHTEDBrzu3pt5fKT+Z4Oy85I21K80EYJYdjQGC2qum4Vo55Ag57iiIK4FYuA==}
     dev: false
 
-  /framer-motion@10.16.14(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-poovsXtR7doXRfjqVjUai82Zl2z5yMUFKtYWHnQK+xsDVPhHVUJEU+Kr2kqEnUV4gry+LcRdrDzcMI7OdJlDMg==}
+  /framer-motion@10.16.15(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-BapW1EKc/Sgph1rKEwL9bFt2B79z7bu7jN4Up1jGUaTE78WBsVO+6eCmoUZsQH0hHtRUDnnTqjjBbM7dk9Kp8A==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
