@@ -23,7 +23,7 @@
 		"@mdx-js/react": "3.0.0",
 		"@next/mdx": "14.0.4",
 		"corners": "workspace:^",
-		"framer-motion": "10.17.9",
+		"framer-motion": "10.17.12",
 		"next": "14.0.4",
 		"fp-ts": "2.16.2",
 		"react": "18.2.0",
