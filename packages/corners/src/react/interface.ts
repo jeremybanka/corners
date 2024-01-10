@@ -2,7 +2,9 @@ import type { CornerOptions, DrawCorner } from ".."
 import { createComponentFactory } from "./createComponentFactory"
 
 export interface Corners {
-	(...cornerFns: (DrawCorner | null)[]): {
+	(
+		...cornerFns: (DrawCorner | null)[]
+	): {
 		options: (
 			opts: Partial<CornerOptions>,
 		) => ReturnType<typeof createComponentFactory>
