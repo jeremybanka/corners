@@ -4,14 +4,15 @@
 		"enabled": true
 	},
 	"files": {
+		"ignoreUnknown": true,
 		"ignore": [
 			"*.js",
+			"*.mjs",
 			"*.gen.tsx",
 			"*.gen.ts",
-			"dist/**/*",
+			"dist",
 			"node_modules",
 			"coverage",
-			"projects",
 			"exhibits-wrapped"
 		]
 	},

@@ -8,7 +8,7 @@
 		"dev": "concurrently --kill-others \"npm run dev:gen\" \"npm run dev:next\"",
 		"build": "tsx scripts/wrap-exhibits.node.ts --tsconfig ../../tsconfig.node.json all && next build",
 		"start": "next start",
-		"lint:biome": "biome check .",
+		"lint:biome": "biome check --diagnostic-level=warn -- .",
 		"lint:eslint": "eslint .",
 		"lint": "npm run lint:biome && npm run lint:eslint",
 		"test:once": "echo NOT YET IMPLEMENTED",
