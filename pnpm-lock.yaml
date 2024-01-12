@@ -146,8 +146,8 @@ importers:
         specifier: 18.2.18
         version: 18.2.18
       c8:
-        specifier: 9.0.0
-        version: 9.0.0
+        specifier: 9.1.0
+        version: 9.1.0
       esbuild:
         specifier: 0.19.11
         version: 0.19.11
@@ -3595,8 +3595,8 @@ packages:
       streamsearch: 1.1.0
     dev: false
 
-  /c8@9.0.0:
-    resolution: {integrity: sha512-nFJhU2Cz6Frh2awk3IW7wwk3wx27/U2v8ojQCHGc1GWTCHS6aMu4lal327/ZnnYj7oSThGF1X3qUP1yzAJBcOQ==}
+  /c8@9.1.0:
+    resolution: {integrity: sha512-mBWcT5iqNir1zIkzSPyI3NCR9EZCVI3WUD+AVO17MVWTSFNyUueXE82qTeampNtTr+ilN/5Ua3j24LgbCKjDVg==}
     engines: {node: '>=14.14.0'}
     hasBin: true
     dependencies:
