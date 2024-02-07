@@ -27,7 +27,7 @@
 		"@emotion/react": "11.11.3",
 		"@emotion/styled": "11.11.0",
 		"@types/react": "18.2.55",
-		"@types/react-dom": "18.2.18",
+		"@types/react-dom": "18.2.19",
 		"c8": "9.1.0",
 		"esbuild": "0.20.0",
 		"gh-pages": "6.1.1",
