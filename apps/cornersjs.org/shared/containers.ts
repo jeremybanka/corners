@@ -90,7 +90,7 @@ const styled = {
 	),
 	logoLink: Emotion(
 		corners(chamfer, null, null, null).options({
-			cornerSize: Infinity,
+			cornerSize: Number.POSITIVE_INFINITY,
 			useClipPath: false,
 			below: [
 				{
