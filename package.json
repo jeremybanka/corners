@@ -8,7 +8,7 @@
 		"lint": "turbo run lint",
 		"lint:biome": "turbo run lint:biome",
 		"lint:eslint": "turbo run lint:eslint",
-		"lint:fix:biome": "biome check --apply *",
+		"lint:fix:biome": "biome check --apply-unsafe *",
 		"lint:fix:eslint": "eslint --fix .",
 		"fmt": "biome format .",
 		"fmt:fix": "biome format --write ",
