@@ -69,8 +69,8 @@ importers:
         specifier: workspace:^
         version: link:../../packages/corners
       fp-ts:
-        specifier: 2.16.2
-        version: 2.16.2
+        specifier: 2.16.3
+        version: 2.16.3
       framer-motion:
         specifier: 11.0.8
         version: 11.0.8(react-dom@18.2.0)(react@18.2.0)
@@ -5201,8 +5201,8 @@ packages:
     engines: {node: '>=0.4.x'}
     dev: false
 
-  /fp-ts@2.16.2:
-    resolution: {integrity: sha512-CkqAjnIKFqvo3sCyoBTqgJvF+bHrSik584S9nhTjtBESLx26cbtVMR/T9a6ApChOcSDAaM3JydDmWDUn4EEXng==}
+  /fp-ts@2.16.3:
+    resolution: {integrity: sha512-REm0sOecd4inACbAiFeOxpyOgB+f0OqhmZBBVOc5Ku1HqdroDU5uxYu9mybKj+be4DQ5L2YI6LuosjAfmuJCBQ==}
     dev: false
 
   /framer-motion@11.0.8(react-dom@18.2.0)(react@18.2.0):
