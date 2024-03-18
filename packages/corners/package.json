@@ -26,7 +26,7 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@emotion/styled": "11.11.0",
-		"@types/react": "18.2.66",
+		"@types/react": "18.2.67",
 		"@types/react-dom": "18.2.22",
 		"c8": "9.1.0",
 		"esbuild": "0.20.2",
