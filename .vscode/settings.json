@@ -15,17 +15,13 @@
 		"shopt",
 		"tsup"
 	],
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
+		"source.fixAll.eslint": "explicit",
+		"quickfix.biome": "explicit"
 	},
-	"[typescript]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[typescriptreact]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "biomejs.biome"
-	},
+	"eslint.experimental.useFlatConfig": true,
 	"[html]": {
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -37,10 +33,6 @@
 	"[scss]": {
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[json]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"references.preferredLocation": "peek"
 }
