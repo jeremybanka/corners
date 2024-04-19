@@ -72,8 +72,8 @@ importers:
         specifier: 2.16.5
         version: 2.16.5
       framer-motion:
-        specifier: 11.1.3
-        version: 11.1.3(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 11.1.7
+        version: 11.1.7(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next:
         specifier: 14.2.2
         version: 14.2.2(@babel/core@7.22.9)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -2765,8 +2765,8 @@ packages:
   fp-ts@2.16.5:
     resolution: {integrity: sha512-N8T8PwMSeTKKtkm9lkj/zSTAnPC/aJIIrQhnHxxkL0KLsRCNUPANksJOlMXxcKKCo7H1ORP3No9EMD+fP0tsdA==}
 
-  framer-motion@11.1.3:
-    resolution: {integrity: sha512-/t74b1WQu+mpZtra6xFSfsRfdTymJjNYgFudVIsUmoOWjznr3x5o9HbrX7Jt9655OCA2Js0W79bMZEKE7owp9w==}
+  framer-motion@11.1.7:
+    resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
@@ -7962,7 +7962,7 @@ snapshots:
 
   fp-ts@2.16.5: {}
 
-  framer-motion@11.1.3(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  framer-motion@11.1.7(@emotion/is-prop-valid@1.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       tslib: 2.6.0
     optionalDependencies:
