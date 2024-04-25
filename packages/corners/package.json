@@ -26,8 +26,8 @@
 	"devDependencies": {
 		"@emotion/react": "11.11.4",
 		"@emotion/styled": "11.11.5",
-		"@types/react": "18.2.79",
-		"@types/react-dom": "18.2.25",
+		"@types/react": "18.3.0",
+		"@types/react-dom": "18.3.0",
 		"c8": "9.1.0",
 		"esbuild": "0.20.2",
 		"gh-pages": "6.1.1",
