@@ -52,19 +52,19 @@ importers:
         version: 11.11.0
       '@emotion/react':
         specifier: 11.11.4
-        version: 11.11.4(@types/react@18.3.0)(react@18.3.1)
+        version: 11.11.4(@types/react@18.3.1)(react@18.3.1)
       '@emotion/styled':
         specifier: 11.11.5
-        version: 11.11.5(@emotion/react@11.11.4(@types/react@18.3.0)(react@18.3.1))(@types/react@18.3.0)(react@18.3.1)
+        version: 11.11.5(@emotion/react@11.11.4(@types/react@18.3.1)(react@18.3.1))(@types/react@18.3.1)(react@18.3.1)
       '@mdx-js/loader':
         specifier: 3.0.1
         version: 3.0.1(webpack@5.88.0)
       '@mdx-js/react':
         specifier: 3.0.1
-        version: 3.0.1(@types/react@18.3.0)(react@18.3.1)
+        version: 3.0.1(@types/react@18.3.1)(react@18.3.1)
       '@next/mdx':
         specifier: 14.2.3
-        version: 14.2.3(@mdx-js/loader@3.0.1(webpack@5.88.0))(@mdx-js/react@3.0.1(@types/react@18.3.0)(react@18.3.1))
+        version: 14.2.3(@mdx-js/loader@3.0.1(webpack@5.88.0))(@mdx-js/react@3.0.1(@types/react@18.3.1)(react@18.3.1))
       corners:
         specifier: workspace:^
         version: link:../../packages/corners
@@ -85,7 +85,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-markdown:
         specifier: 9.0.1
-        version: 9.0.1(@types/react@18.3.0)(react@18.3.1)
+        version: 9.0.1(@types/react@18.3.1)(react@18.3.1)
       react-syntax-highlighter:
         specifier: 15.5.0
         version: 15.5.0(react@18.3.1)
@@ -103,8 +103,8 @@ importers:
         specifier: 7.0.0
         version: 7.0.0
       '@types/react':
-        specifier: 18.3.0
-        version: 18.3.0
+        specifier: 18.3.1
+        version: 18.3.1
       '@types/react-dom':
         specifier: 18.3.0
         version: 18.3.0
@@ -138,13 +138,13 @@ importers:
     devDependencies:
       '@emotion/react':
         specifier: 11.11.4
-        version: 11.11.4(@types/react@18.3.0)(react@18.3.1)
+        version: 11.11.4(@types/react@18.3.1)(react@18.3.1)
       '@emotion/styled':
         specifier: 11.11.5
-        version: 11.11.5(@emotion/react@11.11.4(@types/react@18.3.0)(react@18.3.1))(@types/react@18.3.0)(react@18.3.1)
+        version: 11.11.5(@emotion/react@11.11.4(@types/react@18.3.1)(react@18.3.1))(@types/react@18.3.1)(react@18.3.1)
       '@types/react':
-        specifier: 18.3.0
-        version: 18.3.0
+        specifier: 18.3.1
+        version: 18.3.1
       '@types/react-dom':
         specifier: 18.3.0
         version: 18.3.0
@@ -1687,8 +1687,8 @@ packages:
   '@types/react-syntax-highlighter@15.5.11':
     resolution: {integrity: sha512-ZqIJl+Pg8kD+47kxUjvrlElrraSUrYa4h0dauY/U/FTUuprSCqvUj+9PNQNQzVc6AJgIWUUxn87/gqsMHNbRjw==}
 
-  '@types/react@18.3.0':
-    resolution: {integrity: sha512-DiUcKjzE6soLyln8NNZmyhcQjVv+WsUIFSqetMN0p8927OztKT4VTfFTqsbAi5oAGIcgOmOajlfBqyptDDjZRw==}
+  '@types/react@18.3.1':
+    resolution: {integrity: sha512-V0kuGBX3+prX+DQ/7r2qsv1NsdfnCLnTgnRJ1pYnxykBhGMz+qj+box5lq7XsO5mtZsBqpjwwTu/7wszPfMBcw==}
 
   '@types/semver@7.5.0':
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
@@ -5935,7 +5935,7 @@ snapshots:
 
   '@emotion/memoize@0.8.1': {}
 
-  '@emotion/react@11.11.4(@types/react@18.3.0)(react@18.3.1)':
+  '@emotion/react@11.11.4(@types/react@18.3.1)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.22.5
       '@emotion/babel-plugin': 11.11.0
@@ -5947,7 +5947,7 @@ snapshots:
       hoist-non-react-statics: 3.3.2
       react: 18.3.1
     optionalDependencies:
-      '@types/react': 18.3.0
+      '@types/react': 18.3.1
 
   '@emotion/serialize@1.1.2':
     dependencies:
@@ -5975,18 +5975,18 @@ snapshots:
 
   '@emotion/sheet@1.2.2': {}
 
-  '@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.0)(react@18.3.1))(@types/react@18.3.0)(react@18.3.1)':
+  '@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.1)(react@18.3.1))(@types/react@18.3.1)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.22.5
       '@emotion/babel-plugin': 11.11.0
       '@emotion/is-prop-valid': 1.2.2
-      '@emotion/react': 11.11.4(@types/react@18.3.0)(react@18.3.1)
+      '@emotion/react': 11.11.4(@types/react@18.3.1)(react@18.3.1)
       '@emotion/serialize': 1.1.4
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.3.1)
       '@emotion/utils': 1.2.1
       react: 18.3.1
     optionalDependencies:
-      '@types/react': 18.3.0
+      '@types/react': 18.3.1
 
   '@emotion/unitless@0.8.1': {}
 
@@ -6266,10 +6266,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.0)(react@18.3.1)':
+  '@mdx-js/react@3.0.1(@types/react@18.3.1)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.5
-      '@types/react': 18.3.0
+      '@types/react': 18.3.1
       react: 18.3.1
 
   '@next/env@14.2.3': {}
@@ -6278,12 +6278,12 @@ snapshots:
     dependencies:
       glob: 10.3.10
 
-  '@next/mdx@14.2.3(@mdx-js/loader@3.0.1(webpack@5.88.0))(@mdx-js/react@3.0.1(@types/react@18.3.0)(react@18.3.1))':
+  '@next/mdx@14.2.3(@mdx-js/loader@3.0.1(webpack@5.88.0))(@mdx-js/react@3.0.1(@types/react@18.3.1)(react@18.3.1))':
     dependencies:
       source-map: 0.7.4
     optionalDependencies:
       '@mdx-js/loader': 3.0.1(webpack@5.88.0)
-      '@mdx-js/react': 3.0.1(@types/react@18.3.0)(react@18.3.1)
+      '@mdx-js/react': 3.0.1(@types/react@18.3.1)(react@18.3.1)
 
   '@next/swc-darwin-arm64@14.2.3':
     optional: true
@@ -6555,13 +6555,13 @@ snapshots:
 
   '@types/react-dom@18.3.0':
     dependencies:
-      '@types/react': 18.3.0
+      '@types/react': 18.3.1
 
   '@types/react-syntax-highlighter@15.5.11':
     dependencies:
-      '@types/react': 18.3.0
+      '@types/react': 18.3.1
 
-  '@types/react@18.3.0':
+  '@types/react@18.3.1':
     dependencies:
       '@types/prop-types': 15.7.5
       csstype: 3.1.2
@@ -9381,10 +9381,10 @@ snapshots:
 
   react-is@18.2.0: {}
 
-  react-markdown@9.0.1(@types/react@18.3.0)(react@18.3.1):
+  react-markdown@9.0.1(@types/react@18.3.1)(react@18.3.1):
     dependencies:
       '@types/hast': 3.0.1
-      '@types/react': 18.3.0
+      '@types/react': 18.3.1
       devlop: 1.1.0
       hast-util-to-jsx-runtime: 2.2.0
       html-url-attributes: 3.0.0
