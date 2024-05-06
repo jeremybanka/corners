@@ -43,7 +43,7 @@ importers:
         version: 5.4.5
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.12.8)(jsdom@24.0.0)(terser@5.18.2)
+        version: 1.6.0(@types/node@20.12.9)(jsdom@24.0.0)(terser@5.18.2)
 
   apps/cornersjs.org:
     dependencies:
@@ -97,8 +97,8 @@ importers:
         specifier: 8.1.0
         version: 8.1.0
       '@types/node':
-        specifier: 20.12.8
-        version: 20.12.8
+        specifier: 20.12.9
+        version: 20.12.9
       '@types/npmlog':
         specifier: 7.0.0
         version: 7.0.0
@@ -174,10 +174,10 @@ importers:
         version: 8.0.2(postcss@8.4.32)(typescript@5.4.5)
       vite-tsconfig-paths:
         specifier: 4.3.2
-        version: 4.3.2(typescript@5.4.5)(vite@5.0.5(@types/node@20.12.8)(terser@5.18.2))
+        version: 4.3.2(typescript@5.4.5)(vite@5.0.5(@types/node@20.12.9)(terser@5.18.2))
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.12.8)(jsdom@24.0.0)(terser@5.18.2)
+        version: 1.6.0(@types/node@20.12.9)(jsdom@24.0.0)(terser@5.18.2)
 
 packages:
 
@@ -1666,8 +1666,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@20.12.8':
-    resolution: {integrity: sha512-NU0rJLJnshZWdE/097cdCBbyW1h4hEg0xpovcoAQYHl8dnEyp/NAOiE45pvc+Bd1Dt+2r94v2eGFpQJ4R7g+2w==}
+  '@types/node@20.12.9':
+    resolution: {integrity: sha512-o93r47yu04MHumPBCFg0bMPBMNgtMg3jzbhl7e68z50+BMHmRMGDJv13eBlUgOdc9i/uoJXGMGYLtJV4ReTXEg==}
 
   '@types/normalize-package-data@2.4.1':
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -6542,7 +6542,7 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@20.12.8':
+  '@types/node@20.12.9':
     dependencies:
       undici-types: 5.26.5
 
@@ -6550,7 +6550,7 @@ snapshots:
 
   '@types/npmlog@7.0.0':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.12.9
 
   '@types/parse-json@4.0.0': {}
 
@@ -8478,7 +8478,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.12.9
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -10191,13 +10191,13 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite-node@1.6.0(@types/node@20.12.8)(terser@5.18.2):
+  vite-node@1.6.0(@types/node@20.12.9)(terser@5.18.2):
     dependencies:
       cac: 6.7.14
       debug: 4.3.4
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 5.0.5(@types/node@20.12.8)(terser@5.18.2)
+      vite: 5.0.5(@types/node@20.12.9)(terser@5.18.2)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -10208,28 +10208,28 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.0.5(@types/node@20.12.8)(terser@5.18.2)):
+  vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.0.5(@types/node@20.12.9)(terser@5.18.2)):
     dependencies:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.0.3(typescript@5.4.5)
     optionalDependencies:
-      vite: 5.0.5(@types/node@20.12.8)(terser@5.18.2)
+      vite: 5.0.5(@types/node@20.12.9)(terser@5.18.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.0.5(@types/node@20.12.8)(terser@5.18.2):
+  vite@5.0.5(@types/node@20.12.9)(terser@5.18.2):
     dependencies:
       esbuild: 0.19.12
       postcss: 8.4.32
       rollup: 4.4.1
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.12.9
       fsevents: 2.3.3
       terser: 5.18.2
 
-  vitest@1.6.0(@types/node@20.12.8)(jsdom@24.0.0)(terser@5.18.2):
+  vitest@1.6.0(@types/node@20.12.9)(jsdom@24.0.0)(terser@5.18.2):
     dependencies:
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
@@ -10248,11 +10248,11 @@ snapshots:
       strip-literal: 2.0.0
       tinybench: 2.5.1
       tinypool: 0.8.3
-      vite: 5.0.5(@types/node@20.12.8)(terser@5.18.2)
-      vite-node: 1.6.0(@types/node@20.12.8)(terser@5.18.2)
+      vite: 5.0.5(@types/node@20.12.9)(terser@5.18.2)
+      vite-node: 1.6.0(@types/node@20.12.9)(terser@5.18.2)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.12.9
       jsdom: 24.0.0
     transitivePeerDependencies:
       - less
