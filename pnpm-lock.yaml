@@ -12,8 +12,8 @@ importers:
         specifier: 1.7.3
         version: 1.7.3
       '@changesets/cli':
-        specifier: 2.27.1
-        version: 2.27.1
+        specifier: 2.27.2
+        version: 2.27.2
       '@typescript-eslint/eslint-plugin':
         specifier: 7.9.0
         version: 7.9.0(@typescript-eslint/parser@7.9.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
@@ -878,8 +878,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@changesets/apply-release-plan@7.0.0':
-    resolution: {integrity: sha512-vfi69JR416qC9hWmFGSxj7N6wA5J222XNBmezSVATPWDVPIF7gkd4d8CpbEbXmRWbVrkoli3oerGS6dcL/BGsQ==}
+  '@changesets/apply-release-plan@7.0.1':
+    resolution: {integrity: sha512-aPdSq/R++HOyfEeBGjEe6LNG8gs0KMSyRETD/J2092OkNq8mOioAxyKjMbvVUdzgr/HTawzMOz7lfw339KnsCA==}
 
   '@changesets/assemble-release-plan@6.0.0':
     resolution: {integrity: sha512-4QG7NuisAjisbW4hkLCmGW2lRYdPrKzro+fCtZaILX+3zdUELSvYjpL4GTv0E4aM9Mef3PuIQp89VmHJ4y2bfw==}
@@ -887,8 +887,8 @@ packages:
   '@changesets/changelog-git@0.2.0':
     resolution: {integrity: sha512-bHOx97iFI4OClIT35Lok3sJAwM31VbUM++gnMBV16fdbtBhgYu4dxsphBF/0AZZsyAHMrnM0yFcj5gZM1py6uQ==}
 
-  '@changesets/cli@2.27.1':
-    resolution: {integrity: sha512-iJ91xlvRnnrJnELTp4eJJEOPjgpF3NOh4qeQehM6Ugiz9gJPRZ2t+TsXun6E3AMN4hScZKjqVXl0TX+C7AB3ZQ==}
+  '@changesets/cli@2.27.2':
+    resolution: {integrity: sha512-6/kADjKMOrlLwNr/Y5HAq7T9oGOA2Lq5A59AGtwQCCiXuSGp4EgszzdJFeBiF8pdz7Wn1HaLzSUBhAaNToEJqg==}
     hasBin: true
 
   '@changesets/config@3.0.0':
@@ -927,8 +927,8 @@ packages:
   '@changesets/types@6.0.0':
     resolution: {integrity: sha512-b1UkfNulgKoWfqyHtzKS5fOZYSJO+77adgL7DLRDr+/7jhChN+QcHnbjiQVOz/U+Ts3PGNySq7diAItzDgugfQ==}
 
-  '@changesets/write@0.3.0':
-    resolution: {integrity: sha512-slGLb21fxZVUYbyea+94uFiD6ntQW0M2hIKNznFizDhZPDgn2c/fv1UzzlW43RVzh1BEDuIqW6hzlJ1OflNmcw==}
+  '@changesets/write@0.3.1':
+    resolution: {integrity: sha512-SyGtMXzH3qFqlHKcvFY2eX+6b0NGiFcNav8AFsYwy5l8hejOeoeTDemu5Yjmke2V5jpzY+pBvM0vCCQ3gdZpfw==}
 
   '@emotion/babel-plugin@11.11.0':
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
@@ -4273,11 +4273,6 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.5.4:
-    resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.6.0:
     resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
     engines: {node: '>=10'}
@@ -5900,7 +5895,7 @@ snapshots:
   '@biomejs/cli-win32-x64@1.7.3':
     optional: true
 
-  '@changesets/apply-release-plan@7.0.0':
+  '@changesets/apply-release-plan@7.0.1':
     dependencies:
       '@babel/runtime': 7.22.5
       '@changesets/config': 3.0.0
@@ -5929,10 +5924,10 @@ snapshots:
     dependencies:
       '@changesets/types': 6.0.0
 
-  '@changesets/cli@2.27.1':
+  '@changesets/cli@2.27.2':
     dependencies:
       '@babel/runtime': 7.22.5
-      '@changesets/apply-release-plan': 7.0.0
+      '@changesets/apply-release-plan': 7.0.1
       '@changesets/assemble-release-plan': 6.0.0
       '@changesets/changelog-git': 0.2.0
       '@changesets/config': 3.0.0
@@ -5944,7 +5939,7 @@ snapshots:
       '@changesets/pre': 2.0.0
       '@changesets/read': 0.6.0
       '@changesets/types': 6.0.0
-      '@changesets/write': 0.3.0
+      '@changesets/write': 0.3.1
       '@manypkg/get-packages': 1.1.3
       '@types/semver': 7.5.0
       ansi-colors: 4.1.3
@@ -5959,7 +5954,7 @@ snapshots:
       p-limit: 2.3.0
       preferred-pm: 3.0.3
       resolve-from: 5.0.0
-      semver: 7.5.4
+      semver: 7.6.0
       spawndamnit: 2.0.0
       term-size: 2.2.1
       tty-table: 4.2.1
@@ -6040,7 +6035,7 @@ snapshots:
 
   '@changesets/types@6.0.0': {}
 
-  '@changesets/write@0.3.0':
+  '@changesets/write@0.3.1':
     dependencies:
       '@babel/runtime': 7.22.5
       '@changesets/types': 6.0.0
@@ -9846,10 +9841,6 @@ snapshots:
   semver@5.7.1: {}
 
   semver@6.3.1: {}
-
-  semver@7.5.4:
-    dependencies:
-      lru-cache: 6.0.0
 
   semver@7.6.0:
     dependencies:
