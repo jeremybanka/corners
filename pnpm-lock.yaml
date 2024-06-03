@@ -170,8 +170,8 @@ importers:
         specifier: 4.2.0
         version: 4.2.0
       tsup:
-        specifier: 8.0.2
-        version: 8.0.2(postcss@8.4.32)(typescript@5.4.5)
+        specifier: 8.1.0
+        version: 8.1.0(postcss@8.4.32)(typescript@5.4.5)
       vite-tsconfig-paths:
         specifier: 4.3.2
         version: 4.3.2(typescript@5.4.5)(vite@5.0.5(@types/node@20.14.0)(terser@5.18.2))
@@ -4654,8 +4654,8 @@ packages:
   tslib@2.6.0:
     resolution: {integrity: sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==}
 
-  tsup@8.0.2:
-    resolution: {integrity: sha512-NY8xtQXdH7hDUAZwcQdY/Vzlw9johQsaqf7iwZ6g1DOUlFYQ5/AtVAjTvihhEyeRlGo4dLRVHtrRaL35M1daqQ==}
+  tsup@8.1.0:
+    resolution: {integrity: sha512-UFdfCAXukax+U6KzeTNO2kAARHcWxmKsnvSPXUcfA1D+kU05XDccCrkffCQpFaWDsZfV0jMyTsxU39VfCp6EOg==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
@@ -7278,9 +7278,9 @@ snapshots:
     dependencies:
       run-applescript: 5.0.0
 
-  bundle-require@4.0.1(esbuild@0.19.12):
+  bundle-require@4.0.1(esbuild@0.21.4):
     dependencies:
-      esbuild: 0.19.12
+      esbuild: 0.21.4
       load-tsconfig: 0.2.5
 
   busboy@1.6.0:
@@ -10215,13 +10215,13 @@ snapshots:
 
   tslib@2.6.0: {}
 
-  tsup@8.0.2(postcss@8.4.32)(typescript@5.4.5):
+  tsup@8.1.0(postcss@8.4.32)(typescript@5.4.5):
     dependencies:
-      bundle-require: 4.0.1(esbuild@0.19.12)
+      bundle-require: 4.0.1(esbuild@0.21.4)
       cac: 6.7.14
       chokidar: 3.6.0
       debug: 4.3.4
-      esbuild: 0.19.12
+      esbuild: 0.21.4
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
