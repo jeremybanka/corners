@@ -133,8 +133,8 @@ importers:
   packages/corners:
     dependencies:
       '@react-hook/resize-observer':
-        specifier: 1.2.6
-        version: 1.2.6(react@18.3.1)
+        specifier: 2.0.1
+        version: 2.0.1(react@18.3.1)
     devDependencies:
       '@emotion/react':
         specifier: 11.11.4
@@ -2601,10 +2601,10 @@ packages:
       react: 18.3.1
     dev: false
 
-  /@react-hook/resize-observer@1.2.6(react@18.3.1):
-    resolution: {integrity: sha512-DlBXtLSW0DqYYTW3Ft1/GQFZlTdKY5VAFIC4+km6IK5NiPPDFchGbEJm1j6pSgMqPRHbUQgHJX7RaR76ic1LWA==}
+  /@react-hook/resize-observer@2.0.1(react@18.3.1):
+    resolution: {integrity: sha512-9PCX9grWfxdPizY8ohr+X4IkV1JhGMWr2Nm4ngbg6IcAIv0WBs7YoJcNBqYl22OqPHr5eOMItGcStZrmj2mbmQ==}
     peerDependencies:
-      react: '>=16.8'
+      react: '>=18'
     dependencies:
       '@juggle/resize-observer': 3.4.0
       '@react-hook/latest': 1.0.3(react@18.3.1)
