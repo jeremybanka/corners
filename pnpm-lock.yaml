@@ -33,8 +33,8 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
       tsx:
-        specifier: 4.15.3
-        version: 4.15.3
+        specifier: 4.15.4
+        version: 4.15.4
       turbo:
         specifier: 2.0.3
         version: 2.0.3
@@ -8465,8 +8465,8 @@ packages:
       - ts-node
     dev: true
 
-  /tsx@4.15.3:
-    resolution: {integrity: sha512-wLzUMy3xSUpGZQqDprd0U25hpLRJMH8RzONVsqJLwgmE65ZKsxfbs5xVG+sF08wHNyBILmqo5C2775DXYMbRog==}
+  /tsx@4.15.4:
+    resolution: {integrity: sha512-d++FLCwJLrXaBFtRcqdPBzu6FiVOJ2j+UsvUZPtoTrnYtCGU5CEW7iHXtNZfA2fcRTvJFWPqA6SWBuB0GSva9w==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
