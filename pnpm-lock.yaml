@@ -97,8 +97,8 @@ importers:
         specifier: 8.1.0
         version: 8.1.0(typescript@5.4.5)
       '@types/node':
-        specifier: 20.14.2
-        version: 20.14.2
+        specifier: 20.14.3
+        version: 20.14.3
       '@types/npmlog':
         specifier: 7.0.0
         version: 7.0.0
@@ -3002,8 +3002,8 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: true
 
-  /@types/node@20.14.2:
-    resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
+  /@types/node@20.14.3:
+    resolution: {integrity: sha512-Nuzqa6WAxeGnve6SXqiPAM9rA++VQs+iLZ1DDd56y0gdvygSZlQvZuvdFPR3yLqkVxPu4WrO02iDEyH1g+wazw==}
     dependencies:
       undici-types: 5.26.5
 
@@ -3014,7 +3014,7 @@ packages:
   /@types/npmlog@7.0.0:
     resolution: {integrity: sha512-hJWbrKFvxKyWwSUXjZMYTINsSOY6IclhvGOZ97M8ac2tmR9hMwmTnYaMdpGhvju9ctWLTPhCS+eLfQNluiEjQQ==}
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.3
     dev: true
 
   /@types/parse-json@4.0.2:
@@ -6061,7 +6061,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
