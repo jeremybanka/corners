@@ -2,7 +2,6 @@
 	"name": "@corners/monorepo",
 	"packageManager": "pnpm@9.5.0",
 	"engines": {
-		"bun": "1.1.12",
 		"node": "20.15.1",
 		"pnpm": "9.5.0"
 	},
