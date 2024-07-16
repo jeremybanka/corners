@@ -1,10 +1,10 @@
 {
 	"name": "@corners/monorepo",
-	"packageManager": "pnpm@8.15.8",
+	"packageManager": "pnpm@9.5.0",
 	"engines": {
 		"bun": "1.1.12",
 		"node": "20.15.1",
-		"pnpm": "8.15.8"
+		"pnpm": "9.5.0"
 	},
 	"scripts": {
 		"dev": "echo todo",
