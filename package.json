@@ -2,8 +2,7 @@
 	"name": "@corners/monorepo",
 	"packageManager": "pnpm@9.5.0",
 	"engines": {
-		"node": "20.15.1",
-		"pnpm": "9.5.0"
+		"node": "20.15.1"
 	},
 	"scripts": {
 		"dev": "echo todo",
