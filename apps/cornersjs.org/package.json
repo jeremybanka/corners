@@ -16,9 +16,9 @@
 		"release": "echo NOT YET IMPLEMENTED"
 	},
 	"dependencies": {
-		"@emotion/cache": "11.12.0",
-		"@emotion/react": "11.12.0",
-		"@emotion/styled": "11.12.0",
+		"@emotion/cache": "11.13.0",
+		"@emotion/react": "11.13.0",
+		"@emotion/styled": "11.13.0",
 		"@mdx-js/loader": "3.0.1",
 		"@mdx-js/react": "3.0.1",
 		"@next/mdx": "14.2.5",
