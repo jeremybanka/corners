@@ -133,8 +133,8 @@ importers:
   packages/corners:
     dependencies:
       '@react-hook/resize-observer':
-        specifier: 1.2.6
-        version: 1.2.6(react@18.3.1)
+        specifier: 2.0.2
+        version: 2.0.2(react@18.3.1)
     devDependencies:
       '@emotion/react':
         specifier: 11.13.0
@@ -1472,9 +1472,6 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@juggle/resize-observer@3.4.0':
-    resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
-
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
 
@@ -1592,10 +1589,10 @@ packages:
     peerDependencies:
       react: '>=16.8'
 
-  '@react-hook/resize-observer@1.2.6':
-    resolution: {integrity: sha512-DlBXtLSW0DqYYTW3Ft1/GQFZlTdKY5VAFIC4+km6IK5NiPPDFchGbEJm1j6pSgMqPRHbUQgHJX7RaR76ic1LWA==}
+  '@react-hook/resize-observer@2.0.2':
+    resolution: {integrity: sha512-tzKKzxNpfE5TWmxuv+5Ae3IF58n0FQgQaWJmcbYkjXTRZATXxClnTprQ2uuYygYTpu1pqbBskpwMpj6jpT1djA==}
     peerDependencies:
-      react: '>=16.8'
+      react: '>=18'
 
   '@rollup/rollup-android-arm-eabi@4.19.0':
     resolution: {integrity: sha512-JlPfZ/C7yn5S5p0yKk7uhHTTnFlvTgLetl2VxqE518QgyM7C9bSfFTYvB/Q/ftkq0RIPY4ySxTz+/wKJ/dXC0w==}
@@ -6181,8 +6178,6 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@juggle/resize-observer@3.4.0': {}
-
   '@manypkg/find-root@1.1.0':
     dependencies:
       '@babel/runtime': 7.24.6
@@ -6304,9 +6299,8 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@react-hook/resize-observer@1.2.6(react@18.3.1)':
+  '@react-hook/resize-observer@2.0.2(react@18.3.1)':
     dependencies:
-      '@juggle/resize-observer': 3.4.0
       '@react-hook/latest': 1.0.3(react@18.3.1)
       '@react-hook/passive-layout-effect': 1.2.1(react@18.3.1)
       react: 18.3.1
