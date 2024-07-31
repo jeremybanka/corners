@@ -29,7 +29,7 @@
 		"eslint-plugin-import": "2.29.1",
 		"prettier": "3.3.3",
 		"@biomejs/biome": "1.8.3",
-		"tsx": "4.16.2",
+		"tsx": "4.16.3",
 		"turbo": "2.0.10",
 		"typescript": "5.5.4",
 		"vitest": "2.0.5"
