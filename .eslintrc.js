@@ -35,7 +35,6 @@ module.exports = {
     "@typescript-eslint/prefer-literal-enum-member": `error`,
     "@typescript-eslint/prefer-optional-chain": `error`,
     "@typescript-eslint/sort-type-constituents": `error`,
-    "@typescript-eslint/type-annotation-spacing": `error`,
     "@typescript-eslint/unified-signatures": `error`,
     "@typescript-eslint/no-unused-vars": `off`,
     "@typescript-eslint/no-explicit-any": `off`,
