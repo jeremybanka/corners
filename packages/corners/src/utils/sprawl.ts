@@ -20,8 +20,8 @@ export const sprawl = (
 	inspector: InspectNode,
 ): void => {
 	const walk = (path: string, node: unknown): InspectionResult | null => {
-		const inspect = (path: string, node: unknown): InspectionResult | null => {
-			const result = inspector(path, node)
+		const inspect = (p: string, n: unknown): InspectionResult | null => {
+			const result = inspector(p, n)
 			if (result) return result
 			return null
 		}

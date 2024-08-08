@@ -60,9 +60,10 @@ if (lastArgument === `watch`) {
 	})
 } else {
 	npmlog.info(`wrap-exhibits`, `Processing all files in ${inputDir}...`)
-	fs.readdir(inputDir, (err, files) => {
-		if (err) {
-			return console.log(`Unable to scan directory: ` + err)
+	fs.readdir(inputDir, (error, files) => {
+		if (error) {
+			console.log(`Unable to scan directory: `, error)
+			return
 		}
 
 		for (const file of files) {
@@ -71,7 +72,8 @@ if (lastArgument === `watch`) {
 			// Check if the path is a file
 			fs.stat(filePath, (err, stats) => {
 				if (err) {
-					return console.log(`Unable to retrieve file stats: ${err}`)
+					console.log(`Unable to retrieve file stats:`, err)
+					return
 				}
 
 				if (stats.isFile()) {
