@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"allowJs": true,
 		"lib": ["ES2022", "dom"],
 		"module": "Preserve",
 		"moduleResolution": "Bundler",
@@ -21,5 +22,5 @@
 			"~/*": ["./*"]
 		}
 	},
-	"exclude": ["**/*.node.ts", "./apps"]
+	"include": ["**/*.ts", "**/*.tsx", "**/*.config.ts"]
 }

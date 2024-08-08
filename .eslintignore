@@ -1,5 +1,0 @@
-*.js
-dist/
-node_modules/
-coverage/
-apps/cornersjs.org/exhibits-wrapped
