@@ -1,6 +1,7 @@
 {
 	"name": "@corners/monorepo",
 	"packageManager": "pnpm@9.7.0",
+	"type": "module",
 	"engines": {
 		"node": "20.16.0"
 	},
@@ -21,14 +22,16 @@
 		"notes": "changeset"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
 		"@changesets/cli": "2.27.7",
+		"@next/eslint-plugin-next": "14.2.5",
 		"@typescript-eslint/eslint-plugin": "8.0.1",
 		"@typescript-eslint/parser": "8.0.1",
 		"cross-env": "7.0.3",
-		"eslint": "8.57.0",
+		"eslint": "9.8.0",
 		"eslint-plugin-import": "2.29.1",
+		"eslint-plugin-simple-import-sort": "12.1.1",
 		"prettier": "3.3.3",
-		"@biomejs/biome": "1.8.3",
 		"tsx": "4.16.5",
 		"turbo": "2.0.12",
 		"typescript": "5.5.4",

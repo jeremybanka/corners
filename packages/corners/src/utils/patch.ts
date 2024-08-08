@@ -18,7 +18,7 @@ export const patch = <Base extends object>(
 		const childKey = pathParts.pop()
 		if (childKey === undefined) return
 		const targetParent = pathParts.reduce<Record<keyof any, any>>(
-			(acc, part) => (acc as Record<keyof any, any>)?.[part],
+			(acc, part) => acc?.[part],
 			result,
 		)
 		if (Array.isArray(targetParent[childKey]) && Array.isArray(node)) {

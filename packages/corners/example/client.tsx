@@ -1,8 +1,7 @@
-import type { CSSProperties, ReactNode } from "react"
-import { forwardRef, useEffect, useState } from "react"
-
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
+import type { CSSProperties, ReactNode } from "react"
+import { forwardRef, useEffect, useState } from "react"
 import { createRoot } from "react-dom/client"
 
 import type { Layer } from "~/packages/corners/src/index"
@@ -45,9 +44,11 @@ const MagicBox = forwardRef<
 	useEffect(() => {
 		setWidth(`50%`)
 		const interval = setInterval(() => {
-			setWidth((width) => (width === `100%` ? `50%` : `100%`))
+			setWidth((w) => (w === `100%` ? `50%` : `100%`))
 		}, 2000)
-		return () => clearInterval(interval)
+		return () => {
+			clearInterval(interval)
+		}
 	}, [])
 	return (
 		<StyledDiv

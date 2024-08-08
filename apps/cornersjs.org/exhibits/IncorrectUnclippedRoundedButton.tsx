@@ -21,7 +21,12 @@ export default function IncorrectUnclippedRoundedButton(): React.ReactNode {
 	})
 
 	return (
-		<RoundedButton onClick={() => setClicked(true)} css={ButtonStyles}>
+		<RoundedButton
+			onClick={() => {
+				setClicked(true)
+			}}
+			css={ButtonStyles}
+		>
 			{clicked ? `CLICKED` : `click me!`}
 		</RoundedButton>
 	)

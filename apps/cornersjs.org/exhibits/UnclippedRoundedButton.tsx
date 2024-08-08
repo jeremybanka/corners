@@ -22,7 +22,12 @@ export default function UnclippedRoundedButton(): React.ReactNode {
 	})
 
 	return (
-		<AdvancedButton onClick={() => setClicked(true)} css={ButtonStyles}>
+		<AdvancedButton
+			onClick={() => {
+				setClicked(true)
+			}}
+			css={ButtonStyles}
+		>
 			{clicked ? `CLICKED` : `Click me!`}
 		</AdvancedButton>
 	)

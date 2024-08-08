@@ -37,7 +37,7 @@ export const SvgLayers: FC<{
 							<svg
 								key={`${idx === 0 ? `below` : `above`}-${offset.x}-${
 									offset.y
-								}-${spread}-${color}-${blur}-${stroke}`}
+								}-${spread}-${color}-${blur}-${stroke?.width}`}
 								width={width + strokeWidth}
 								height={height + strokeWidth}
 								viewBox={viewBox.join(` `)}
