@@ -23,5 +23,6 @@
 		"**/*.tsx",
 		"./next.config.js",
 		"../../scripts/createCodeblocks.ts"
-	]
+	],
+	"exclude": ["node_modules"]
 }
