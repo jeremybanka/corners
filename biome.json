@@ -28,7 +28,7 @@
 		"indentStyle": "tab",
 		"indentWidth": 2,
 		"lineWidth": 81,
-		"ignore": []
+		"ignore": ["cornersjs.org/tsconfig.json"]
 	},
 	"linter": {
 		"enabled": true,
