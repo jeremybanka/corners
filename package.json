@@ -1,6 +1,6 @@
 {
 	"name": "@corners/monorepo",
-	"packageManager": "pnpm@9.7.0",
+	"packageManager": "pnpm@9.7.1",
 	"type": "module",
 	"engines": {
 		"node": "20.16.0"
