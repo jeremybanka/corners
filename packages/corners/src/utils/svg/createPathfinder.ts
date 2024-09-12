@@ -48,9 +48,9 @@ const expandCorners: ExpandCorners = (...corners) => {
 		throw new Error(`Expected 1, 2, or 4 corners, got ${corners.length}`)
 	}
 	const A = corners[0] ?? straight
-	const B = 1 in corners ? corners[1] ?? straight : A
-	const C = 2 in corners ? corners[2] ?? straight : A
-	const D = 3 in corners ? corners[3] ?? straight : 1 in corners ? B : A
+	const B = 1 in corners ? (corners[1] ?? straight) : A
+	const C = 2 in corners ? (corners[2] ?? straight) : A
+	const D = 3 in corners ? (corners[3] ?? straight) : 1 in corners ? B : A
 	return [A, B, C, D]
 }
 
