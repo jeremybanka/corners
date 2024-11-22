@@ -44,6 +44,6 @@
 		"eslint": "9.15.0",
 		"eslint-config-next": "15.0.3",
 		"npmlog": "7.0.1",
-		"typescript": "5.6.3"
+		"typescript": "5.7.2"
 	}
 }
