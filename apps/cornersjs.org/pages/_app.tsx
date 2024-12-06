@@ -1,7 +1,6 @@
 import createCache from "@emotion/cache"
 import { CacheProvider, css } from "@emotion/react"
 import Head from "next/head"
-import type { JSX } from "react/jsx-runtime"
 
 import { logo } from "../shared/containers"
 import { anchor } from "../shared/link"
@@ -9,12 +8,12 @@ import { globalStyles } from "../shared/styles"
 import Kitty from "../svg/kitty.svg"
 const cache = createCache({ key: `next` })
 
-const App = <P extends JSX.IntrinsicAttributes>({
+const App = ({
 	Component,
 	pageProps,
 }: {
-	Component: React.ComponentType<P>
-	pageProps: P
+	Component: React.ComponentType<any>
+	pageProps: any
 }): React.ReactNode => (
 	<CacheProvider value={cache}>
 		<Head>
