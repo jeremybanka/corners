@@ -1,6 +1,6 @@
 import { chamfered } from "corners"
 
-export default function NowIsAlmostTheTime(): JSX.Element {
+export default function NowIsAlmostTheTime(): React.ReactNode {
 	return (
 		<chamfered.div
 			style={{

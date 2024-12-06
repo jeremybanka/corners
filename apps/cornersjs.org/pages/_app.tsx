@@ -1,6 +1,7 @@
 import createCache from "@emotion/cache"
 import { CacheProvider, css } from "@emotion/react"
 import Head from "next/head"
+import type { JSX } from "react/jsx-runtime"
 
 import { logo } from "../shared/containers"
 import { anchor } from "../shared/link"

@@ -2,7 +2,7 @@ import { rounded } from "corners"
 
 const RoundedDiv60 = rounded.div.with({ cornerSize: 77 })
 
-export default function RoundedDiv(): JSX.Element {
+export default function RoundedDiv(): React.ReactNode {
 	return (
 		<RoundedDiv60
 			style={{
