@@ -1,6 +1,6 @@
 import { semiChamfered } from "corners"
 
-export default function NowIsTheTime(): JSX.Element {
+export default function NowIsTheTime(): React.ReactNode {
 	return (
 		<semiChamfered.div
 			style={{

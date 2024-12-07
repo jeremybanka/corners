@@ -7,7 +7,7 @@ const RoundedDiv30 = rounded.div.with({
 	},
 })
 
-export function SuccessfulUseOfLayerStroke(): JSX.Element {
+export function SuccessfulUseOfLayerStroke(): React.ReactNode {
 	return (
 		<RoundedDiv30
 			style={{

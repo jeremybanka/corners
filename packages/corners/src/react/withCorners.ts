@@ -32,7 +32,7 @@ export function withCorners<
 
 	const WithCorners: FC<P> = (props) => {
 		const pathId = useId ? useId() : Math.random().toString()
-		const nodeRef = useRef<HTMLElement>(null)
+		const nodeRef = useRef<HTMLElement>(null as any)
 		const { height, width } = useSize(nodeRef)
 
 		return createElement(

@@ -8,12 +8,12 @@ import { globalStyles } from "../shared/styles"
 import Kitty from "../svg/kitty.svg"
 const cache = createCache({ key: `next` })
 
-const App = <P extends JSX.IntrinsicAttributes>({
+const App = ({
 	Component,
 	pageProps,
 }: {
-	Component: React.ComponentType<P>
-	pageProps: P
+	Component: React.ComponentType<any>
+	pageProps: any
 }): React.ReactNode => (
 	<CacheProvider value={cache}>
 		<Head>
