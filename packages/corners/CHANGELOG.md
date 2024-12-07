@@ -1,5 +1,11 @@
 # corners
 
+## 0.1.1
+
+### Patch Changes
+
+- b34d125: ✨ Compatibility with React 19.
+
 ## 0.1.0
 
 ### Minor Changes
