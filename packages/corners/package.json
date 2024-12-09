@@ -25,8 +25,8 @@
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
-		"@emotion/react": "11.13.5",
-		"@emotion/styled": "11.13.5",
+		"@emotion/react": "11.14.0",
+		"@emotion/styled": "11.14.0",
 		"@types/react": "19.0.1",
 		"@types/react-dom": "19.0.1",
 		"c8": "10.1.2",
