@@ -1,6 +1,6 @@
 {
 	"name": "@corners/monorepo",
-	"packageManager": "pnpm@9.15.2",
+	"packageManager": "pnpm@9.15.3",
 	"type": "module",
 	"engines": {
 		"node": "22.12.0"
