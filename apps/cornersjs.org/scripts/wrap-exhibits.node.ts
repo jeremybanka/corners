@@ -51,20 +51,12 @@ if (lastArgument === `watch`) {
 	const watcher = chokidar.watch(inputDir, { persistent: true })
 
 	watcher.on(`add`, (filePath) => {
-		if (filePath instanceof Error) {
-			npmlog.error(`ADD`, filePath)
-		} else {
-			npmlog.info(`ADD`, `Handling add event for ${filePath}`)
-			handleFile(filePath)
-		}
+		npmlog.info(`ADD`, `Handling add event for ${filePath}`)
+		handleFile(filePath)
 	})
 	watcher.on(`change`, (filePath) => {
-		if (filePath instanceof Error) {
-			npmlog.error(`CHANGE`, filePath)
-		} else {
-			npmlog.info(`CHANGE`, `Handling add event for ${filePath}`)
-			handleFile(filePath)
-		}
+		npmlog.info(`CHANGE`, `Handling add event for ${filePath}`)
+		handleFile(filePath)
 	})
 } else {
 	npmlog.info(`wrap-exhibits`, `Processing all files in ${inputDir}...`)
