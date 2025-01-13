@@ -1,11 +1,11 @@
-import type { FC } from "react"
+import type { ReactNode } from "react"
 
 import { DEFAULT_LAYER } from "~/packages/corners/src/constants/empties"
 
 import type { Layer, Pathfinder, Scraps } from ".."
 import { harvest } from ".."
 
-export const SvgLayers: FC<{
+export type SvgLayersProps = {
 	pathfinder: Pathfinder
 	above: Scraps<Layer>
 	below: Scraps<Layer>
@@ -14,7 +14,14 @@ export const SvgLayers: FC<{
 		width: number
 		cornerSize: number
 	}
-}> = ({ pathfinder, above, below, base }) => {
+}
+
+export const SvgLayers = ({
+	pathfinder,
+	above,
+	below,
+	base,
+}: SvgLayersProps): ReactNode => {
 	return (
 		<>
 			{[below, above].map((layerScraps, idx) => {
