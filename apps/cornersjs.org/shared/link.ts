@@ -1,7 +1,7 @@
 import { css } from "@emotion/react"
 import Emotion from "@emotion/styled"
 import corners, { chamfer } from "corners"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import Link from "next/link"
 
 const shape = (...params: Parameters<typeof corners>) =>
