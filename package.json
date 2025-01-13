@@ -13,6 +13,7 @@
 		"lint": "turbo run lint",
 		"lint:biome": "turbo run lint:biome",
 		"lint:eslint": "turbo run lint:eslint",
+		"lint:types": "turbo run lint:types",
 		"lint:fix:biome": "biome check --apply-unsafe *",
 		"lint:fix:eslint": "eslint --fix .",
 		"fmt": "biome format .",

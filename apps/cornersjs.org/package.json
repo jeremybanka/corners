@@ -10,7 +10,8 @@
 		"start": "next start",
 		"lint:biome": "biome check --diagnostic-level=warn -- .",
 		"lint:eslint": "eslint .",
-		"lint": "npm run lint:biome && npm run lint:eslint",
+		"lint:types": "tsc --noEmit",
+		"lint": "npm run lint:biome && npm run lint:eslint && npm run lint:types",
 		"test:once": "echo NOT YET IMPLEMENTED",
 		"test": "echo NOT YET IMPLEMENTED",
 		"release": "echo NOT YET IMPLEMENTED"
@@ -39,7 +40,7 @@
 		"@types/react": "19.0.1",
 		"@types/react-dom": "19.0.2",
 		"@types/react-syntax-highlighter": "15.5.13",
-		"chokidar": "4.0.2",
+		"chokidar": "4.0.3",
 		"concurrently": "9.1.2",
 		"eslint": "9.18.0",
 		"eslint-config-next": "15.1.4",

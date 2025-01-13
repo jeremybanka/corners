@@ -52,7 +52,7 @@ jobs:
         run: pnpm lint:eslint
 
       - name: Type Check
-        run: pnpm tsc
+        run: pnpm lint:types
 
   Test:
     name: Build & Test

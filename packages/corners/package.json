@@ -14,7 +14,8 @@
 		"test:once": "vitest run",
 		"lint:biome": "biome check --diagnostic-level=warn -- .",
 		"lint:eslint": "eslint .",
-		"lint": "pnpm run lint:biome && pnpm run lint:eslint",
+		"lint:types": "tsc --noEmit",
+		"lint": "pnpm run lint:biome && pnpm run lint:eslint && pnpm run lint:types",
 		"lint:fix": "pnpm run lint -- --fix"
 	},
 	"dependencies": {
@@ -37,6 +38,7 @@
 		"react-dom": "19.0.0",
 		"tsconfig-paths": "4.2.0",
 		"tsup": "8.3.5",
+		"typescript": "5.7.3",
 		"vite-tsconfig-paths": "5.1.4",
 		"vitest": "2.1.8"
 	}
