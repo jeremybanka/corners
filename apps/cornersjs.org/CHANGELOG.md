@@ -1,5 +1,13 @@
 # cornersjs.org
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [a7c0e02]
+- Updated dependencies [a7c0e02]
+  - corners@0.2.0
+
 ## 0.1.3
 
 ### Patch Changes

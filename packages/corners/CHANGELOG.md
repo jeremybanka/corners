@@ -1,5 +1,12 @@
 # corners
 
+## 0.2.0
+
+### Minor Changes
+
+- a7c0e02: 🏷️ Require `ComponentType` instead of `ForwardRefExoticComponent`
+- a7c0e02: 💥 BREAKING CHANGE: Require react@^19.0.0
+
 ## 0.1.1
 
 ### Patch Changes
