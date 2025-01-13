@@ -1,4 +1,4 @@
-import type { AllHTMLAttributes, FC, ForwardRefExoticComponent } from "react"
+import type { AllHTMLAttributes, ComponentType } from "react"
 
 import { DEFAULT_OPTIONS } from "~/packages/corners/src/constants/empties"
 import type { HTMLTagName } from "~/packages/corners/src/constants/html"
@@ -19,9 +19,9 @@ export const createComponentFactory = (
 } => {
 	// rounded("div") or rounded(myForwardRefExoticComponent)
 	const componentFactory = <P>(
-		WrappedComponent: ForwardRefExoticComponent<P> | string,
+		WrappedComponent: ComponentType<P> | string,
 		additionalOptions?: Partial<CornerOptions>,
-	): FC<AllHTMLAttributes<any> & P> => {
+	): ComponentType<AllHTMLAttributes<any> & P> => {
 		const options = { ...DEFAULT_OPTIONS, ...baseOptions, ...additionalOptions }
 		// @ts-expect-error union type too complex. it's okay; this is internal
 		return withCorners(WrappedComponent, options, ...corners)

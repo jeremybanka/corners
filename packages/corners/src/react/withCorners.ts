@@ -1,8 +1,8 @@
 import type {
 	AllHTMLAttributes,
+	ComponentType,
 	CSSProperties,
 	FC,
-	ForwardRefExoticComponent,
 	ReactNode,
 } from "react"
 import { createElement, useId, useRef } from "react"
@@ -19,7 +19,7 @@ import { useSize } from "./useSize"
 export function withCorners<
 	P extends { style?: CSSProperties; children?: ReactNode },
 >(
-	WrappedComponent: ForwardRefExoticComponent<P> | string,
+	WrappedComponent: ComponentType<P> | string,
 	options: CornerOptions,
 	...corners: (DrawCorner | null)[]
 ): FC<AllHTMLAttributes<any> & P> {
