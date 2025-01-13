@@ -1,9 +1,11 @@
-import type { FC } from "react"
+import type { ReactNode } from "react"
 
-export const SvgClippingPath: FC<{
+export type SvgClippingPathProps = {
 	id: string
 	d: string
-}> = ({ id, d }) => (
+}
+
+export const SvgClippingPath = ({ id, d }: SvgClippingPathProps): ReactNode => (
 	// biome-ignore lint/a11y/noSvgWithoutTitle: this is a decorative element
 	<svg
 		width="10"
