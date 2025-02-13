@@ -36,8 +36,8 @@ importers:
         specifier: 12.1.1
         version: 12.1.1(eslint@9.20.1)
       prettier:
-        specifier: 3.5.0
-        version: 3.5.0
+        specifier: 3.5.1
+        version: 3.5.1
       tsx:
         specifier: 4.19.2
         version: 4.19.2
@@ -4150,8 +4150,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.5.0:
-    resolution: {integrity: sha512-quyMrVt6svPS7CjQ9gKb3GLEX/rl3BCL2oa/QkNcXv4YNVBC9olt3s+H7ukto06q7B1Qz46PbrKLO34PR6vXcA==}
+  prettier@3.5.1:
+    resolution: {integrity: sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -9522,7 +9522,7 @@ snapshots:
 
   prettier@2.8.8: {}
 
-  prettier@3.5.0: {}
+  prettier@3.5.1: {}
 
   prismjs@1.27.0: {}
 
