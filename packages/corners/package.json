@@ -40,6 +40,6 @@
 		"tsup": "8.4.0",
 		"typescript": "5.8.2",
 		"vite-tsconfig-paths": "5.1.4",
-		"vitest": "3.0.7"
+		"vitest": "3.0.8"
 	}
 }
