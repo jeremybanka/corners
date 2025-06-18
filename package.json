@@ -36,7 +36,7 @@
 		"tsx": "4.20.3",
 		"turbo": "2.5.4",
 		"typescript": "5.8.3",
-		"vitest": "3.2.3"
+		"vitest": "3.2.4"
 	},
 	"homepage": "https://github.com/jeremybanka/corners#readme",
 	"bugs": {
