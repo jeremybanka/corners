@@ -93,8 +93,8 @@ importers:
         specifier: 10.1.0
         version: 10.1.0(@types/react@19.1.11)(react@19.1.1)
       react-syntax-highlighter:
-        specifier: 15.6.5
-        version: 15.6.5(react@19.1.1)
+        specifier: 15.6.6
+        version: 15.6.6(react@19.1.1)
     devDependencies:
       '@emotion/babel-plugin':
         specifier: 11.13.5
@@ -4091,8 +4091,8 @@ packages:
       '@types/react': '>=18'
       react: '>=18'
 
-  react-syntax-highlighter@15.6.5:
-    resolution: {integrity: sha512-Sscw/qACcdp3UIuDVN+PhdKkQZTmAv55+RTzwTJZS+UFFpLilogVnKelDqHuc4E//d7lgEAo2dcDY9h4xhEtJw==}
+  react-syntax-highlighter@15.6.6:
+    resolution: {integrity: sha512-DgXrc+AZF47+HvAPEmn7Ua/1p10jNoVZVI/LoPiYdtY+OM+/nG5yefLHKJwdKqY1adMuHFbeyBaG9j64ML7vTw==}
     peerDependencies:
       react: '>= 0.14.0'
 
@@ -9643,7 +9643,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  react-syntax-highlighter@15.6.5(react@19.1.1):
+  react-syntax-highlighter@15.6.6(react@19.1.1):
     dependencies:
       '@babel/runtime': 7.25.0
       highlight.js: 10.7.3
