@@ -30,7 +30,7 @@
 		"react": "19.1.1",
 		"react-dom": "19.1.1",
 		"react-markdown": "10.1.0",
-		"react-syntax-highlighter": "15.6.3"
+		"react-syntax-highlighter": "15.6.5"
 	},
 	"devDependencies": {
 		"@emotion/babel-plugin": "11.13.5",
