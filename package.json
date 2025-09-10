@@ -24,7 +24,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@changesets/cli": "2.29.6",
+		"@changesets/cli": "2.29.7",
 		"@next/eslint-plugin-next": "15.4.7",
 		"@typescript-eslint/eslint-plugin": "8.43.0",
 		"@typescript-eslint/parser": "8.43.0",
