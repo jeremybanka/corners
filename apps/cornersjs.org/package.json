@@ -25,7 +25,7 @@
 		"@next/mdx": "15.4.7",
 		"corners": "workspace:^",
 		"fp-ts": "2.16.11",
-		"motion": "12.23.18",
+		"motion": "12.23.19",
 		"next": "15.4.7",
 		"react": "19.1.1",
 		"react-dom": "19.1.1",
