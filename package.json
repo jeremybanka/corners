@@ -3,7 +3,7 @@
 	"packageManager": "pnpm@10.17.1",
 	"type": "module",
 	"engines": {
-		"node": "22.19.0"
+		"node": "22.20.0"
 	},
 	"scripts": {
 		"dev": "echo todo",
