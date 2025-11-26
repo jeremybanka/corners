@@ -163,6 +163,7 @@ const configs = [
 			`**/gen/**`,
 			`**/exhibits-wrapped/**`,
 			`**/node_modules/**`,
+			`**/next-env.d.ts`,
 		],
 	},
 {
