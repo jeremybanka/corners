@@ -1,57 +1,57 @@
 const withMDX = require(`@next/mdx`)({
-  extension: /\.mdx?$/,
-  options: {
-    // If you use remark-gfm, you'll need to use next.config.mjs
-    // as the package is ESM only
-    // https://github.com/remarkjs/remark-gfm#install
-    remarkPlugins: [],
-    rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
-  },
+	extension: /\.mdx?$/,
+	options: {
+		// If you use remark-gfm, you'll need to use next.config.mjs
+		// as the package is ESM only
+		// https://github.com/remarkjs/remark-gfm#install
+		remarkPlugins: [],
+		rehypePlugins: [],
+		// If you use `MDXProvider`, uncomment the following line.
+		// providerImportSource: "@mdx-js/react",
+	},
 })
 
 /** @type {import(`next`).NextConfig} */
 const nextConfig = {
-  distDir: `dist`,
-  pageExtensions: [`ts`, `tsx`, `js`, `jsx`, `md`, `mdx`],
-  reactStrictMode: true,
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  compiler: {
-    emotion: true,
-  },
-  webpack(config) {
-    // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(`.svg`),
-    )
+	distDir: `dist`,
+	pageExtensions: [`ts`, `tsx`, `js`, `jsx`, `md`, `mdx`],
+	reactStrictMode: true,
+	typescript: {
+		ignoreBuildErrors: true,
+	},
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	compiler: {
+		emotion: true,
+	},
+	webpack(config) {
+		// Grab the existing rule that handles SVG imports
+		const fileLoaderRule = config.module.rules.find((rule) =>
+			rule.test?.test?.(`.svg`),
+		)
 
-    config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
-      {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/, // *.svg?url
-      },
-      // Convert all other *.svg imports to React components
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: /url/ }, // exclude if *.svg?url
-        use: [`@svgr/webpack`],
-      },
-    )
+		config.module.rules.push(
+			// Reapply the existing rule, but only for svg imports ending in ?url
+			{
+				...fileLoaderRule,
+				test: /\.svg$/i,
+				resourceQuery: /url/, // *.svg?url
+			},
+			// Convert all other *.svg imports to React components
+			{
+				test: /\.svg$/i,
+				issuer: /\.[jt]sx?$/,
+				resourceQuery: { not: /url/ }, // exclude if *.svg?url
+				use: [`@svgr/webpack`],
+			},
+		)
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
-    fileLoaderRule.exclude = /\.svg$/i
+		// Modify the file loader rule to ignore *.svg, since we have it handled now.
+		fileLoaderRule.exclude = /\.svg$/i
 
-    return config
-  }
+		return config
+	},
 }
 
 // Merge MDX config with Next.js config
