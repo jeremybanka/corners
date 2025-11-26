@@ -5,14 +5,14 @@
 		"ignoreUnknown": true,
 		"includes": [
 			"**",
-			"!*.js",
-			"!*.mjs",
-			"!*.gen.tsx",
-			"!*.gen.ts",
-			"!dist",
-			"!node_modules",
-			"!coverage",
-			"!exhibits-wrapped"
+			"!**/*.js",
+			"!**/*.mjs",
+			"!**/*.gen.tsx",
+			"!**/*.gen.ts",
+			"!**/dist",
+			"!**/node_modules",
+			"!**/coverage",
+			"!**/exhibits-wrapped"
 		]
 	},
 	"javascript": {
@@ -26,8 +26,7 @@
 		"formatWithErrors": false,
 		"indentStyle": "tab",
 		"indentWidth": 2,
-		"lineWidth": 81,
-		"includes": ["**", "!cornersjs.org/tsconfig.json"]
+		"lineWidth": 81
 	},
 	"linter": {
 		"enabled": true,
