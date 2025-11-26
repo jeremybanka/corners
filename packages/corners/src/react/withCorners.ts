@@ -31,6 +31,7 @@ export function withCorners<
 		above || below ? createPathfinder(cornerSize, ...corners) : null
 
 	const WithCorners: FC<P> = (props) => {
+		// biome-ignore lint/correctness/useHookAtTopLevel: safe, as this condition will not change between renders
 		const pathId = useId ? useId() : Math.random().toString()
 		const nodeRef = useRef<HTMLElement>(null as any)
 		const { height, width } = useSize(nodeRef)
