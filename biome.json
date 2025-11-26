@@ -1,19 +1,18 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-	"organizeImports": {
-		"enabled": false
-	},
+	"$schema": "https://biomejs.dev/schemas/2.3.7/schema.json",
+	"assist": { "actions": { "source": { "organizeImports": "off" } } },
 	"files": {
 		"ignoreUnknown": true,
-		"ignore": [
-			"*.js",
-			"*.mjs",
-			"*.gen.tsx",
-			"*.gen.ts",
-			"dist",
-			"node_modules",
-			"coverage",
-			"exhibits-wrapped"
+		"includes": [
+			"**",
+			"!**/*.js",
+			"!**/*.mjs",
+			"!**/*.gen.tsx",
+			"!**/*.gen.ts",
+			"!**/dist",
+			"!**/node_modules",
+			"!**/coverage",
+			"!**/exhibits-wrapped"
 		]
 	},
 	"javascript": {
@@ -27,27 +26,26 @@
 		"formatWithErrors": false,
 		"indentStyle": "tab",
 		"indentWidth": 2,
-		"lineWidth": 81,
-		"ignore": ["cornersjs.org/tsconfig.json"]
+		"lineWidth": 81
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true,
 			"correctness": {
-				"useExhaustiveDependencies": "off"
+				"useExhaustiveDependencies": "off",
+				"useValidTypeof": "off"
 			},
 			"complexity": {
-				"noBannedTypes": "off"
+				"noBannedTypes": "off",
+				"noCommaOperator": "off"
 			},
 			"suspicious": {
 				"noAssignInExpressions": "off",
 				"noConfusingVoidType": "off",
-				"noExplicitAny": "off",
-				"useValidTypeof": "off"
+				"noExplicitAny": "off"
 			},
 			"style": {
-				"noCommaOperator": "off",
 				"noParameterAssign": "off",
 				"noUnusedTemplateLiteral": "off",
 				"useTemplate": "off"
