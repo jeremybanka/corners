@@ -33,7 +33,7 @@
 		"eslint-plugin-import": "2.32.0",
 		"eslint-plugin-simple-import-sort": "12.1.1",
 		"prettier": "3.7.3",
-		"tsx": "4.20.6",
+		"tsx": "4.21.0",
 		"turbo": "2.6.1",
 		"typescript": "5.9.3",
 		"vitest": "4.0.15"
