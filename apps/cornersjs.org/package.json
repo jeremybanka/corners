@@ -37,7 +37,7 @@
 		"@svgr/webpack": "8.1.0",
 		"@types/node": "24.10.12",
 		"@types/npmlog": "7.0.0",
-		"@types/react": "19.2.13",
+		"@types/react": "19.2.14",
 		"@types/react-dom": "19.2.3",
 		"@types/react-syntax-highlighter": "15.5.13",
 		"chokidar": "5.0.0",
