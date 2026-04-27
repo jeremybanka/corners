@@ -35,7 +35,7 @@
 		"c8": "11.0.0",
 		"esbuild": "0.28.0",
 		"gh-pages": "6.3.0",
-		"jsdom": "29.0.2",
+		"jsdom": "29.1.0",
 		"react": "19.2.5",
 		"react-dom": "19.2.5",
 		"tsconfig-paths": "4.2.0",
